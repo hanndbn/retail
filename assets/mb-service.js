@@ -373,6 +373,10 @@ function UserInfoObj() {
 	this.paymentRequestFieldList = new Array();
 	this.paymentRequestFieldCboList = new Array();
 	this.paymentFieldHistoryList = new Array();
+
+	// Bhip data
+	this.accountId = "";
+	this.accountDispName = "";
 	}
 	
 function AccountObj() {

@@ -372,7 +372,7 @@ var CONST_WEB_URL_LINK = "https://ebank.tpb.vn/retail/"; //using for mobile app
 //var CONST_WEB_URL_LINK = "https://pilot.tpb.vn/retail/"; //using for mobile app 
 var CONST_WEB_CORP_URL_LINK = "https://ebank.tpb.vn/ibank/entry"; //using for mobile app 
 //var CONST_WEB_CORP_URL_LINK = "http://pilot.tpb.vn:9080/ibank/entry"; //using for mobile app 
-var CONST_WEB_SERVICE_LINK = CONST_DEBUG_MODE? "https://ebank.tpb.vn/EBankGateway/ebservice" : "https://ebank.tpb.vn/EBankGateway/ebservice";
+var CONST_WEB_SERVICE_LINK = CONST_DEBUG_MODE? "http://localhost:63342/retail/data" : "http://localhost:63342/retail/data";
 //var CONST_WEB_URL_LINK = "http://10.1.12.150:9083/retail/"; //using for mobile app 
 //var CONST_WEB_SERVICE_LINK = CONST_DEBUG_MODE? "http://10.1.12.150:9083/EBankGateway/ebservice" : "http://10.1.12.150:9083/EBankGateway/ebservice";
 

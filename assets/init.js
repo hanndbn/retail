@@ -116,7 +116,6 @@
 	
 	content = new slideInMenu('mainview', false);
 	contentPromotion = new slideInMenu('mainview', false, true);
-	promotionSection = document.getElementById('promotion-section');
 	//promotionSection.style.display = 'block';
 	//updatePromotionView();
 	
@@ -155,9 +154,6 @@
 		})();
 	}*/
 	
-	// get news data
-	getNewsFromSV();
-	
 	//3D touch event
 	document.addEventListener("evtTouch3D", quickActionTouch3D, true);
 
@@ -173,8 +169,8 @@
 		//tmpMenuNode.innerHTML = oStr;
 		//store raw menu
 		gMenuRawData = document.getElementById('menu-section').innerHTML;
-		gJumboMenuElements = document.getElementById('wrapper_jumboAcc').innerHTML;
-		gAccInfoMenuElements = document.getElementById('wrapper_mAccInfo').innerHTML;
+		//gJumboMenuElements = document.getElementById('wrapper_jumboAcc').innerHTML;
+		//gAccInfoMenuElements = document.getElementById('wrapper_mAccInfo').innerHTML;
 		applyDynamicCommonStyleSheet();
 		changeLanguageInNodeWithClass('langNoStyle');
 	//});
@@ -299,24 +295,6 @@ function downloadAppSelectionCancel() {
 	document.removeEventListener('alertAppConfirmCancel', downloadAppSelectionCancel, false);
 }
 
-function reloadNews(){
-	getNewsFromSV();
-}
-
-function getNewsFromSV(){
-	try{
-		var arrayArgs = new Array();
-		arrayArgs.push("PROMOTION");
-		//arrayArgs.push("NEW#1#HN");
-		requestBacgroundMBService("CMD_TYPE_GET_PROMOTION", arrayArgs, requestQuickPromotionSuccess, requestQuickPromotionFail);
-		//var docXsl = getCachePageXsl("newsxsl/list_news_cat_menu_scr");		
-		//genHTMLStringWithXML(docXml, docXsl, successMenuNewsCallback, failMenuNewsCallback);
-	} 
-	catch (err){
-		logInfo(err.message);
-	}
-}
-
 function successMenuNewsCallback(oStr){
 	var tabh = document.getElementById("promotion.slideview");
 	tabh.innerHTML = oStr;
@@ -328,7 +306,7 @@ function successMenuNewsCallback(oStr){
 		}
 	}
 	//applyDynamicPromotionWithNumOfItems(gPromotionContentArray.length);
-	applyDynamicPromotionWithNumOfItems(10);
+	//applyDynamicPromotionWithNumOfItems(10);
 }
 
 function failMenuNewsCallback(){
@@ -407,7 +385,7 @@ window.onresize = function (e) {
 			applyDynamicPageStyleSheet(true);
 			applyVerticalScrollPage(true, -80);
 			//applyDynamicPromotionWithNumOfItems(gPromotionContentArray.length);
-			applyDynamicPromotionWithNumOfItems(10);
+			//applyDynamicPromotionWithNumOfItems(10);
 			setTimeout(function(){
 				if(typeof(window['viewChangedSize']) == 'function') {
 					window['viewChangedSize']();
@@ -427,7 +405,7 @@ window.onresize = function (e) {
 			applyDynamicPageStyleSheet(true);
 			applyVerticalScrollPage(true, -80);
 			//applyDynamicPromotionWithNumOfItems(gPromotionContentArray.length);
-			applyDynamicPromotionWithNumOfItems(10);
+			//applyDynamicPromotionWithNumOfItems(10);
 			setTimeout(function(){
 				if(typeof(window['viewChangedSize']) == 'function') {
 					window['viewChangedSize']();
@@ -477,7 +455,7 @@ if('onorientationchange' in window) {
 					applyDynamicPageStyleSheet(true);
 					applyVerticalScrollPage(true, -80);
 					//applyDynamicPromotionWithNumOfItems(gPromotionContentArray.length);
-					applyDynamicPromotionWithNumOfItems(10);
+					//applyDynamicPromotionWithNumOfItems(10);
 					setTimeout(function(){
 						if(typeof(window['viewChangedSize']) == 'function') {
 							window['viewChangedSize']();
@@ -505,7 +483,7 @@ if('onorientationchange' in window) {
 					applyDynamicPageStyleSheet(true);
 					applyVerticalScrollPage(true, -80);
 					//applyDynamicPromotionWithNumOfItems(gPromotionContentArray.length);
-					applyDynamicPromotionWithNumOfItems(10);
+					//applyDynamicPromotionWithNumOfItems(10);
 					setTimeout(function(){
 						if(typeof(window['viewChangedSize']) == 'function') {
 							window['viewChangedSize']();

@@ -9,7 +9,7 @@ var statusAccMode = false;
 initLoginScr();
 function initLoginScr() {
     statusAccMode = getUserInfoToLocal(); //get local data
-    if (getURLParam('cif') && getURLParam('cif').length == 10) {
+    if (getURLParam('cif')) {
         statusAccMode = false;
         document.getElementById('login.txt.username').value = getURLParam('cif');
     }
@@ -26,28 +26,6 @@ function viewWillUnload() {
     logInfo('view login will unload');
 
 }
-
-function openEBankSiteOK() {
-    openEBankSiteCancel();
-    window.open(encodeURI(CONST_WEB_URL_LINK + '?cif=' + tmpStr), '_system');
-}
-
-function openEBankSiteCancel() {
-    document.removeEventListener('alertAppConfirmOK', openEBankSiteOK, false);
-    document.removeEventListener('alertAppConfirmCancel', openEBankSiteCancel, false);
-}
-
-
-function openEBankSiteOK() {
-    openEBankSiteCancel();
-    window.open(encodeURI(CONST_WEB_URL_LINK + '?cif=' + tmpStr), '_system');
-}
-
-function openEBankSiteCancel() {
-    document.removeEventListener('alertAppConfirmOK', openEBankSiteOK, false);
-    document.removeEventListener('alertAppConfirmCancel', openEBankSiteCancel, false);
-}
-
 
 function updateViewWithUserInfo(inStatus) {
 
@@ -133,16 +111,16 @@ function goToBankInfoMainScr() {
 function sendJSONRequest() {
 
     // collect the form data while iterating over the inputs
-    var loginUser = document.getElementById("login.txt.username");
-    var loginPass = document.getElementById("login.txt.password");
+    var loginUser = document.getElementById("login.txt.username").value;
+    var loginPass = document.getElementById("login.txt.password").value;
 
-    var tmpStr = loginUser.value;
+    var tmpStr = loginUser;
     if (tmpStr.length < 1) {
         showAlertText(CONST_STR.get('ERR_INPUT_FORMAT_ACC'));
         return;
     }
 
-    tmpStr = loginPass.value;
+    tmpStr = loginPass;
     if (tmpStr.length < 1) {
         showAlertText(CONST_STR.get('ERR_EMPTY_PASSWORD'));
         return;
@@ -152,24 +130,49 @@ function sendJSONRequest() {
         showAlertText(CONST_STR.get('ERR_MSG_WRONG_PASSWORD_FORMAT'));
         return;
     }
-    requestMBServiceSuccess();
 
+    if(statusAccMode){
+        loginUser = localStorage.getItem('BhipUserNumber');
+    }
+    loadData('./data/login.json', function (jsondata) {
+        var loginInfo = JSON.parse(jsondata);
+        for(var i = 0; i < loginInfo.account.length; i++){
+            if(loginUser === loginInfo.account[i].accountName && loginPass === loginInfo.account[i].accountPassword){
+                requestMBServiceSuccess(loginInfo.account[i]);
+                return;
+            }
+        }
+        requestMBServiceFail();
+    });
 }
 
-function requestMBServiceSuccess(e) {
-
+function requestMBServiceSuccess(loginInfo) {
     hideLoadingMask();
     gIsLogin = true;
-
+    // set info data
+    gUserInfo.accountId = loginInfo.accountId;
+    gUserInfo.accountName = loginInfo.accountName;
+    gUserInfo.accountDispName = loginInfo.accountDispName;
     gUserInfo.flag_check = 1;
     gUserInfo.lang = getLanguageConfig();
+
+    // set to local storage
+    setUserInfoToLocal(gUserInfo.accountName, loginInfo.accountDispName);
 
     //config view
     setViewOnDesktopWhenLogin();
     //navController.pushToView('accountxsl/account-change-password-scr', true, 'xsl');
-    navController.initWithRootView('accountxsl/account-change-password-scr', true, 'xsl');
-    navController.setDefaultPage('accountxsl/account-scr', 'html');
+    //navController.initWithRootView('utilitiesxsl/change-personal-info-scr', true, 'xsl');
+    //navController.setDefaultPage('utilitiesxsl/change-personal-info-scr', 'xsl');
+    navController.initWithRootView('utilitiesxsl/request-support-scr', true, 'xsl');
+    navController.setDefaultPage('utilitiesxsl/request-support-scr', 'xsl');
 };
+
+//event listener: http request success
+function requestMBServiceFail() {
+    animationError();
+};
+
 //ngocdt3 bo sung
 function showChoiceConfirmPre(e) {
     if (currentPage == "login-scr") {
@@ -184,13 +187,6 @@ function showChoiceConfirmPreClose() {
         document.removeEventListener("alertAppConfirmOK", showChoiceConfirmPre, false);
     }
 }
-//ngocdt3 end
-
-//event listener: http request success
-function requestMBServiceFail() {
-
-
-};
 
 function parserLoginInfo() {
 
@@ -948,34 +944,10 @@ function actionClearStepbyStep() {
 
 }
 
-function animationError(type_error) {
-    localStorage.inputpassnumber = Number(localStorage.inputpassnumber) + 1;
-    if (localStorage.inputpassnumber >= MAX_NUMBER_INPUT_PASS) {
-        //showAlertText(CONST_STR.get('PIN_3_TIMES_FAIL_ALERT'));
-        document.getElementById('div-pinpad').style.display = 'none';
-        document.getElementById('pageFooter').style.zIndex = 102;
-        try {
-            document.getElementById('div-login-normal').style.display = '';
-        }
-        catch (err) {
-        }
-    }
+function animationError() {
     $("#enter_code").effect("shake", {times: 2, distance: '10', direction: 'top'}, 500);
-    switch (type_error) {
-        case 1:
-            document.getElementById("error_message").innerHTML = CONST_STR.get("PINPAD_INPUT_PIN_ERROR");
-            break;
-        case 2:
-            document.getElementById("error_message").innerHTML = CONST_STR.get("PINPAD_INPUT_PIN_NEW_ERROR");
-            break;
-        case 3:
-            document.getElementById("error_message").innerHTML = CONST_STR.get("PINPAD_INPUT_PIN_ERROR");
-            break;
-        case 4:
-            document.getElementById("error_message").innerHTML = CONST_STR.get("PINPAD_INPUT_PIN_CHECK_ERROR");
-            break;
-    }
-    document.getElementById("error_message").style.visibility = "visible";
+    showAlertText(CONST_STR.get("WRONG_PASSWORD"));
+    actionClear();
 }
 
 
@@ -989,7 +961,6 @@ function RGBA(red, green, blue, alpha) {
     }
 }
 
-var bgColor = new RGBA(255, 255, 255, 0.3);
 var bgCircle = new RGBA(255, 255, 255, 0.1);
 
 function setBgOpacityFadeInCircle(elem) {

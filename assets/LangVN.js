@@ -1564,7 +1564,7 @@ var pConstants_VN = {
 	 'INCOME_BGN_CHOICE'						    : 'Vui lòng chọn',
 	 'Lịch sử đổi quà'						    : 'Sản phẩm/Dịch vụ muốn giới thiệu',
 	 'ACCOUNT_TITLE_BGN'						    : 'Mở tài khoản thanh toán',
-	 'ATTACK_TITLE_BGN'						        : 'Hồ sơ/Giấy tờ đính kèm',
+	 'ATTACK_TITLE_BGN'						        : 'Ảnh đại diện',
 	 'CUSTOMER_CREATE_BTN_SENDLIST'    				: 'Tải file danh sách',
 	 'CUSTOMER_CREATE_BTN_SENDREQUEST'				: 'Gửi thông tin',
 	 'NATIONALITY_BGN_CHOICE'				        : 'Vui lòng chọn',
@@ -3178,4 +3178,36 @@ var pConstants_VN = {
     //Ducnt Bo xung
     'UNITS_VND'                                 : 'Đơn vị: Triệu Đồng',
 	'TRANS_INTER_COMBO_NOTE'     : 'Tiền chuyển sẽ tới Người nhận <b>chỉ trong 8s</b> với các ngân hàng <a><u>danh sách</u></a> <b>nếu</b> Số tiền nhỏ hơn hoặc bằng <b>300 triệu</b>, và Nội dung không quá <b>100 ký tự</b>',
+	//------------------------------------------------------------------------------------------------------------------------------------------------------
+	//BHIP CONSTANT
+	//MENU
+    'MENU_PERSONAL_INFO_TITLE'                 : 'Quản trị cá nhân',
+    'MENU_PERSONAL_INFO_DETAIL'                : 'Quản lý thông tin',
+    'MENU_PERSONAL_INFO_PASSWORD'              : 'Thay đổi mật khẩu',
+    'MENU_PERSONAL_INFO_SUPPORT'               : 'Liên hệ hỗ trợ từ công ty',
+
+	//MENU CHANGE INFO
+	'MENU_CHANGE_INFO_BANK' : 'Thông tin Tài Khoản Ngân Hàng',
+	'MENU_CHANGE_INFO_BANK_ACCOUNT' : 'Số Tài Khoản Ngân Hàng',
+	'MENU_CHANGE_INFO_BANK_USERNAME' : 'Tên Chủ tài khoản',
+	'MENU_CHANGE_INFO_BANK_NAME' : 'Tên Ngân Hàng',
+	'MENU_CHANGE_INFO_BANK_DIVICE' : 'Chi nhánh Tỉnh/TP',
+    'MENU_CHANGE_INFO_SUCCESS_MESSAGE'						: 'Thay đổi thông tin thành công!',
+
+    'CHANGE_PASS_SUBMIT' : 'Xác Nhận',
+
+	// PAGE REQUEST SUPPORT
+    'REQUEST_SUPPORT_TITLE' : 'YÊU CẦU THÔNG TIN',
+    'REQUEST_SUPPORT_CONTENT' : '<div style="font-weight: normal; font-size: 16px">Trang này được sử dụng để yêu cầu thông tin từ bộ phận <strong>Hỗ trợ khách hàng</strong></div><div><ul><li class="li-style"> Để phục vụ hiệu quả hơn, vui lòng cung cấp cho chúng tôi các yêu cầu cụ thể</li><li class="li-style"> Luôn luôn sử dụng mã số phân phối và mã số đơn hàng mà bạn cần tham khảo trên trang này</li></div>',
+    'REQUEST_SUPPORT_TYPE' : 'Loại yêu cầu:',
+    'REQUEST_SUPPORT_INFO' : 'Nội dung phản ánh/yêu cầu:',
+    'REQUEST_SUPPORT_SUBMIT' : 'Gửi',
+    'ERR_REQUEST_SUPPORT_TYPE' : 'Bạn chưa nhập loại yêu cầu',
+    'ERR_REQUEST_SUPPORT_INFO' : 'Bạn chưa nhập nôi dung phản ánh/yêu cầu',
+    'MESSAGE_REQUEST_SUPPORT_SUBMIT' : 'Gửi yêu cầu thông tin thành công!',
+    'REQUEST_SUPPORT_TYPE_UPPERCASE' : 'LOẠI YÊU CẦU',
+
+	// MESSAGE
+    'WRONG_PASSWORD' : 'Quý Khách đã nhập sai mật khẩu. Vui lòng nhập lại'
+
 };

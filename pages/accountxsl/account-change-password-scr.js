@@ -134,68 +134,32 @@ function requestChangePassword() {
 	// collect the form data while iterating over the inputs
 	var data = {};
 	var arrayArgs = new Array();
-	
-	var tmpStr = tmpNodePassOld.value;
-	if (tmpStr.length <= 0) {
+
+
+    var passOld = document.getElementById('accpass.txt.passwordold').value;
+    var passNew = document.getElementById('accpass.txt.passwordnew').value;
+    var passRetype = document.getElementById('accpass.txt.passwordretype').value;
+
+	if (passOld.length <= 0) {
 		showAlertText(CONST_STR.get('ERR_INPUT_EMPTY_OLD_PASS'));
 		return;
 	}
-	arrayArgs.push(tmpStr);
-	
-	var tmpStr = tmpNodePassNew.value;
-	if (tmpStr.length <= 0) {
+	if (passNew.length <= 0) {
 		showAlertText(CONST_STR.get('ERR_INPUT_EMPTY_NEW_PASS'));
 		return;
 	}
-	arrayArgs.push(tmpStr);
-	
-	var tmpStr = tmpNodePassRetype.value;
-	if (tmpStr != tmpNodePassNew.value) {
+	if (passRetype != tmpNodePassNew.value) {
 		showAlertText(CONST_STR.get('ERR_INPUT_EMPTY_RETYPE_FAIL_PASS'));
 		return;
 	}
-	
-	//checklevelPass(tmpStr);
-	
-	var gprsCmd = new GprsCmdObj(CONSTANTS.get("CMD_TYPE_CHANGEPASS"), "", "", gUserInfo.lang, gUserInfo.sessionID, arrayArgs);
-	
-	data = getDataFromGprsCmd(gprsCmd);
-	
-	//document.addEventListener("evtHttpSuccess", requestMBServiceSuccess, false);
-	//document.addEventListener("evtHttpFail", requestMBServiceFail, false);
-	
-	requestMBService(data, true, 0, requestMBServiceSuccess, requestMBServiceFail);
-	
+    requestMBServiceSuccess();
 }
 
 //event listener: http request success
 //document.addEventListener("evtHttpSuccess", function(e){
 function requestMBServiceSuccess(e) {
-	gprsResp = parserJSON(e);
-	setRespObjStore(gprsResp); //store response
-	
-	if (parseInt(gprsResp.respCode) == 0) {
-		
-		parserChangePasswordInfo();
-		
-		showAlertText(CONST_STR.get('ERR_MSG_CHANGE_PASS'));
-		document.addEventListener('closeAlertView', handleAlertChangePassword, false);
-		
-		//setChaggePasswordConfirm();
-		/*gIsLogin = true;
-		//loadPage('account-scr',true);
-		//navController.initWithRootView('account/account-scr', true);
-		var tmpPageName = navController.getDefaultPage();
-		var tmpPageType = navController.getDefaultPageType();
-		navController.initWithRootView(tmpPageName, true, tmpPageType);
-		//show slide menu button
-		var btnSlideMenu = document.getElementById("nav.btn.showslidemenu");
-		btnSlideMenu.style.display = "block";*/
-	}
-	/*if ((e.type == "evtHttpSuccess") && (currentPage == "accountxsl/account-change-password-scr")) {
-		document.removeEventListener("evtHttpSuccess", requestMBServiceSuccess, false);
-		//alert("Http request success!");
-	}*/
+    showAlertText(CONST_STR.get('ERR_MSG_CHANGE_PASS'));
+    document.addEventListener('closeAlertView', handleAlertChangePassword, false);
 };
 
 
@@ -210,7 +174,6 @@ function requestMBServiceFail() {
 
 function handleAlertChangePassword() {
 	document.removeEventListener('closeAlertView', handleAlertChangePassword, false);
-	//navController.initWithRootView('accountxsl/account-scr', true, 'xsl');
 	var tmpPageName = navController.getDefaultPage();
 	var tmpPageType = navController.getDefaultPageType();
 	navController.initWithRootView(tmpPageName, true, tmpPageType);
@@ -223,22 +186,22 @@ function parserChangePasswordInfo () {
 //set change password
 
 function setChaggePasswordConfirm() {
-		
+
 	// collect the form data while iterating over the inputs
 	var data = {};
 	var arrayArgs = new Array();
-	
+
 	var tmpRespObj;
 	tmpRespObj = getRespObjStore();
-	
+
 	arrayArgs.push(tmpRespObj.responseType); //confirm type
 	arrayArgs.push(tmpRespObj.arguments[0]); //transaction ID
 	arrayArgs.push("123456"); //Token key --> demo
 	arrayArgs.push("1"); //1: accept, 0: decline
 	arrayArgs.push(gUserInfo.valicationType); //user: authen type
-	
+
 	setRespObjStore(tmpRespObj);
-	
+
 	var gprsCmd = new GprsCmdObj(CONSTANTS.get("CMD_TYPE_TICKET_REQUEST"), "", "", gUserInfo.lang, gUserInfo.sessionID, arrayArgs);
 	data["cmdType"] = gprsCmd.cmdType;
 	data["time"] = gprsCmd.timeCur;
@@ -247,13 +210,13 @@ function setChaggePasswordConfirm() {
 	data["language"] = gprsCmd.language;
 	data["session"] = gprsCmd.sessionID;
 	data["args"] = gprsCmd.arguments;
-	
+
 	//gGprsCmd = gprsCmd; //save to global variable-- confirm
 	setGprsCmdStore(gprsCmd);
-	
+
 	navController.pushToView("com-authentication-scr", true);
 	//loadPage("com-authentication-scr", true);
-	
+
 }
 
 //show virtual keyboard

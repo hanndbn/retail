@@ -5632,8 +5632,6 @@ function changeLanguageInView() {
 	
     changeLanguageInMainContentInAtt('placeholder', 'mainViewContent');
     changeLanguageInMainContentInAtt('value', 'mainViewContent');
-	changeLanguageInMainContentInAtt('placeholder', 'promotion-section');
-    changeLanguageInMainContentInAtt('value', 'promotion-section');
 	changeLanguageInMainContentInAtt('placeholder', 'mainViewVerticalSlide');
     changeLanguageInMainContentInAtt('value', 'mainViewVerticalSlide');
     changeLanguageInMainContentInAtt('value', 'accountSelectContents');
@@ -5649,7 +5647,7 @@ function changeLanguageInView() {
 
     changeLanguageInNodeWithTag('span');
 	if(gIsLogin) {
-		document.getElementById('menu-profile-name').innerHTML = gUserInfo.accountName;
+		document.getElementById('menu-profile-name').innerHTML = gUserInfo.accountDispName;
 	}
 }
 
@@ -5903,7 +5901,7 @@ function setLanguageConfig(inStr) {
     if (typeof(Storage) !== "undefined") {
         // Web storage is supported
 		try {
-			localStorage.setItem('TPBankUserLang', inStr);
+			localStorage.setItem('BhipUserLang', inStr);
 		}
 		catch(err) {
 			logInfo('Browser not support local store');
@@ -5919,7 +5917,7 @@ function getLanguageConfig() {
     if (typeof(Storage) !== "undefined") {
 		try {
 			// Web storage is supported
-			var tmpLang = localStorage.getItem('TPBankUserLang');
+			var tmpLang = localStorage.getItem('BhipUserLang');
 			if ((tmpLang != undefined) && (tmpLang != null)) {
 				return tmpLang;
 			}
@@ -5943,8 +5941,8 @@ function setUserInfoToLocal(inAccNo, inAccName) {
 			// Web storage is supported
 			gCustomerNo = inAccNo;
 			gCustomerNanme = inAccName;
-			localStorage.setItem('TPBankUserNumber', inAccNo);
-			localStorage.setItem('TPBankUserName', inAccName);
+			localStorage.setItem('BhipUserNumber', inAccNo);
+			localStorage.setItem('BhipUserName', inAccName);
 		}
 		catch(err) {
 			logInfo('Browser not support local store');
@@ -5960,11 +5958,11 @@ function getUserInfoToLocal() {
     if (typeof(Storage) !== "undefined") {
 		try {
 			// Web storage is supported
-			var tmpUserNo = localStorage.getItem('TPBankUserNumber');
+			var tmpUserNo = localStorage.getItem('BhipUserNumber');
 	
-			if ((tmpUserNo != undefined) && (tmpUserNo != null) && (tmpUserNo.length == 8)) {
+			if ((tmpUserNo != undefined) && (tmpUserNo != null)) {
 				gCustomerNo = tmpUserNo;
-				gCustomerNanme = localStorage.getItem('TPBankUserName');
+				gCustomerNanme = localStorage.getItem('BhipUserName');
 				return true;
 			}
 			return false;
@@ -5986,7 +5984,7 @@ function setGoldTerm(inStr) {
     if (typeof(Storage) !== "undefined") {
 		try {
 			// Web storage is supported
-	        localStorage.setItem('TPBankUserLang', inStr);
+	        localStorage.setItem('BhipUserLang', inStr);
 		}
 		catch(err) {
 			logInfo('Browser not support local store');
@@ -6003,7 +6001,7 @@ function getLanguageConfig() {
     if (typeof(Storage) !== "undefined") {
 		try {
 			// Web storage is supported
-			var tmpLang = localStorage.getItem('TPBankUserLang');
+			var tmpLang = localStorage.getItem('BhipUserLang');
 			if ((tmpLang != undefined) && (tmpLang != null)) {
 				return tmpLang;
 			}
@@ -6024,7 +6022,7 @@ function setAgreeDownloadApp(inStr) {
     if (typeof(Storage) !== "undefined") {
 		try {
 			// Web storage is supported
-	        localStorage.setItem('TPBankDownloadStatus', inStr);
+	        localStorage.setItem('BhipDownloadStatus', inStr);
 		}
 		catch(err) {
 			logInfo('Browser not support local store');
@@ -6040,7 +6038,7 @@ function getAgreeDownloadApp() {
     if (typeof(Storage) !== "undefined") {
         try{
 			// Web storage is supported
-			var tmpLang = localStorage.getItem('TPBankDownloadStatus');
+			var tmpLang = localStorage.getItem('BhipDownloadStatus');
 			if ((tmpLang != undefined) && (tmpLang != null)) {
 				return tmpLang;
 			}
@@ -6255,16 +6253,11 @@ function closeMenuPromotion() {
 
 function closeAllSlideMenu(inStatus) {
 	var tmpNodeMenu = document.getElementById('menu-section');
-	var tmpNodePromotion = document.getElementById('promotion-section');
 	//tmpNodeMenu.style.display = 'block'; //document.getElementById('menu-section').style.display = 'block';
 	//if(CONST_DESKTOP_MODE) return;
 	if (content && tmpNodeMenu.style.display != 'none') {
 		if(!inStatus) closeMenuContent();
 		else content.close();
-	}
-	if (contentPromotion && tmpNodePromotion.style.display != 'none') {
-		if(!inStatus) closeMenuPromotion();
-		else closeMenuPromotion.close();
 	}
 	//var tmpMaskNode = document.getElementById('mask-slideview');
 	//tmpMaskNode.style.display = 'none';
@@ -6333,7 +6326,6 @@ function updateViewForDesktop() {
 	tmpNodeMain.style.borderRightStyle = 'dashed';
 	var tmpNodeHeader = tmpNodeMain.getElementsByClassName('header')[0];
 	tmpNodeHeader.style.display = 'block';
-	document.getElementById('promotion-section').style.opacity = 1;
 	document.getElementById('nav.btn.showslidemenu').style.display = 'none';
 	document.getElementById('headermb').style.display = 'none';
 	if(gIsLogin) {
@@ -6413,7 +6405,6 @@ function updateMainContentWidth(inWidth, inHeight) {
 	
 	var tmpNodeMain = document.getElementById('mainview');
 	var tmpMainViewWidth = 0;
-	var tmpNodePromotion = document.getElementById('promotion-section');
 	if (inWidth < 801) { //width to change mode
 		tmpMainViewWidth = inWidth;
 		if (gModeScreenView == CONST_MODE_SCR_SMALL && !gIsLogin) return;
@@ -6426,7 +6417,6 @@ function updateMainContentWidth(inWidth, inHeight) {
 		}
 		updateViewForMobile();
 		
-		tmpNodePromotion.style.display = 'none';
 		tmpNodeMain.style.borderRightStyle = 'none';
 		changeJSandCSStoMB();			
 	}
@@ -6447,8 +6437,7 @@ function updateMainContentWidth(inWidth, inHeight) {
 		
 		updateViewForDesktop();
 		changeJSandCSStoIB();
-		tmpNodePromotion.style.display = 'none';
-		tmpNodeMain.style.borderRightStyle = 'none';		
+		tmpNodeMain.style.borderRightStyle = 'none';
 		if(gIsLogin) {
 			var tmpMenu = document.getElementById('menu-section');
 			tmpMenu.style.display = 'block';
@@ -8340,4 +8329,18 @@ function requestMBServiceQRFail(e){
     var tmpPageName = navController.getDefaultPage();
     var tmpPageType = navController.getDefaultPageType();
     navController.initWithRootView(tmpPageName, true, tmpPageType);
+}
+
+function loadData(dataLink, callback) {
+
+    var xobj = new XMLHttpRequest();
+    xobj.overrideMimeType("application/json");
+    xobj.open('GET', dataLink, true); // Replace 'my_data' with the path to your file
+    xobj.onreadystatechange = function () {
+        if (xobj.readyState == 4 && xobj.status == "200") {
+            // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+            callback(xobj.responseText);
+        }
+    };
+    xobj.send(null);
 }
