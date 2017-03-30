@@ -9,8 +9,13 @@
     "bankName": "Tien Phong Bank",
     "bankDivice": "Chi nhánh TP Bank Cầu Giấy",
     "bankAccount": "00130200001",
-    "bankAccountName": "NGUYEN DINH HAN"
-
+    "bankAccountName": "NGUYEN DINH HAN",
+    "status" : "0",
+    "rank":"0",
+    "totalVolume" : "15000000",
+    "totalScore" : "120",
+    "destinationScore" : "300",
+    "standard" : "Qualified"
   },
   "125280712": {
     "fullname": "HOANG TIEN HAI",
@@ -22,6 +27,12 @@
     "bankName": "Tien Phong Bank",
     "bankDivice": "Chi nhánh TP Bank Cầu Giấy",
     "bankAccount": "00130200001",
-    "bankAccountName": "HOANG TIEN HAI"
+    "bankAccountName": "HOANG TIEN HAI",
+    "status" : "1",
+    "rank":"0",
+    "totalVolume" : "15000000",
+    "totalScore" : "120",
+    "destinationScore" : "300",
+    "standard" : "Qualified"
   }
 }

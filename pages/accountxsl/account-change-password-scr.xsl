@@ -164,7 +164,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
                                     </tr>
                                     <tr style="display:none;">
                                       <td style="text-align:left;border:none;color:#FFFFFF" colspan="6"><input type="checkbox" name="elemC4" id="elemC4"/>
-                                        <nobr>Nh?p m?t kh?u b?ng c�ch di chu?t</nobr></td>
+                                        <nobr>Nhập mật khẩu bằng cách di chuột</nobr></td>
                                     </tr>
                                   </tbody>
                                 </table>

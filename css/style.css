@@ -1224,3 +1224,7 @@ body {
 /*END PHUCTD1 loyalty gift */
 
 /*END DatMD custom menu*/
+
+#parse_transaction{
+    margin-top: -30px;
+}

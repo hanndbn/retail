@@ -273,14 +273,14 @@ function setInputOnlyASCII(inID, inAlert, inputNormalCharFunc, inputSpecCharFunc
 			if(typeof(inputNormalCharFunc) == 'function') {
 				inputNormalCharFunc();//CALL THIS FUNC TO FILLTER DATA FOR DIALOG WITH INPUT FORM
 			}
-			
+
 			return true;
 		}
 		else {
 			return false;
 		}
 		//inputNode.value = removeAccent(inputNode.value);
-		
+
         //return false;
     };
 }
@@ -304,20 +304,20 @@ function setInputOnlyASCIILNH(inID, inAlert, inputNormalCharFunc, inputSpecCharF
 		//inputNode.value = removeSpecialChar(inputNode.value);
 		var str = String.fromCharCode(ew);
 		//if(str.match(/^[a-zA-Z0-9]*$/) || (ew == 8) || (ew == 46))  {
-		
+
 		if(str.match(/^[a-zA-Z0-9-.,*&\(\)]*$/) || (ew == 8) || (ew == 46))  {
 			if(!Environment.isAndroid()) inputNode.value = removeAccentLNH(inputNode.value);
 			if(typeof(inputNormalCharFunc) == 'function') {
 				inputNormalCharFunc();//CALL THIS FUNC TO FILLTER DATA FOR DIALOG WITH INPUT FORM
 			}
-			
+
 			return true;
 		}
 		else {
 			return false;
 		}
 		//inputNode.value = removeAccent(inputNode.value);
-		
+
         //return false;
     };
 }
@@ -340,7 +340,7 @@ function removeAccentLNH(sText) {
 	//sNewText = removeSpecialCharForText(sNewText);
 	sNewText = sNewText.replace(/[!"#$%'\+:;<=>?@\\`^~{|}]/g, ''); //!"#$%&'+/:;<=>?@[\]`^{|}~   //-.*,()
 	return sNewText;
-	
+
 }
 //ngocdt3 bo sung cho phep nhap ky tu @ khi nhap email trong tinh nang thay doi thong tin ca nhan
 function setInputOnlyASCIIinfo(inID, inAlert, inputNormalCharFunc, inputSpecCharFunc) {
@@ -362,20 +362,20 @@ function setInputOnlyASCIIinfo(inID, inAlert, inputNormalCharFunc, inputSpecChar
 		//inputNode.value = removeSpecialChar(inputNode.value);
 		var str = String.fromCharCode(ew);
 		//if(str.match(/^[a-zA-Z0-9]*$/) || (ew == 8) || (ew == 46))  {
-		
+
 		if(str.match(/^[a-zA-Z0-9-.,*@\(\)]*$/) || (ew == 8) || (ew == 46))  {
 			if(!Environment.isAndroid()) inputNode.value = removeAccentinfo(inputNode.value);
 			if(typeof(inputNormalCharFunc) == 'function') {
 				inputNormalCharFunc();//CALL THIS FUNC TO FILLTER DATA FOR DIALOG WITH INPUT FORM
 			}
-			
+
 			return true;
 		}
 		else {
 			return false;
 		}
 		//inputNode.value = removeAccent(inputNode.value);
-		
+
         //return false;
     };
 }
@@ -398,7 +398,7 @@ function removeAccentinfo(sText) {
 	//sNewText = removeSpecialCharForText(sNewText);
 	sNewText = sNewText.replace(/[!"#$%'\+:;<=>?\\`^~{|}]/g, ''); //!"#$%&'+/:;<=>?@[\]`^{|}~   //-.*,()
 	return sNewText;
-	
+
 }
 function removeAccent(sText) {
 	var sNewText=new String(sText);
@@ -419,7 +419,7 @@ function removeAccent(sText) {
 	//sNewText = removeSpecialCharForText(sNewText);
 	sNewText = sNewText.replace(/[!#$%&'\+:;"<=>?@\\`^~{|}]/g, ''); //!"#$%&'+/:;<=>?@[\]`^{|}~   //-.*,()
 	return sNewText;
-	
+
 }
 //ngocdt3 bo sung chan k cho nhap dau cach, dau cham o cac phan input thanh toan hoa don
 function setInputOnlyASCIIBLL(inID, inAlert, inputNormalCharFunc, inputSpecCharFunc) {
@@ -430,7 +430,7 @@ function setInputOnlyASCIIBLL(inID, inAlert, inputNormalCharFunc, inputSpecCharF
         var evt = e || window.event;
         var ew = evt.keyCode || evt.which;
 		 if (ew == 46) //space key
-            return false; 
+            return false;
 		if ((ew == 13) || (ew == 9)) //enter key, tab key
         {
             evtSpecialKeyPressed.keyPress = ew;
@@ -445,7 +445,7 @@ function setInputOnlyASCIIBLL(inID, inAlert, inputNormalCharFunc, inputSpecCharF
 			if(typeof(inputNormalCharFunc) == 'function') {
 				inputNormalCharFunc();//CALL THIS FUNC TO FILLTER DATA FOR DIALOG WITH INPUT FORM
 			}
-			
+
 			return true;
 		}
 		else {
@@ -474,7 +474,7 @@ function removeAccentBBL(sText) {
 	//sNewText = removeSpecialCharForText(sNewText);
 	sNewText = sNewText.replace(/[!"#$%&'\+:;<=>?@\\`^~{|}.]/g, ''); //!"#$%&'+/:;<=>?@[\]`^{|}~   //-.*,()
 	return sNewText;
-	
+
 }
 function setInputOnlyNumberBBL(inID, inAlert) {
 	if(!inID) return;
@@ -533,14 +533,14 @@ function setInputOnlyNumberTopup(inID, inAlert) {
 function removeAccentff(sText) {
 	var sNewText=new String(sText);
 	sNewText=regReplace(sNewText,"&quot;", '"');
-   
+
     //sNewText=regReplace(sNewText,"<br />", '\n');
 	 //sNewText=regReplace(sNewText,"<br>", "\n");
 	 sNewText=regReplace(sNewText,"&lt;br /&gt;", "<br>");
 	 sNewText=regReplace(sNewText,"&amp;&nbsp;", " ");
     sNewText=regReplace(sNewText,"&lt;", "<");
 	sNewText=regReplace(sNewText,"&gt;", ">");
-	
+
 	sNewText=regReplace(sNewText,"&nbsp;", " ");
 	sNewText=regReplace(sNewText,"&iexcl;", "i");
 	sNewText=regReplace(sNewText,"&macr;", "-");
@@ -680,14 +680,14 @@ function removeAccentff(sText) {
 	sNewText=regReplace(sNewText,"&amp;&yacute;", "ý");
 	sNewText=regReplace(sNewText,"&amp;&thorn;", "þ");
 	sNewText=regReplace(sNewText,"&amp;&yuml;", "ÿ");
-	
+
 	//sNewText=regReplace(sNewText,">","&gt;");
 	//sNewText=regReplace(sNewText,"<","&lt;");
-	
+
 	//sNewText=regReplace(sNewText,"<!\[CDATA\[", " ");
 	//sNewText=regReplace(sNewText,"\]\]>", " ");
 	return sNewText;
-	
+
 }
 function removeSpecialCharForText(sText) {
 	var tmpStr = sText.replace(/[|&;$%@"<>()+,]/g, ''); //!"#$%&'+/:;<=>?@[\]`^{|}~   //-.*,()
@@ -730,7 +730,7 @@ function setInputOnlyCharAndUpcase(inID, inAlert) {
             evtSpecialKeyPressed.keyPress = ew;
             inputNode.dispatchEvent(evtSpecialKeyPressed);
 		}
-		
+
 		var str = String.fromCharCode(ew);
 		if(str.match(/^[a-zA-Z0-9]*$/) || (ew == 8) || (ew == 46))  {
 			if(!Environment.isAndroid()) inputNode.value = removeAccent(inputNode.value);
@@ -768,7 +768,7 @@ function setInputCharNumberAndUpcase(inID, inAlert) {
 		}
         //inputNode.value = inputNode.value + replaceVietnameseChars(String.fromCharCode(ew)).toUpperCase();
 		//inputNode.value = removeAccent(inputNode.value);
-		
+
         //return false;
     };
 }
@@ -927,7 +927,7 @@ function showAlertConfirmText(inContent) {
 
     var alertContent = document.getElementById("alert-confirm-content");
     alertContent.innerHTML = inContent;
-	
+
     var alertdg = document.getElementById("alert-confirm-dialog");
     alertdg.style.display = "block";
     alertdg.style.zIndex = 2010;
@@ -937,7 +937,7 @@ function showAlertConfirmText(inContent) {
 		if(!Environment.isMobile()) {
 			if(alertdg.getElementsByTagName('input')[1]) alertdg.getElementsByTagName('input')[1].focus();
 		}
-		
+
     //}, 300);
 }
 
@@ -967,7 +967,7 @@ function closeAlertApp(inStatus) {
 
 function showAlertAppText(inContent, inBtnOKTitle, inBtnCancelTitle, inImgAlertSrc) {
     hiddenKeyBoard();
-	
+
     var alertContent = document.getElementById("alert-app-content");
 	/*if(inImgAlertSrc && inImgAlertSrc.length > 1) {
 		//<img width="50" height="50" style="border:1px solid #000;display: inline;margin: 5px;">
@@ -977,7 +977,7 @@ function showAlertAppText(inContent, inBtnOKTitle, inBtnCancelTitle, inImgAlertS
 	else {*/
 		alertContent.innerHTML = inContent;
 	//}
-	
+
 	//OK button
 	if(inBtnOKTitle && inBtnOKTitle.length > 0) {
 		document.getElementById('btnAlertAppOk').value = inBtnOKTitle;
@@ -995,7 +995,7 @@ function showAlertAppText(inContent, inBtnOKTitle, inBtnCancelTitle, inImgAlertS
 		if(!Environment.isMobile()) {
 			if(alertdg.getElementsByTagName('input')[1]) alertdg.getElementsByTagName('input')[1].focus();
 		}
-		
+
     //}, 300);
 }
 
@@ -1098,17 +1098,17 @@ function closealertKHDN_TERMS() {
     }, 500);
     //fire event listener
     document.dispatchEvent(evt);
-	
+
 	//check VN EN
 	if (gUserInfo.lang == 'EN')
 	{
 		//window.open('./download/Dieu khoan dieu kien eBank - KHDN - Vietnamese.pdf');
-		openLinkInWindows('./download/Dieu khoan dieu kien eBank - KHDN - Vietnamese.pdf'); 
+		openLinkInWindows('./download/Dieu khoan dieu kien eBank - KHDN - Vietnamese.pdf');
 	}
 	else
 	{
 		//window.open('./download/Dieu khoan dieu kien eBank - KHDN - Vietnamese.pdf');
-		openLinkInWindows('./download/Dieu khoan dieu kien eBank - KHDN - Vietnamese.pdf'); 
+		openLinkInWindows('./download/Dieu khoan dieu kien eBank - KHDN - Vietnamese.pdf');
 	}
 }
 
@@ -1122,7 +1122,7 @@ function closealertKHCN_TERMS() {
     }, 500);
     //fire event listener
     document.dispatchEvent(evt);
-	
+
 	//check VN EN
 	if (gUserInfo.lang == 'EN')
 	{
@@ -1158,7 +1158,7 @@ function closealertKHDN_INSTRUCTION() {
     }, 500);
     //fire event listener
     document.dispatchEvent(evt);
-	
+
 	//check VN EN
 	if (gUserInfo.lang == 'EN')
 	{
@@ -1182,7 +1182,7 @@ function closealertKHCN_INSTRUCTION() {
     }, 500);
     //fire event listener
     document.dispatchEvent(evt);
-	
+
 	//check VN EN
 	if (gUserInfo.lang == 'EN')
 	{
@@ -1228,14 +1228,14 @@ function closealertKHDN_FAQ() {
     }, 500);
     //fire event listener
     document.dispatchEvent(evt);
-	
+
 	//20140911: hien box lien he - begin
 	var tmpNodeMain = document.getElementById('mainview');
-	tmpNodeMain.style.cssFloat = 'right';				
+	tmpNodeMain.style.cssFloat = 'right';
 	tmpNodeMain.style.width = '100%';
-	document.getElementById('box_lienhe').style.display = 'block';	
-	//20140911: hien box lien he - end	
-	
+	document.getElementById('box_lienhe').style.display = 'block';
+	//20140911: hien box lien he - end
+
 	//check VN EN
 	if (gUserInfo.lang == 'EN')
 	{
@@ -1257,14 +1257,14 @@ function closealertKHCN_FAQ() {
     }, 500);
     //fire event listener
     document.dispatchEvent(evt);
-	
+
 	//20140911: hien box lien he - begin
 	var tmpNodeMain = document.getElementById('mainview');
-	tmpNodeMain.style.cssFloat = 'right';				
+	tmpNodeMain.style.cssFloat = 'right';
 	tmpNodeMain.style.width = '100%';
-	document.getElementById('box_lienhe').style.display = 'block';	
+	document.getElementById('box_lienhe').style.display = 'block';
 	//20140911: hien box lien he - end
-	
+
 	//check VN EN
 	if (gUserInfo.lang == 'EN')
 	{
@@ -1319,7 +1319,7 @@ function DialogListInput(inTitle, inTransType, inGPayeeCode) {
 	this.transType = inTransType;	//ARG1
 	//Key cho biết tab nào được chọn
 	this.gPayeeCode = inGPayeeCode;  //ARG2
-	
+
 	tab1Loaded = false;//Kiem tra xem du lieu da duoc load hay chưa
 	tab2Loaded = false;//Kiem tra xem du lieu da duoc load hay chưa
 }
@@ -1331,7 +1331,7 @@ DialogListInput.prototype.showDialog = function(showDialogSuccessed, args){
 		//Khi dialog show len thi mac dinh tab chua duoc load
 		DialogListInput.prototype.tab1Loaded = false;
 		DialogListInput.prototype.tab2Loaded = false;
-		
+
 		var divID = 'divListGroupInput';
 		var divNode = document.getElementById(divID);
 		if ((divNode != null) && (divNode != undefined)) {
@@ -1341,25 +1341,25 @@ DialogListInput.prototype.showDialog = function(showDialogSuccessed, args){
 			logInfo('Dialog not exist divID: ' + divID);
 			return;
 		}
-		
+
 		var dialogDivAll = document.createElement('div');
-		var aNodeTitle = document.createElement("a");	
+		var aNodeTitle = document.createElement("a");
 		aNodeTitle.setAttribute("class", "list-group-item active dialog-payee-caption");
 		aNodeTitle.innerHTML = dialogInputCurrent.title;
 		divNode.appendChild(aNodeTitle);
-		
+
 		//Add Input tag
-		var inputNode = document.createElement("div");	
-	
+		var inputNode = document.createElement("div");
+
 		var contentInput = "";
 		contentInput += "<table>"+
 				"<tr>"+
 				 "<td align='center' valign='middle' class='td-text' width='80%'>"+
 					  "<div class='input-group'>"+
-						  "<span class='input-group-addon' style='white-space:pre-wrap; width:0%'>"/*"+CONST_STR.get('TRANS_LOCAL_ACC_DESTINATION')*/+"</span>"+                   
+						  "<span class='input-group-addon' style='white-space:pre-wrap; width:0%'>"/*"+CONST_STR.get('TRANS_LOCAL_ACC_DESTINATION')*/+"</span>"+
 						 "<input id='id.inputAcc' type='text' class='form-control-input-dialog form-control-righttext' placeholder='"+CONST_STR.get('ESAVING_CHANGEINFO_VF_ARR1')+"' />"+
 						 "<span class='input-group-addon input-group-symbol'></span>"+
-						"</div>"+                  
+						"</div>"+
 				"</td>"+
 				"<td width='20%'><input id='inputDone' type = 'button' class='btnshadow btn-second'    value = '" + CONST_STR.get('TRANSFER_REMITTANCE_DONE_BUTTON') + "' onClick = 'selectedClick();'/></td>"+
 				"</tr>";
@@ -1380,30 +1380,30 @@ DialogListInput.prototype.showDialog = function(showDialogSuccessed, args){
 					"</div>"+
 				"</td>"+
 			"</tr>";
-		contentInput += "</table>"	
+		contentInput += "</table>"
 		inputNode.innerHTML = contentInput;
-		
+
 		inputNode.setAttribute("class","list-group-item active dialog-payee-input");
 		inputNode.setAttribute('style','padding-bottom:0px;');
 		divNode.appendChild(inputNode);
-		
+
 		var dialogDivContainerScroll = document.getElementById('selection-dialog-scroll');
 		if(dialogDivContainerScroll ==null || dialogDivContainerScroll ==undefined){
 			dialogDivContainerScroll
-		}else{		
+		}else{
 			dialogDivContainerScroll.parentNode.removeChild(dialogDivContainerScroll);
 		}
-		
+
 		dialogDivContainerScroll = document.createElement('div');
-		
+
 		dialogDivContainerScroll.setAttribute('id', 'selection-dialog-scroll');
 		dialogDivContainerScroll.setAttribute('class', 'dialog-scroll-content');
-		
+
 		dialogDivAll.appendChild(dialogDivContainerScroll);
-		
+
 		divNode.appendChild(dialogDivAll);
-		
-		
+
+
 		var divContentInput;
 		if (document.getElementById('divContent') != null){
 			divContentInput = document.getElementById('divContent');
@@ -1412,10 +1412,10 @@ DialogListInput.prototype.showDialog = function(showDialogSuccessed, args){
 			divContentInput = document.createElement('div');
 		}
 		divContentInput.setAttribute('id', 'divContent');
-		dialogDivContainerScroll.appendChild(divContentInput);		
-		
-		
-		var tmpNodeCaptcha = document.getElementById('id.inputAcc');	
+		dialogDivContainerScroll.appendChild(divContentInput);
+
+
+		var tmpNodeCaptcha = document.getElementById('id.inputAcc');
 		setInputOnlyASCII('id.inputAcc', CONST_STR.get("ERR_INPUT_ONLY_ASCII_CHAR"), inputNormalCharFunc);
 		tmpNodeCaptcha.addEventListener('evtSpecialKeyPressed', function(e) {
 			//tmpNodePass.removeEventListener('evtSpecialKeyPressed', handleSpecialKeyPressd, false);
@@ -1428,16 +1428,16 @@ DialogListInput.prototype.showDialog = function(showDialogSuccessed, args){
 				return;
 			}
 		}, false);
-		
+
 		if((typeof(showDialogSuccessed) == 'function') && (args ==null||args == undefined || args == '')){
 			showDialogSuccessed.apply(this);
 		}
 		//Add du lieu neu co truyen vao
 		if(args !=null && args !=undefined && args.length>0){
 			//this.addListData(showDialogSuccessed, args);
-			
+
 		}else{
-			//B1 add loading			
+			//B1 add loading
 			gPayeeList = new Array();
 			//lstTemplate = new Array();
 			dialogInputCurrent.requestData('tab1');
@@ -1455,11 +1455,11 @@ DialogListInput.prototype.showDialog = function(showDialogSuccessed, args){
 			document.getElementById('id.inputAcc').focus();
 		}
 	}, 300);
-	
+
 };
 
 //HÀM INSERT DATA VÀO DIALOG
-DialogListInput.prototype.addListData = function(addDataToDialogSuccessed, args, tab){//args la mang 2 phan tu (value1, value2)			
+DialogListInput.prototype.addListData = function(addDataToDialogSuccessed, args, tab){//args la mang 2 phan tu (value1, value2)
 	var dialogDivContainerScroll = document.getElementById('selection-dialog-scroll');
 	var divContentInput;
 	if (document.getElementById('divContent') != null){
@@ -1470,7 +1470,7 @@ DialogListInput.prototype.addListData = function(addDataToDialogSuccessed, args,
 	}
 	divContentInput.setAttribute('id', 'divContent');
 	var dialogDivContainer;
-		 
+
 	if (tab == 'tab1'){
 		if (document.getElementById('container1') != null){
 			dialogDivContainer = document.getElementById('container1');
@@ -1487,13 +1487,13 @@ DialogListInput.prototype.addListData = function(addDataToDialogSuccessed, args,
 		else{
 			dialogDivContainer = document.createElement('div');
 		}
-		
+
 		dialogDivContainer.setAttribute('id', 'container2');
 		DialogListInput.prototype.tab2Loaded = true;
 	}
 	this.removeData(tab);
     for (var x = 1; x < args.length + 1; x++) {
-        var aNode = document.createElement("a");    
+        var aNode = document.createElement("a");
             aNode.setAttribute("class", "list-group-item");
             if (showValue) {
                 aNode.style.textAlign = "left";
@@ -1519,14 +1519,14 @@ DialogListInput.prototype.addListData = function(addDataToDialogSuccessed, args,
         //}
 
     }
-	if(args.length <= 0){		
+	if(args.length <= 0){
 		dialogDivContainer.innerHTML = CONST_STR.get('BANK_INFO_EMPTY_DATA');
 		dialogDivContainer.setAttribute('style','padding-top:20px;padding-bottom:10px;');
 	}
     divContentInput.appendChild(dialogDivContainer);
 	//dialogDivContainerScroll.appendChild(divContentInput);
 	//divNode.appendChild(dialogDivContainerScroll);
-	
+
     if (args.length >= 1) {
 
         dialogScroll = new iScroll('selection-dialog-scroll', {
@@ -1544,7 +1544,7 @@ DialogListInput.prototype.addListData = function(addDataToDialogSuccessed, args,
         setTimeout(function () {
             dialogScroll.refresh();
         }, 200);
-    }	
+    }
 	if(!Environment.isMobile()){
 		document.getElementById('id.inputAcc').focus();
 	}
@@ -1555,7 +1555,7 @@ DialogListInput.prototype.addListData = function(addDataToDialogSuccessed, args,
 }
 
 function showMask(){
-	var dialogDivContainerScroll = document.getElementById('selection-dialog-scroll');	
+	var dialogDivContainerScroll = document.getElementById('selection-dialog-scroll');
 	var divMask;
 	if (document.getElementById('divMask') != null){
 		divMask = document.getElementById('divMask');
@@ -1572,11 +1572,11 @@ function showMask(){
 						"<span class='window8-6'></span>"+
 						"<span class='window8-7'></span>"+
 						"<span class='window8-8'></span>";
-		divMask.setAttribute('id', 'divMask');	
-		divMask.setAttribute('style','padding-top:0px;margin:0 auto;');	
-		dialogDivContainerScroll.appendChild(divMask);		
+		divMask.setAttribute('id', 'divMask');
+		divMask.setAttribute('style','padding-top:0px;margin:0 auto;');
+		dialogDivContainerScroll.appendChild(divMask);
 	}
-	
+
 }
 function hiddenMask(){
 	if (document.getElementById('divMask') != null){
@@ -1613,30 +1613,30 @@ DialogListInput.prototype.allowInputType = function(paramterType){
 	//3. Account....
 }
 DialogListInput.prototype.activeDataOnTab = function(tab){
-	
+
 	var nodeTab1 = document.getElementById('container1');
 	var nodeTab2 = document.getElementById('container2');
 	if (tab == 'tab2'){
-		
+
 		if(nodeTab1 !=null && nodeTab1 !=undefined){
 			nodeTab1.style.display = 'none';
 		}
-	
+
 		if(nodeTab2 !=null && nodeTab2 !=undefined){
 			nodeTab2.style.display = 'block';
 		}
-	}else{	
-			
+	}else{
+
 		if(nodeTab1 !=null && nodeTab1 !=undefined){
 			nodeTab1.style.display = 'block';
 		}
-	
+
 		if(nodeTab2 !=null && nodeTab2 !=undefined){
 			nodeTab2.style.display = 'none';
 		}
-	}	
+	}
 	if(dialogScroll !=null && dialogScroll !=undefined){
-		dialogScroll.refresh();	
+		dialogScroll.refresh();
 	}
 	if(!Environment.isMobile()){
 		document.getElementById('id.inputAcc').focus();
@@ -1644,18 +1644,18 @@ DialogListInput.prototype.activeDataOnTab = function(tab){
 }
 
 //Request server
-DialogListInput.prototype.requestData = function(tabName){		
+DialogListInput.prototype.requestData = function(tabName){
 	sendJSONRequestDialog(this.transType, this.gPayeeCode, tabName);
 }
 
 //ẨN TAB
-DialogListInput.prototype.hiddenTab2 = function(){	
+DialogListInput.prototype.hiddenTab2 = function(){
 	document.getElementById('tab1').setAttribute("class", "item selected");
-	document.getElementById('tab2').style.display = 'none';	
+	document.getElementById('tab2').style.display = 'none';
 }
 //Hiển thị tab2
 DialogListInput.prototype.showTab2 = function(){
-	document.getElementById('tab2').style.display = '';	
+	document.getElementById('tab2').style.display = '';
 }
 //*****handleFilterOnDialog******//
 function handleFilterOnDialog(evt, node){
@@ -1676,8 +1676,8 @@ function getTabSelected(){
 	}
 	return 'tab1';
 }
-//User click on Button 
-//User click on Button 
+//User click on Button
+//User click on Button
 function selectedClick(){
 	var inputNode = document.getElementById("id.inputAcc");
 	var dialogSelection = document.getElementById("selection-dialog-input");
@@ -1688,20 +1688,20 @@ function selectedClick(){
 				dialogSelection.style.display = "none";
 				clearTimeout(tmpDialogTimer);
 				if(inputNode!= null && inputNode.value.length >0){
-					evtInputSelected.selectedValue = inputNode.value;				
-					document.dispatchEvent(evtInputSelected);	
+					evtInputSelected.selectedValue = inputNode.value;
+					document.dispatchEvent(evtInputSelected);
 				}
-				
-			}, 500);		
-	}/*else{		
+
+			}, 500);
+	}/*else{
 		var tmpStr = CONST_STR.get("ERR_INPUT_PAYEE_EMPTY").replace('%s', getCominputAccountHtmlTitle());
 		showAlertText(tmpStr);
 	}*/
-	
+
 }
 //User Selected Item
 function selectedItemOnDialogInput(inNode, index, idx) {
-	
+
 	if(hasDialogContentScrollEvent){
 		hasDialogContentScrollEvent= false;
 		return;
@@ -1712,38 +1712,38 @@ function selectedItemOnDialogInput(inNode, index, idx) {
         if (inNode.tagName == "A") {
 			var tabSelected = getTabSelected();
             //fire event listener
-            
+
 			dialogSelection.style.opacity = 0;
 			var tmpDialogTimer = setTimeout(function (e) {
 				dialogSelection.style.zIndex = 0;
 				dialogSelection.style.display = "none";
 				clearTimeout(tmpDialogTimer);
-				
+
 				if(tabSelected == 'tab1'){
-					var obj = gPayeeList[idx];					
-					evtSelectionDialogInput.dataObject = obj;					
+					var obj = gPayeeList[idx];
+					evtSelectionDialogInput.dataObject = obj;
 				}
 				else{
-					var nameKey = inNode.childNodes[0].nodeValue;										
-					var obj = lstTemplate[idx];					
+					var nameKey = inNode.childNodes[0].nodeValue;
+					var obj = lstTemplate[idx];
 					evtSelectionDialogInput.dataObject = obj;
 				}
 				evtSelectionDialogInput.selectedIndex = idx;
-				
+
 				evtSelectionDialogInput.tabSelected = tabSelected;
 				/*var obj = new Object();
 				obj.value1 = inNode.childNodes[0].nodeValue;
 				obj.value2 = inNode.childNodes[1].innerHTML;
 				evtSelectionDialogInput.selectedValue2 = inNode.childNodes[1].innerHTML;
-				
+
 				if (inNode.childNodes[0] != undefined) {
                     evtSelectionDialogInput.selectedValue1 = inNode.childNodes[0].nodeValue;
                 }
                 if (inNode.childNodes[1] != undefined) {
                     evtSelectionDialogInput.selectedValue2 = inNode.childNodes[1].innerHTML;
                 }*/
-				
-				
+
+
                 document.dispatchEvent(evtSelectionDialogInput);
 			}, 500);
         }
@@ -1761,7 +1761,7 @@ function closeDialogInput(inNode) {
 			clearTimeout(tmpDialogTimer);
 			document.dispatchEvent(evtSelectionDialogCloseInput);
 		}, 500);
-		
+
     }
 }
 //User click to change tab
@@ -1770,40 +1770,40 @@ function tabChange(node){
 	document.dispatchEvent(evtChangeTab);
 	if(node.getAttribute("class")=="item selected"){
 			return;
-	}		
+	}
 	node.setAttribute("class", "item selected");
-	if(node.id == 'tab1'){		
+	if(node.id == 'tab1'){
 		document.getElementById('tab2').setAttribute("class", "item");
 	}
-	else{			
+	else{
 		document.getElementById('tab1').setAttribute("class", "item");
-	}	
+	}
 }
 function sendJSONRequestDialog(transType, gPayeeCode, tabName){
 	var data = {};
-	var arrayArgs = new Array();	
-	if(tabName == 'tab1' && !DialogListInput.prototype.tab1Loaded){	
-		//Lấy danh sách tin cậy				
+	var arrayArgs = new Array();
+	if(tabName == 'tab1' && !DialogListInput.prototype.tab1Loaded){
+		//Lấy danh sách tin cậy
 		showMask(tabName);
 		arrayArgs.push(gPayeeCode);//CONST_PAYEE_INTER_TRANSFER);
-		arrayArgs.push(transType);	
+		arrayArgs.push(transType);
 		requestBacgroundMBService('CMD_TYPE_LOOKUP_PAYEE', arrayArgs, requestMBServiceSuccesssDialog, requestMBServiceFailDialog);
 	}
 	else
-	if(tabName == 'tab2' && !DialogListInput.prototype.tab2Loaded){	
+	if(tabName == 'tab2' && !DialogListInput.prototype.tab2Loaded){
 		showMask(tabName);
 		arrayArgs.push(gPayeeCode);
 		arrayArgs.push(transType);//0 là chuyển khoản nội bộ, 1 là chuyển khoản tới ngân hàng khác
-		//Lấy danh sách mẫu				
+		//Lấy danh sách mẫu
 		requestBacgroundMBService('CMD_TRANSFER_TEMPLATE_TEMPLATE', arrayArgs, 	requestMBServiceSuccesssDialog, requestMBServiceFailDialog);
-	}	
+	}
 }
 function showEmptyInputData(){
-	
+
 }
 
 function requestMBServiceSuccesssDialog(e){
-	
+
 	gprsResp = parserJSON(e, false);
 	var historyArray = gprsResp.arguments;
 	var args = new Array();
@@ -1812,12 +1812,12 @@ function requestMBServiceSuccesssDialog(e){
 		//showAlertText(gprsResp.respContent);
 		return;
 	}
-	hiddenMask();	
-	if ((gprsResp.respCode == '0') && (parseInt(gprsResp.responseType) == parseInt(CONSTANTS.get("CMD_TYPE_LOOKUP_PAYEE")))) 
-	{	
-		
-		//DialogListInput.prototype.tab1Loaded = true;		
-		gPayeeList = new Array();	
+	hiddenMask();
+	if ((gprsResp.respCode == '0') && (parseInt(gprsResp.responseType) == parseInt(CONSTANTS.get("CMD_TYPE_LOOKUP_PAYEE"))))
+	{
+
+		//DialogListInput.prototype.tab1Loaded = true;
+		gPayeeList = new Array();
 		if(historyArray!=undefined){
 			for (var i=0; i<historyArray.length; i++) {
 				var payeeArrTemp = historyArray[i].split("#");
@@ -1834,7 +1834,7 @@ function requestMBServiceSuccesssDialog(e){
 				payeeObjTemp.fancyName = payeeArrTemp[9];
 				payeeObjTemp.shortname = payeeArrTemp[10];//NGOCDT3 CHINH SUA
 				gPayeeList.push(payeeObjTemp);
-				
+
 				var obj = new Object();
 				obj.value1 = payeeObjTemp.transValue;
 				if(!payeeObjTemp.shortname ||payeeObjTemp.shortname ==null||payeeObjTemp.shortname==undefined){
@@ -1843,20 +1843,20 @@ function requestMBServiceSuccesssDialog(e){
 				else{
 					obj.value2 = payeeObjTemp.peopleName+' - '+payeeObjTemp.shortname ;
 				}
-				
+
 				obj.index = i;
-				args.push(obj);				
+				args.push(obj);
 			}
 		}
-		DialogListInput.prototype.addListData(addSuccessed, args, 'tab1');	
+		DialogListInput.prototype.addListData(addSuccessed, args, 'tab1');
 	}
 	if ((gprsResp.respCode == '0') && (parseInt(gprsResp.responseType) == parseInt(CONSTANTS.get("CMD_TRANSFER_TEMPLATE_TEMPLATE")))) {
 		//DialogListInput.prototype.tab2Loaded = true;
 		lstTemplate = new Array();
 		if(historyArray!=undefined){
 			for(var k=0;k<historyArray.length;k++){
-				tempArrStr = historyArray[k].split("#");			
-				objtemp = new Object();		
+				tempArrStr = historyArray[k].split("#");
+				objtemp = new Object();
 				objtemp.name = tempArrStr[0];
 				objtemp.tai_khoan_nguon = tempArrStr[1];
 				objtemp.ten_tai_khoan_dich = tempArrStr[2];
@@ -1868,18 +1868,18 @@ function requestMBServiceSuccesssDialog(e){
 				objtemp.loai_chuyen_tien = tempArrStr[8];
                 objtemp.bincode = tempArrStr[9];
 				lstTemplate.push(objtemp);
-				
+
 				var obj = new Object();
 				obj.value1 = objtemp.tai_khoan_dich;
 				obj.value2 = objtemp.name;
 				obj.index = k;
 				args.push(obj);
-				
+
 			}
-		}						
-		DialogListInput.prototype.addListData(addSuccessed, args, 'tab2');			
+		}
+		DialogListInput.prototype.addListData(addSuccessed, args, 'tab2');
 	}
-	
+
 }
 function addSuccessed(node){
 }
@@ -1899,44 +1899,44 @@ function inputNormalCharFunc(){
 	}
 	var args = new Array();
 	var lstToFilter = new Array();
-	
+
 	var tabSelected = getTabSelected();
-	
-	if(gPayeeList !=null && gPayeeList!=undefined){		
+
+	if(gPayeeList !=null && gPayeeList!=undefined){
 		for(var i in gPayeeList){
 			var obj = new Object();
 			obj.value1 = gPayeeList[i].transValue;
 			obj.value2 = gPayeeList[i].peopleName;
-			obj.index  = i;	
+			obj.index  = i;
 			lstToFilter.push(obj);
 		}
 		for(var i = 0; i<lstToFilter.length; i++){
 			var nameParent1 = lstToFilter[i].value1;
 			var nameParent2 = lstToFilter[i].value2
 			var ok = false;
-			if(nameParent1 != null && nameParent1 != undefined){			
+			if(nameParent1 != null && nameParent1 != undefined){
 					nameParent1 = nameParent1.toLowerCase();
-					if(nameParent1.indexOf(value.toLowerCase()) > -1){						
+					if(nameParent1.indexOf(value.toLowerCase()) > -1){
 						args.push(lstToFilter[i]);
 						ok = true;
 					}
 			}
 			if(!ok){
-				if(nameParent2 != null && nameParent2 != undefined){			
+				if(nameParent2 != null && nameParent2 != undefined){
 					nameParent2 = nameParent2.toLowerCase();
-					if(nameParent2.indexOf(value.toLowerCase()) > -1){						
+					if(nameParent2.indexOf(value.toLowerCase()) > -1){
 						args.push(lstToFilter[i]);
 					}
 				}
 			}
-		}	
+		}
 		DialogListInput.prototype.removeData('tab1');
 		DialogListInput.prototype.addListData(addDatasuccessefull, args,'tab1');
 	}
 	var args1 = new Array();
 	var lstToFilter1 = new Array();
 	//else
-	if(lstTemplate !=null && lstTemplate!=undefined){		
+	if(lstTemplate !=null && lstTemplate!=undefined){
 		for(var i in lstTemplate){
 			var obj = new Object();
 			obj.value1 = lstTemplate[i].tai_khoan_dich;
@@ -1948,17 +1948,17 @@ function inputNormalCharFunc(){
 			var nameParent1 = lstToFilter1[i].value1;
 			var nameParent2 = lstToFilter1[i].value2
 			var ok = false;
-			if(nameParent1 != null && nameParent1 != undefined){			
+			if(nameParent1 != null && nameParent1 != undefined){
 					nameParent1 = nameParent1.toLowerCase();
-					if(nameParent1.indexOf(value.toLowerCase()) > -1){						
+					if(nameParent1.indexOf(value.toLowerCase()) > -1){
 						args1.push(lstToFilter1[i]);
 						ok = true;
 					}
 			}
 			if(!ok){
-				if(nameParent2 != null && nameParent2 != undefined){			
+				if(nameParent2 != null && nameParent2 != undefined){
 					nameParent2 = nameParent2.toLowerCase();
-					if(nameParent2.indexOf(value.toLowerCase()) > -1){						
+					if(nameParent2.indexOf(value.toLowerCase()) > -1){
 						args1.push(lstToFilter1[i]);
 					}
 				}
@@ -1966,33 +1966,33 @@ function inputNormalCharFunc(){
 		}
 		DialogListInput.prototype.removeData('tab2');
 		DialogListInput.prototype.addListData(addDatasuccessefull, args1,'tab2');
-		
+
 	}
 	DialogListInput.prototype.activeDataOnTab(getTabSelected());
 	/*
 	if(value == ''){
-		args = 	lstToFilter;		
+		args = 	lstToFilter;
 	}else{
 		for(var i = 0; i<lstToFilter.length; i++){
 			var nameParent1 = lstToFilter[i].value1;
 			var nameParent2 = lstToFilter[i].value2
 			var ok = false;
-			if(nameParent1 != null && nameParent1 != undefined){			
+			if(nameParent1 != null && nameParent1 != undefined){
 					nameParent1 = nameParent1.toLowerCase();
-					if(nameParent1.indexOf(value.toLowerCase()) > -1){						
+					if(nameParent1.indexOf(value.toLowerCase()) > -1){
 						args.push(lstToFilter[i]);
 						ok = true;
 					}
 			}
 			if(!ok){
-				if(nameParent2 != null && nameParent2 != undefined){			
+				if(nameParent2 != null && nameParent2 != undefined){
 					nameParent2 = nameParent2.toLowerCase();
-					if(nameParent2.indexOf(value.toLowerCase()) > -1){						
+					if(nameParent2.indexOf(value.toLowerCase()) > -1){
 						args.push(lstToFilter[i]);
 					}
 				}
 			}
-		}	
+		}
 	}
 	DialogListInput.prototype.removeData();
 	DialogListInput.prototype.addListData(addDatasuccessefull, args,tabSelected);
@@ -2030,24 +2030,24 @@ function showDialogList(inTitle, inArray1, inArray2, showValue) { //inArray1 is 
 			logInfo('Dialog do not have inArray1 data');
 			return;
 		}
-		
+
 		var dialogDivAll = document.createElement('div');
 		var aNodeTitle = document.createElement("a");
 		aNodeTitle.setAttribute("class", "list-group-item active dialog-caption");
 		aNodeTitle.innerHTML = inTitle;
 		divNode.appendChild(aNodeTitle);
-		
+
 		var dialogDivContainerScroll = document.createElement('div');
 		dialogDivContainerScroll.setAttribute('id', 'selection-dialog-scroll');
 		dialogDivContainerScroll.setAttribute('class', 'dialog-scroll-content');
 		var dialogDivContainer = document.createElement('div');
-	
+
 		for (var x = 1; x < inArray1.length + 1; x++) {
 			if(x<6){
 				dialogHeight = dialogHeight + 39;
 			}
 			var aNode = document.createElement("a");
-	
+
 			/*if (x == 0) {
 				aNode.setAttribute("class", "list-group-item active");
 				aNode.innerHTML = inTitle;
@@ -2061,10 +2061,10 @@ function showDialogList(inTitle, inArray1, inArray2, showValue) { //inArray1 is 
 				else {
 					aNode.style.textAlign = "center";
 				}
-	
+
 				aNode.setAttribute("onClick", "selectedItemOnDialog(this," + x +");");
 				aNode.innerHTML = inArray1[x - 1];
-	
+
 				var tmpValue = inArray2[x - 1];
 				if ((tmpValue != undefined) && (tmpValue != null)) {
 					var spanNode = document.createElement("span");
@@ -2077,18 +2077,18 @@ function showDialogList(inTitle, inArray1, inArray2, showValue) { //inArray1 is 
 				}
 				dialogDivContainer.appendChild(aNode);
 			//}
-	
+
 		}
-		
+
 		dialogDivContainerScroll.appendChild(dialogDivContainer);
 		//divNode.appendChild(dialogDivContainerScroll);
 		dialogDivAll.appendChild(dialogDivContainerScroll);
-		
+
 		divNode.appendChild(dialogDivAll);
 		divNode.style.top = (clientHeight-dialogHeight)/2 + 20 + 'px';
-		
+
 		if (inArray1.length > 5) {
-	
+
 			dialogScroll = new iScroll('selection-dialog-scroll', {
 				hideScrollbar:false,
 				fixedScrollbar:false,
@@ -2105,21 +2105,21 @@ function showDialogList(inTitle, inArray1, inArray2, showValue) { //inArray1 is 
 				dialogScroll.refresh();
 			}, 200);
 		}
-		
+
 		var dialogContainer = document.getElementById("selection-dialog");
 		if (dialogContainer != null) {
 			dialogContainer.style.zIndex = 2001;
 			dialogContainer.style.display = "block";
 			//setTimeout(function (e) {
-				dialogContainer.style.opacity = 1;			
+				dialogContainer.style.opacity = 1;
 			//}, 300);
 		}
 	}, 300);
-	
+
 }
 
 function selectedItemOnDialog(inNode, index) {
-	
+
 	if(hasDialogContentScrollEvent){
 		hasDialogContentScrollEvent= false;
 		return;
@@ -2138,7 +2138,7 @@ function selectedItemOnDialog(inNode, index) {
              }*/
 
             //fire event listener
-            
+
 			dialogSelection.style.opacity = 0;
 			var tmpDialogTimer = setTimeout(function (e) {
 				dialogSelection.style.zIndex = 0;
@@ -2167,7 +2167,7 @@ function closeDialog(inNode) {
 			clearTimeout(tmpDialogTimer);
 			document.dispatchEvent(evtSelectionDialogClose);
 		}, 500);
-		
+
     }
 }
 /*** DIALOG END ***/
@@ -2250,7 +2250,7 @@ function maskCardNumber(inString) {
 var gContentScrollPosition = 0;
 var gModeScreenView = CONST_MODE_SCR_MEDIUM;
 
-function applyDynamicPageStyleSheet(forced) {	
+function applyDynamicPageStyleSheet(forced) {
 	if(isNotNeedReloadPageStyleSheet){
 		isNotNeedReloadPageStyleSheet = false;
 		return;
@@ -2266,7 +2266,7 @@ function applyDynamicPageStyleSheet(forced) {
         clientWidth = currentClientWidth;
         clientHeight = currentClientHeight;
     }
-    
+
 	var tmpPageHeader = document.getElementById('pageHeader');
 	if(tmpPageHeader.style.display != 'none' && (gModeScreenView != CONST_MODE_SCR_SMALL || !isModelMobile)) {
 		//clientHeight -=195-40;
@@ -2274,7 +2274,7 @@ function applyDynamicPageStyleSheet(forced) {
 	}
 	//hidden footer on mobile
 	//if(!gIsLogin){
-	if(gIsLogin){	
+	if(gIsLogin){
 		document.getElementById('mainlayoutfooter').style.display = 'none';
 	}
 	var tmpGapSub;
@@ -2287,14 +2287,14 @@ function applyDynamicPageStyleSheet(forced) {
 		tmpGapSub = (gModeScreenView == CONST_MODE_SCR_MEDIUM)? 66: 83;
 		tmpGapFooter = (gModeScreenView == CONST_MODE_SCR_MEDIUM)? 0: 41;
 	}
-	
+
     var numOfAccs = gUserInfo.accountList.length;
-	
+
 	if(CONST_BROWSER_MODE && navigator.userAgent.match(/iPad;.*CPU.*OS 7_\d/i) && !navigator.userAgent.match(/CriOS/i)) { //fix bug footer on Safari iOS7
 		document.getElementById('pageFooter').style.bottom = '20px';
 	}
-	
-	
+
+
 	if (!gIsLogin)
 	{
 		//logInfo('Show footer height 41px');
@@ -2314,8 +2314,8 @@ function applyDynamicPageStyleSheet(forced) {
 				'.account-select-content{width: ' + (clientWidth - 10) + 'px;}' +
 				'.account-select-content .scroller li {width: ' + (clientWidth - 10) + 'px;}' +
 				'.account-select-content .scroller{width: ' + ((clientWidth - 10) * numOfAccs ) + 'px;}';
-	}		
-			
+	}
+
     var style = document.createElement('style');
     style.setAttribute('id', 'pageSlideDynamic');
 
@@ -2360,7 +2360,7 @@ function applyDynamicPageStyleSheet(forced) {
                 //}
                 //DO SOME THING...
             }
-        });			
+        });
     }
 
     if ((mainContentScroll !== undefined) && (mainContentScroll !== null)) {
@@ -2391,39 +2391,39 @@ function applyDynamicPageStyleSheet(forced) {
 			onScrollEnd: function() {
 				hasMainContentScrollEvent = false;
 			},
-		});     
+		});
     }
-	
-	//UPDATE TITLE - LAMPT	
-	var screenTitle = document.getElementsByClassName('screen-title')[0];		
+
+	//UPDATE TITLE - LAMPT
+	var screenTitle = document.getElementsByClassName('screen-title')[0];
 	if( screenTitle != null && screenTitle != undefined){
 		var screenTitleSpan = screenTitle.getElementsByTagName('span')[0];
 		if(screenTitleSpan != undefined){
 			screenTitleSpan.innerHTML = screenTitleSpan.innerHTML.toUpperCase();
 			document.getElementById('lblChangLanguage').innerHTML = screenTitleSpan.innerHTML;
 		}
-	}	
-	
+	}
+
 	var menuSelected = document.getElementById(currentPage);
 	if(menuSelected){
 		var arrayOld = document.getElementsByClassName('langNoStyleSelected');
 		while(arrayOld.length > 0){
 			arrayOld[0].className = 'langNoStyle';
 			arrayOld = document.getElementsByClassName('langNoStyleSelected');
-		}			         
-		menuSelected.getElementsByTagName('div')[0].className = 'langNoStyle langNoStyleSelected';		
-		
+		}
+		menuSelected.getElementsByTagName('div')[0].className = 'langNoStyle langNoStyleSelected';
+
 		//-->div.li.div.div.ul.li
 		var checkNode = menuSelected.parentNode.parentNode.parentNode.parentNode;
 		if(checkNode){
 			if(checkNode.tagName.toUpperCase() == "UL" && checkNode.className == "menu-layout-contents-sub"){
 				if (checkNode.style.height == '0px' || checkNode.style.height == '') {
-					applyScrollForMe(checkNode.parentNode); 
+					applyScrollForMe(checkNode.parentNode);
 				}
 				checkNode.parentNode.getElementsByTagName('div')[0].getElementsByTagName('div')[0].className = 'langNoStyle langNoStyleSelected';
 			}
-		}				
-	}	
+		}
+	}
 }
 
 var mainVerticalSlideView;
@@ -2436,14 +2436,14 @@ function applyVerticalScrollPage(forced, inGapsize) {
     var currentClientWidth = window.innerWidth
         || document.documentElement.clientWidth
         || document.body.clientWidth;
-    
+
     var styles =
         '.main-layout .main-layout-vertical-slideview { height: ' + (clientHeight - 170 - inGapsize) + 'px; }';
     var style = document.createElement('style');
     style.setAttribute('id', 'pageVerticalSlideDynamic');
 	//hidden footer on mobile
 	//if(!gIsLogin){
-	if(gIsLogin){	
+	if(gIsLogin){
 		document.getElementById('mainlayoutfooter').style.display = 'none';
 	}
     var tmpNodeStyle = document.getElementById('pageVerticalSlideDynamic');
@@ -2467,7 +2467,7 @@ function applyVerticalScrollPage(forced, inGapsize) {
     }
     var nodeMainScroll = document.getElementById("mainViewVerticalSlide");
     if ((nodeMainScroll != null) && (nodeMainScroll != undefined)) {
-        
+
         mainVerticalSlideView = new iScroll('mainViewVerticalSlide', {
             hideScrollbar:false,
             fixedScrollbar:false,
@@ -3184,13 +3184,13 @@ function applyDynamicCommonStyleSheet() {
         clientWidth = currentClientWidth;
         clientHeight = currentClientHeight;
     }
-    
+
 	var tmpPageHeader = document.getElementById('pageHeader');
 	if(tmpPageHeader.style.display != 'none' && (gModeScreenView != CONST_MODE_SCR_SMALL || !isModelMobile)) {
 		//clientHeight -=195-40;
 		clientHeight -= tmpPageHeader.clientHeight; // + 40: footer
 	}
-	
+
     // 23 --> la kich thuoc font cua icon
     //40 --> la chieu cao header
     var submenus = document.getElementsByClassName('menu-layout-contents-sub');
@@ -3228,7 +3228,7 @@ function applyDynamicCommonStyleSheet() {
     if (menuScroll != null) {
         menuScroll.destroy();
     }
-    
+
     menuScroll = new iScroll('wrapper-menu', {
 		hideScrollbar:false,
         fixedScrollbar:false,
@@ -3240,7 +3240,7 @@ function applyDynamicCommonStyleSheet() {
 		    hasMenuScrollEvent = false;
 		}
     });
-	
+
 	menuSection = document.getElementById('menu-section');
 	if(menuSection.style.display == 'none') {
 		document.getElementById('wrapper-menu').style.height = clientHeight - 65 + 'px';
@@ -3252,23 +3252,23 @@ function applyDynamicCommonStyleSheet() {
     //currentTotalSubmenuHeight = tmpNodeMenu.clientHeight;
 	currentTotalSubmenuHeight = tmpNodeMenu.childElementCount * itemHeight;
 	orgTotalSubmenuHeight = tmpNodeMenu.childElementCount * itemHeight;
-    
+
 	//Neu la trang faq thi show box lien he
 	//20140911: hien box lien he - begin
 	if (currentPage == "faq-scr-vie" || currentPage == "faq-scr-eng")
 	{
-		
+
 		var tmpNodeMain = document.getElementById('mainview');
-		tmpNodeMain.style.cssFloat = 'right';				
+		tmpNodeMain.style.cssFloat = 'right';
 		tmpNodeMain.style.width = '100%';
-		document.getElementById('box_lienhe').style.display = 'block';			
+		document.getElementById('box_lienhe').style.display = 'block';
 	}
 	else
 	{
 		document.getElementById('box_lienhe').style.display = 'none';
 	}
 	//20140911: hien box lien he - end
-	
+
 	//logInfo('applyDynamicCommonStyleSheet finished!');
 }
 
@@ -3280,23 +3280,23 @@ function applyDynamicPromotionWithNumOfItems(inNumItems) {
     var currentClientWidth = window.innerWidth
         || document.documentElement.clientWidth
         || document.body.clientWidth;
-	
+
 	var tmpPageHeader = document.getElementById('pageHeader');
-	//if(((tmpPageHeader.style.display != 'none') && (gModeScreenView != CONST_MODE_SCR_SMALL))) { 
-	if(gModeScreenView != CONST_MODE_SCR_SMALL) { 
+	//if(((tmpPageHeader.style.display != 'none') && (gModeScreenView != CONST_MODE_SCR_SMALL))) {
+	if(gModeScreenView != CONST_MODE_SCR_SMALL) {
 		//clientHeight -=195-40;
 		currentClientHeight -= 40; //40: footer //tmpPageHeader.clientHeight
 	}
-	
+
 	var tmpPromotionHeight = inNumItems * 64; //height = 64px
 	var styles =
         '.promotion-layout-contents { height: ' + tmpPromotionHeight + 'px; }';
 	document.getElementById('wrapper-promtion').style.height = currentClientHeight - 40 + 'px';
-	
+
     if (promotionScroll != null) {
         promotionScroll.destroy();
     }
-    
+
     promotionScroll = new iScroll('wrapper-promtion', {
         /*fixedScrollbar:false*/
 		hScrollbar:false,
@@ -3305,7 +3305,7 @@ function applyDynamicPromotionWithNumOfItems(inNumItems) {
 		fixedScrollbar:false,
 		checkDOMChanges:true
     });
-    
+
 }
 
 /** TUANNM5 UPDATE FOR JUMBO**/
@@ -3319,7 +3319,7 @@ function checkJumboAccExist(liItem) {
 			displaySubMenuForJumboAcc(true);
 		}
 		applyScrollForMe(liItem);
-		
+
 		var gprsCmd = new GprsCmdObj(CONSTANTS.get("CMD_CHECK_EXIST_JUMBO_ACC"), "", "", gUserInfo.lang, gUserInfo.sessionID, arrayArgs);
 		data = getDataFromGprsCmd(gprsCmd);
 		requestBacgroundMBService('CMD_CHECK_EXIST_JUMBO_ACC', arrayArgs, function(e){
@@ -3331,7 +3331,7 @@ function checkJumboAccExist(liItem) {
 					gJumboAccInfo = gprsResp.arguments;
 				} else {
 					gJumboAccExistedStat = true;
-				}				
+				}
 			}
 		}, function(){
 				console.log('Get data from Jumbo fail!');
@@ -3359,7 +3359,7 @@ function checkJumboAccExist(liItem) {
 							displaySubMenuForJumboAcc(true);
 						}
 						applyScrollForMe(liItem);
-						
+
 					}
 				}, function(){
 						console.log('Get data from Jumbo fail!');
@@ -3378,7 +3378,7 @@ function checkJumboAccExist_New(liItem) {
 		}
 		//applyScrollForMe(liItem);
 		navController.initWithRootView('jumbo/jumbo_check_auto_saving', true, 'xsl')
-		
+
 		var gprsCmd = new GprsCmdObj(CONSTANTS.get("CMD_CHECK_EXIST_JUMBO_ACC"), "", "", gUserInfo.lang, gUserInfo.sessionID, arrayArgs);
 		data = getDataFromGprsCmd(gprsCmd);
 		requestBacgroundMBService('CMD_CHECK_EXIST_JUMBO_ACC', arrayArgs, function(e){
@@ -3390,7 +3390,7 @@ function checkJumboAccExist_New(liItem) {
 					gJumboAccInfo = gprsResp.arguments;
 				} else {
 					gJumboAccExistedStat = true;
-				}				
+				}
 			}
 		}, function(){
 				console.log('Get data from Jumbo fail!');
@@ -3419,7 +3419,7 @@ function checkJumboAccExist_New(liItem) {
 						}
 						//applyScrollForMe(liItem);
 						navController.initWithRootView('jumbo/jumbo_check_auto_saving', true, 'xsl')
-						
+
 					}
 				}, function(){
 						console.log('Get data from Jumbo fail!');
@@ -3460,7 +3460,7 @@ function displaySubMenuForJumboAcc(isExisted) {
         }
 		displaySubMenuForJumboAccV7(true);
 	}
-	
+
 }
 //ngocdt3 bo sung cho v7
 function checkJumboAccExistV7(liItem) {
@@ -3474,7 +3474,7 @@ function checkJumboAccExistV7(liItem) {
 		}
         interlockStatus = false;
 		applyScrollForMe(liItem);
-		
+
 		var gprsCmd = new GprsCmdObj(CONSTANTS.get("CMD_CHECK_EXIST_JUMBO_ACC"), "", "", gUserInfo.lang, gUserInfo.sessionID, arrayArgs);
 		data = getDataFromGprsCmd(gprsCmd);
 		requestBacgroundMBService('CMD_CHECK_EXIST_JUMBO_ACC', arrayArgs, function(e){
@@ -3486,7 +3486,7 @@ function checkJumboAccExistV7(liItem) {
 					gJumboAccInfo = gprsResp.arguments;
 				} else {
 					gJumboAccExistedStat = true;
-				}				
+				}
 			}
 		}, function(){
 				console.log('Get data from Jumbo fail!');
@@ -3515,7 +3515,7 @@ function checkJumboAccExistV7(liItem) {
 						}
                         interlockStatus = false;
 						applyScrollForMe(liItem);
-						
+
 					}
 				}, function(){
 						console.log('Get data from Jumbo fail!');
@@ -3546,7 +3546,7 @@ function checkJumboAccExistSetting(liItem) {
 	var arrayArgs = new Array();
 	if (gJumboAccExistedStat != null) {
 		applyScrollForMe(liItem);
-		
+
 		var gprsCmd = new GprsCmdObj(CONSTANTS.get("CMD_CHECK_EXIST_JUMBO_ACC"), "", "", gUserInfo.lang, gUserInfo.sessionID, arrayArgs);
 		data = getDataFromGprsCmd(gprsCmd);
 		requestBacgroundMBService('CMD_CHECK_EXIST_JUMBO_ACC', arrayArgs, function(e){
@@ -3556,7 +3556,7 @@ function checkJumboAccExistSetting(liItem) {
 					gJumboAccExistedStat = false;
 				} else {
 					gJumboAccExistedStat = true;
-				}				
+				}
 			}
 		}, function(){
 				console.log('Get data from Jumbo fail!');
@@ -3580,7 +3580,7 @@ function checkJumboAccExistSetting(liItem) {
 							gJumboAccExistedStat = true;
 						}
 						applyScrollForMe(liItem);
-						
+
 					}
 				}, function(){
 						console.log('Get data from Jumbo fail!');
@@ -3590,14 +3590,14 @@ function checkJumboAccExistSetting(liItem) {
 /**TUANNM5 END UPDATE**/
 
 function applyScrollForMe(liItem) {
-	
+
 	if(hasMenuScrollEvent){
 		hasMenuScrollEvent = false;
 		return;
-	}	
+	}
 	if(interlockStatus) {
 		return;
-	}	
+	}
 	setInterlockEnable();
 	showMaskSlideMenu(content.isOpen);
 	var rowHeight = 38; //row menu height
@@ -3609,11 +3609,11 @@ function applyScrollForMe(liItem) {
         	//currentSubMenuContent.style.opacity = 0;
 		}
     }
-	
+
 	if(currentTotalSubmenuHeight < orgTotalSubmenuHeight){
-		 currentTotalSubmenuHeight = orgTotalSubmenuHeight;		 
+		 currentTotalSubmenuHeight = orgTotalSubmenuHeight;
 	}
-	
+
     var submenus = liItem.getElementsByClassName('menu-layout-contents-sub')[0];
     var subMenuHight = submenus.getElementsByTagName('li').length * rowHeight;
     if (submenus.style.height == '0px' || submenus.style.height == '') {
@@ -3626,7 +3626,7 @@ function applyScrollForMe(liItem) {
         //submenus.style.opacity = 0;
         currentTotalSubmenuHeight -= subMenuHight;
     }
-	
+
     document.getElementById('scroller-menu').style.height = currentTotalSubmenuHeight + 'px';
     setTimeout(menuScroll.refresh(), 500);
     currentDisplayMenu = liItem;
@@ -3664,7 +3664,7 @@ function loadPage(page, haveJs, successCallback, failCallback) {
 	//if(isIPad) windowScrollToTop();
 	windowScrollToTop();
 	showMaskSlideMenu(false);
-	
+
 	//show loading page indicator
 	var tabHostMsgNode = document.getElementById('tabHostFailMsg');
 	var tabHostIndicatorNode = document.getElementById('tabHostIndicator');
@@ -3690,30 +3690,30 @@ function loadPage(page, haveJs, successCallback, failCallback) {
 		}
 		tabHostIndicatorNode.style.display = 'none';
 	}, CONST_TIME_OUT_LOAD_PAGE * 1000);
-	
+
 	tabHostPageNode.style.display = 'none';
-	
+
 	if (gModeScreenView == CONST_MODE_SCR_SMALL) closeAllSlideMenu();
 	//if(currentPage != 'login-scr') closeAllSlideMenu();
 	var tmpStatusNoCachePage = navCheckPageNoCache(page);
-	
+
     //if ((currentPage != page) || (currentPage == navController.getDefaultPage()) || tmpStatusNoCachePage) {
 		cachePageHTML(currentPage);
-		
+
 		//event start unload page
-        if(typeof(window['viewWillUnload']) == 'function') {			
+        if(typeof(window['viewWillUnload']) == 'function') {
 			window['viewWillUnload']();
 			setTimeout(function(){
 				window['viewWillUnload'] = null;
 			},10);
-			
+
 		}
         //event start unload page
         document.dispatchEvent(evtStartUnloadPage);
-		
+
         if (((navCachedPages[page] == undefined) || (navCachedPages[page] == null)) || (currentPage == navController.getDefaultPage()) || tmpStatusNoCachePage) {
 			tabHostPageNode.innerHTML = '';
-			
+
 			var xhr;
 			if (window.XMLHttpRequest) {
 				xhr = new XMLHttpRequest();
@@ -3729,16 +3729,16 @@ function loadPage(page, haveJs, successCallback, failCallback) {
 			}
 			//var pathFullOfFile = (gDeviceWWWFolder.length == 0) ? ('./pages/' + page + '.html') : (gDeviceWWWFolder + 'pages/' + page + '.html');
 			xhr.open("GET", pathFullOfFile); //assuming kgr.bss is plaintext
-			
+
 			xhr.onreadystatechange = function () {
 				if ((xhr.readyState == 4) && ((xhr.status == 200) || (xhr.status == 0))) {
 					//for testing
 					logInfo("pape: " + page + " is ready!");
-					
+
 					fadeInMainContentScreen();
 					tabHostPageNode.style.display = '';
 					tabHostPageNode.innerHTML = xhr.responseText;
-					
+
 					//Add change language
 					changeLanguageInView();
 					//save js status
@@ -3748,7 +3748,7 @@ function loadPage(page, haveJs, successCallback, failCallback) {
 						//hide page indicator
 						tabHostIndicatorNode.style.display = 'none';
 						clearTimeout(timeOutLoadTabHost);
-						
+
 						var timePageEvent = setTimeout(function(){
 							clearTimeout(timePageEvent);
 							applyDynamicCommonStyleSheet();
@@ -3757,10 +3757,10 @@ function loadPage(page, haveJs, successCallback, failCallback) {
 								successCallback();
 							}
 							document.dispatchEvent(evtLoadPageSuccess);
-							
+
 							handleKeyboardShowAndHidden();
 						}, 10);
-						
+
 					}, function() {
 						logInfo("Page: " + page + " not found!!!");
 						tabHostIndicatorNode.style.display = 'none';
@@ -3790,7 +3790,7 @@ function loadPage(page, haveJs, successCallback, failCallback) {
             fadeInMainContentScreen();
 			tabHostPageNode.style.display = '';
 			tabHostPageNode.innerHTML = navCachedPages[page];
-			
+
 			//fix cache check box
 			var nodeTxts = document.getElementsByTagName("input");
 			for (var nx = 0; nx < nodeTxts.length; nx++) {
@@ -3799,18 +3799,18 @@ function loadPage(page, haveJs, successCallback, failCallback) {
 					tmpNodeTxt.checked = (tmpNodeTxt.value == 'true')? true: false;
 				}
 			}
-			
+
 			//Add change language
 			changeLanguageInView();
-			
+
 			//save js status
 			hasPageJS = haveJs;
 			currentPage = page;
 			loadJSfile(page, haveJs, function(){
-				
+
 				tabHostIndicatorNode.style.display = 'none';
 				clearTimeout(timeOutLoadTabHost);
-				
+
 				var timePageEvent = setTimeout(function(e){ //fix on windows phone
 					clearTimeout(timePageEvent);
 					applyDynamicCommonStyleSheet();
@@ -3825,7 +3825,7 @@ function loadPage(page, haveJs, successCallback, failCallback) {
 						},10)
 					}
 					document.dispatchEvent(evtLoadPageSuccess);
-					
+
 					handleKeyboardShowAndHidden();
 				}, 10);
 			}, function() {
@@ -3918,7 +3918,7 @@ function loadJSfile(page, haveJsFile, successCallback, failCallback) {
 			// no-cache
 			xhr.setRequestHeader("Cache-Control", "no-cache");
 			xhr.send();
-		} 
+		}
     }
 }
 
@@ -3929,7 +3929,7 @@ function loadPageXsl(page, haveJs, successCallback, failCallback) {
 	//if(isIPad) windowScrollToTop();
 	windowScrollToTop();
 	showMaskSlideMenu(false);
-	
+
 	//show loading page indicator
 	var tabHostMsgNode = document.getElementById('tabHostFailMsg');
 	var tabHostIndicatorNode = document.getElementById('tabHostIndicator');
@@ -3956,16 +3956,16 @@ function loadPageXsl(page, haveJs, successCallback, failCallback) {
 		tabHostIndicatorNode.style.display = 'none';
 	}, CONST_TIME_OUT_LOAD_PAGE * 1000);
 	tabHostPageNode.style.display = 'none';
-	
+
 	if (gModeScreenView == CONST_MODE_SCR_SMALL) closeAllSlideMenu();
 	//if(currentPage != 'login-scr') closeAllSlideMenu();
 	var tmpStatusNoCachePage = navCheckPageNoCache(page);
-	
+
     //if ((currentPage != page) || (currentPage == navController.getDefaultPage()) || tmpStatusNoCachePage) {
         cachePageHTML(currentPage);
-		
+
         //event start unload page
-        if(typeof(window['viewWillUnload']) == 'function') {			
+        if(typeof(window['viewWillUnload']) == 'function') {
 			window['viewWillUnload']();
 			setTimeout(function(){
 				window['viewWillUnload'] = null;
@@ -3973,10 +3973,10 @@ function loadPageXsl(page, haveJs, successCallback, failCallback) {
 		}
 		//event start unload page
         document.dispatchEvent(evtStartUnloadPage);
-		
+
         if ((navCachedPages[page] == undefined) || (navCachedPages[page] == null) || !navCachedXsl[page] || (currentPage == navController.getDefaultPage()) || tmpStatusNoCachePage) {
 			tabHostPageNode.innerHTML = '';
-			
+
 			var xhr;
 			if (window.ActiveXObject) {
 				xhr = new ActiveXObject("Msxml2.XMLHTTP"); //("Microsoft.XMLHTTP");//
@@ -3994,11 +3994,11 @@ function loadPageXsl(page, haveJs, successCallback, failCallback) {
 			//var pathFullOfFile = (gDeviceWWWFolder.length == 0) ? ('./pages/' + page + '.xsl') : (gDeviceWWWFolder + 'pages/' + page + '.xsl');
 			var tmpString = getCurrentTime();
 			xhr.open("GET", pathFullOfFile); //assuming kgr.bss is plaintext
-			
+
 			xhr.onreadystatechange = function () {
 				if ((xhr.readyState == 4) && ((xhr.status == 200) || (xhr.status == 0))) {
 					logInfo("pape Xsl: " + page + " is ready!");
-					
+
 					if(xhr.responseXML == undefined || xhr.responseXML == null) {
 						logInfo('XSL is incorrect format or not exist');
 						if(typeof(failCallback) == 'function') {
@@ -4008,13 +4008,13 @@ function loadPageXsl(page, haveJs, successCallback, failCallback) {
 					}
 					//save js status
 					hasPageJS = haveJs;
-					
+
 					setCachePageXsl(page, xhr.responseXML);
 					loadJSfile(page, haveJs, function(){
 						//hide page indicator
 						tabHostIndicatorNode.style.display = 'none';
 						clearTimeout(timeOutLoadTabHost);
-						
+
 						var tmpXmlData = "";
 						var timeInitXml = setTimeout(function(){
 							clearTimeout(timeInitXml);
@@ -4031,7 +4031,7 @@ function loadPageXsl(page, haveJs, successCallback, failCallback) {
 									successCallback();
 								}
 							}); //stringtoXML(tmpXmlData)
-						}, 50);	
+						}, 50);
 					}, function(){
 						logInfo("Page: " + page + " not found!!!");
 						tabHostIndicatorNode.style.display = 'none';
@@ -4067,18 +4067,18 @@ function loadPageXsl(page, haveJs, successCallback, failCallback) {
 					tmpNodeTxt.checked = (tmpNodeTxt.value == 'true')? true: false;
 				}
 			}
-			
+
 			//Add change language
 			//changeLanguageInView();
-			
+
 			//save js status
 			hasPageJS = haveJs;
 			//currentPage = page;
-			
+
 			fadeInMainContentScreen();
 			tabHostPageNode.style.display = '';
 			loadJSfile(page, haveJs, function(){
-				
+
 				var tmpXmlData = "";
 				var tmpXslData = getCachePageXsl(page);
 				setTimeout(function(){
@@ -4092,7 +4092,7 @@ function loadPageXsl(page, haveJs, successCallback, failCallback) {
 						//hide page indicator
 						tabHostIndicatorNode.style.display = 'none';
 						clearTimeout(timeOutLoadTabHost);
-						
+
 						if(successCallback && (typeof(successCallback) == 'function')) {
 							successCallback();
 						}
@@ -4102,7 +4102,7 @@ function loadPageXsl(page, haveJs, successCallback, failCallback) {
 							tabHostMsgNode.innerHTML = CONST_STR.get('ERR_LOAD_PAGE_FAIL_CONTENT');
 							tabHostMsgNode.style.display = '';
 						}); //stringtoXML(tmpXmlData)
-				}, 10);	
+				}, 10);
 			}, function(){
 				logInfo("Page: " + page + " not found!!!");
 				tabHostIndicatorNode.style.display = 'none';
@@ -4132,22 +4132,22 @@ function navInitPageFromXmlAndXsl(page, iXml, inXsl, statusCache, successCallbac
 	if (gModeScreenView == CONST_MODE_SCR_SMALL) closeAllSlideMenu();
 	//if(currentPage != 'login-scr') closeAllSlideMenu();
 	var tmpStatusNoCachePage = navCheckPageNoCache(page);
-	
+
     //if ((currentPage != page) || (currentPage == navController.getDefaultPage()) || tmpStatusNoCachePage) {
 		if (((navCachedPages[page] == undefined) || (navCachedPages[page] == null)) || (currentPage == navController.getDefaultPage()) || tmpStatusNoCachePage) {
 			currentPage = page;
-			
+
 			if (window.ActiveXObject || "ActiveXObject" in window) {// || xhttpIE.responseType == "msxml-document") {
-				// Load XML 
+				// Load XML
 				var xml = new ActiveXObject("Microsoft.XMLDOM");
 				xml.async = false;
 				xml.load(inXml);
-				
+
 				// Load the XSL
 				var xsl = new ActiveXObject("Microsoft.XMLDOM");
 				xsl.async = false;
 				xsl.load(inXsl);
-				var ex = xml.transformNode(xsl)            
+				var ex = xml.transformNode(xsl)
 				//var ex = inXml.transformNode(inXsl);
 				if((ex == undefined) || (ex == null)) {
 					if(failCallback && typeof(failCallback) == 'function') {
@@ -4165,7 +4165,7 @@ function navInitPageFromXmlAndXsl(page, iXml, inXsl, statusCache, successCallbac
 						applyDynamicCommonStyleSheet();
 						applyDynamicPageStyleSheet(true);
 					}, 300);
-					
+
 					var timePageEvent = setTimeout(function(){
 						clearTimeout(timePageEvent);
 						if(successCallback && (typeof(successCallback) == 'function')) {
@@ -4179,9 +4179,9 @@ function navInitPageFromXmlAndXsl(page, iXml, inXsl, statusCache, successCallbac
 						}
 						//using with page load has delegate
 						document.dispatchEvent(evtLoadPageSuccess);
-						
+
 						handleKeyboardShowAndHidden();
-					}, 50);	
+					}, 50);
 				}, 300);
 			}
 			// code for Chrome, Firefox, Opera, etc.
@@ -4204,7 +4204,7 @@ function navInitPageFromXmlAndXsl(page, iXml, inXsl, statusCache, successCallbac
 					applyDynamicCommonStyleSheet();
 					applyDynamicPageStyleSheet(true);
 				}, 300);
-				
+
 				var timePageEvent = setTimeout(function(){
 					clearTimeout(timePageEvent);
 					if(successCallback && (typeof(successCallback) == 'function')) {
@@ -4218,7 +4218,7 @@ function navInitPageFromXmlAndXsl(page, iXml, inXsl, statusCache, successCallbac
 					}
 					//using with page load has delegate
 					document.dispatchEvent(evtLoadPageSuccess);
-					
+
 					handleKeyboardShowAndHidden();
 				}, 50);
 			}
@@ -4233,10 +4233,10 @@ function navInitPageFromXmlAndXsl(page, iXml, inXsl, statusCache, successCallbac
 		}
 		else {
 			currentPage = page;
-			
+
 			document.getElementById('tabHost').innerHTML = navCachedPages[page];
 			//document.getElementById('tabHost').style.opacity = 1;
-			
+
 			//fix cache check box
 			var nodeTxts = document.getElementsByTagName("input");
 			for (var nx = 0; nx < nodeTxts.length; nx++) {
@@ -4245,20 +4245,20 @@ function navInitPageFromXmlAndXsl(page, iXml, inXsl, statusCache, successCallbac
 					tmpNodeTxt.checked = (tmpNodeTxt.value == 'true')? true: false;
 				}
 			}
-			
+
 			//Add change language
 			changeLanguageInView();
 			//save js status
 			//hasPageJS = haveJs;
 			currentPage = page;
-			
+
 			var timePageEvent = setTimeout(function(e){ //fix on windows phone
 				clearTimeout(timePageEvent);
 				setTimeout(function() {
 					applyDynamicCommonStyleSheet();
 					applyDynamicPageStyleSheet(true);
 				}, 300);
-				
+
 				if(successCallback && (typeof(successCallback) == 'function')) {
 					successCallback();
 				}
@@ -4270,18 +4270,18 @@ function navInitPageFromXmlAndXsl(page, iXml, inXsl, statusCache, successCallbac
 				}
 				//using with page load has delegate
 				document.dispatchEvent(evtLoadPageSuccess);
-				
+
 				handleKeyboardShowAndHidden();
 			}, 50);
 		}
 	//}
 }
 
-function fadeOutMainContentScreen(){	
-	document.getElementById('tabHost').style.opacity = 0;		
+function fadeOutMainContentScreen(){
+	document.getElementById('tabHost').style.opacity = 0;
 }
 
-function fadeInMainContentScreen(){	
+function fadeInMainContentScreen(){
 	var timeFadeInEffect;
 	if(timeFadeInEffect) {
 		clearTimeout(timeFadeInEffect);
@@ -4299,16 +4299,16 @@ function genHTMLStringWithXMLScrollto(inXml, inXsl, successCallback, failCallbac
 		if(!window.ActiveXObject) createXMLNode('root', '', inXml);
 	}
 	if (window.ActiveXObject || "ActiveXObject" in window) { // || xhttp.responseType == "msxml-document") {
-		// Load XML 
+		// Load XML
 		var xml = new ActiveXObject("Microsoft.XMLDOM");
 		xml.async = false;
 		xml.load(inXml);
-		
+
 		// Load the XSL
 		var xsl = new ActiveXObject("Microsoft.XMLDOM");
 		xsl.async = false;
 		xsl.load(inXsl);
-		var ex = xml.transformNode(xsl)    
+		var ex = xml.transformNode(xsl)
 		//var ex = inXml.transformNode(inXsl);
 		if((ex == undefined) || (ex == null)) {
 			if(failCallback && typeof(failCallback) == 'function') {
@@ -4332,7 +4332,7 @@ function genHTMLStringWithXMLScrollto(inXml, inXsl, successCallback, failCallbac
 					}
 				}
 			}, 10);
-		}		
+		}
 	}
 	// code for Chrome, Firefox, Opera, etc.
 	else if (document.implementation && document.implementation.createDocument) {
@@ -4347,7 +4347,7 @@ function genHTMLStringWithXMLScrollto(inXml, inXsl, successCallback, failCallbac
 		}
 		else {
 			var timePageLoad = setTimeout(function() {
-				clearTimeout(timePageLoad);				
+				clearTimeout(timePageLoad);
 				if(successCallback && typeof(successCallback) == 'function') {
 					var xmlAsString = new XMLSerializer().serializeToString( resultDocument );
 					//logInfo(xmlAsString);
@@ -4379,16 +4379,16 @@ function genHTMLStringWithXML(inXml, inXsl, successCallback, failCallback, notUp
 		if(!window.ActiveXObject) createXMLNode('root', '', inXml);
 	}
 	if (window.ActiveXObject || "ActiveXObject" in window) { // || xhttp.responseType == "msxml-document") {
-		// Load XML 
+		// Load XML
 		var xml = new ActiveXObject("Microsoft.XMLDOM");
 		xml.async = false;
 		xml.load(inXml);
-		
+
 		// Load the XSL
 		var xsl = new ActiveXObject("Microsoft.XMLDOM");
 		xsl.async = false;
 		xsl.load(inXsl);
-		var ex = xml.transformNode(xsl)    
+		var ex = xml.transformNode(xsl)
 		//var ex = inXml.transformNode(inXsl);
 		if((ex == undefined) || (ex == null)) {
 			if(failCallback && typeof(failCallback) == 'function') {
@@ -4408,7 +4408,7 @@ function genHTMLStringWithXML(inXml, inXsl, successCallback, failCallback, notUp
 					applyDynamicPageStyleSheet(true);
 				}
 			}, 10);
-		}		
+		}
 	}
 	// code for Chrome, Firefox, Opera, etc.
 	else if (document.implementation && document.implementation.createDocument) {
@@ -4423,7 +4423,7 @@ function genHTMLStringWithXML(inXml, inXsl, successCallback, failCallback, notUp
 		}
 		else {
 			var timePageLoad = setTimeout(function() {
-				clearTimeout(timePageLoad);				
+				clearTimeout(timePageLoad);
 				if(successCallback && typeof(successCallback) == 'function') {
 					var xmlAsString = new XMLSerializer().serializeToString( resultDocument );
 					//logInfo(xmlAsString);
@@ -4452,11 +4452,11 @@ function genXslPageWithXML(inXml, inXsl, successCallback, failCallback) {
 		if(!window.ActiveXObject) createXMLNode('root', '', inXml);
 	}
 	if (window.ActiveXObject || "ActiveXObject" in window) { // || xhttp.responseType == "msxml-document") {
-		// Load XML 
+		// Load XML
 		var xml = new ActiveXObject("Microsoft.XMLDOM");
 		xml.async = false;
 		xml.load(inXml);
-		
+
 		// Load the XSL
 		var xsl = new ActiveXObject("Microsoft.XMLDOM");
 		xsl.async = false;
@@ -4479,7 +4479,7 @@ function genXslPageWithXML(inXml, inXsl, successCallback, failCallback) {
 				applyDynamicCommonStyleSheet();
 				applyDynamicPageStyleSheet(true);
 			}, 10);
-		}		
+		}
 	}
 	// code for Chrome, Firefox, Opera, etc.
 	else if (document.implementation && document.implementation.createDocument) {
@@ -4494,7 +4494,7 @@ function genXslPageWithXML(inXml, inXsl, successCallback, failCallback) {
 		}
 		else {
 			var timePageLoad = setTimeout(function() {
-				clearTimeout(timePageLoad);				
+				clearTimeout(timePageLoad);
 				if(successCallback && typeof(successCallback) == 'function') {
 					successCallback(resultDocument, 'webkit');
 				}
@@ -4521,14 +4521,14 @@ function loadXMLDoc(filename)
 		xhttpIE = new ActiveXObject("Msxml2.XMLHTTP"); //("Microsoft.XMLHTTP");//
 		//xhttpIE = new ActiveXObject("Microsoft.XMLDOM");
 	}
-	else 
+	else
 	{
 		xhttpIE = new XMLHttpRequest();
 	}
 	var tmpString = getCurrentTime();
 	//xhttpIE.open("GET", filename + '?id=' + tmpString, false);
 	xhttpIE.open("GET", filename, false);
-	
+
 	//try {xhttpIE.responseType = "msxml-document"} catch(err) {} // Helping IE11
 	xhttpIE.send("");
 	if(xhttpIE.responseXML) {
@@ -4560,7 +4560,7 @@ function XMLToString(oXML)
  //code for IE
  if (window.ActiveXObject || 'ActiveXObject' in window) {
 	var oString = oXML.xml; return oString;
- } 
+ }
  // code for Chrome, Safari, Firefox, Opera, etc.
  else {
 	return (new XMLSerializer()).serializeToString(oXML);
@@ -4575,7 +4575,7 @@ function createXMLDoc() {
 		return new window.ActiveXObject("Microsoft.XMLDOM");
 	}
 	else if (document.implementation && document.implementation.createDocument) {
-		
+
 		return document.implementation.createDocument(null, "", null);
 	}
 	else {
@@ -4594,7 +4594,7 @@ function setNodeText(inNode, inStr) {
 
 function createXMLNode(nodeKey, nodeValue, inDocXml, nodeParent)
 {
-	
+
 	if(typeof(nodeKey) != 'string') return;
 	var returnNode;
 	if (nodeParent == undefined || nodeParent == null) {
@@ -4625,8 +4625,8 @@ function validateXml(inXml) {
 	{
 		oDOM = new ActiveXObject("Microsoft.XMLDOM");
 		oDOM.async=false;
-		oDOM.loadXML(inXml); 
-	} 
+		oDOM.loadXML(inXml);
+	}
 	//var oParser = new DOMParser();
 	//var oDOM = oParser.parseFromString(inXml, "application/xml");
 	// print the name of the root element or error message
@@ -4639,8 +4639,8 @@ function validateXml(inXml) {
 }
 
 function cachePageHTML(page) {
-	/*if ((mainContentScroll !== undefined) && (mainContentScroll !== null)) {			
-		mainContentScroll.destroy();			
+	/*if ((mainContentScroll !== undefined) && (mainContentScroll !== null)) {
+		mainContentScroll.destroy();
     }*/
     var nodeTabHost = document.getElementById("tabHost");
     if (page == "login-scr") {
@@ -4715,8 +4715,8 @@ function showSlideMenu() {
 		displayMenuSection(content.isOpen);
 		setInterlockEnable();
 		//LamPT Add thêm refresh cho menu scroll khi show menu
-		setTimeout(menuScroll.refresh(), 300);		
-		
+		setTimeout(menuScroll.refresh(), 300);
+
 		//change
 		//applyDynamicCommonStyleSheet();
     }
@@ -4756,7 +4756,7 @@ var navController = {
     },
 	getDefaultPageType:function () {
         return navDefaultPageType;
-    },	
+    },
     initWithRootView:function (pageView, jsStatus, inType, successCallback, failCallback) {
     	if(hasMenuScrollEvent){
     		hasMenuScrollEvent = false;
@@ -4765,7 +4765,7 @@ var navController = {
 		navArrayOldScr = navArrayScr.slice(0);
 		//clear cache --> disable cache all
 		navRemoveAll();
-		
+
 		if(inType == undefined) {
 			navInitWithRootView(pageView, jsStatus, successCallback, failCallback);
 			return;
@@ -4779,7 +4779,7 @@ var navController = {
 				navInitWithRootView(pageView, jsStatus, successCallback, failCallback);
 				break;
 			}
-		}		
+		}
     },
     pushToView:function (pageView, jsStatus, inType, successCallback) {
 		if(inType == undefined || inType == null || inType == '') {
@@ -4843,7 +4843,7 @@ var navController = {
 			}
 		}
 		navArrayScr = new Array();
-		
+
 		if(inType == undefined) {
 			navInitWithRootView(pageView, jsStatus);
 			return;
@@ -4895,7 +4895,7 @@ function navInitWithRootView(pageView, jsStatus, successCallback, failCallback) 
             }
         }
 		var tmpStatusNoCachePage = navCheckPageNoCache(navArrayScr[0]);
-		
+
         //call last page of branch
         navArrayScr = new Array();
         navArrayScr = tmpArr;
@@ -4938,13 +4938,13 @@ function navInitWithRootViewXsl(pageView, jsStatus, successCallback, failCallbac
                 break;
             }
         }
-		
+
 		var tmpStatusNoCachePage = navCheckPageNoCache(navArrayScr[0]);
-        
+
 		//call last page of branch
         navArrayScr = new Array();
         navArrayScr = tmpArr;
-		
+
 		if(tmpStatusNoCachePage) {
 			loadPageXsl(navArrayScr[0], jsStatus);
 		}
@@ -4994,7 +4994,7 @@ function navPopView(jsStatus) {
 				}
 			});
 		}
-        else { 
+        else {
 			loadPage(navArrayScr[navArrayScr.length - 1], jsStatus, function(){
 				if(typeof(window['viewBackFromOther']) == 'function') {
 					window['viewBackFromOther']();
@@ -5020,7 +5020,7 @@ function navPopToView(pageView, jsStatus) {
 	else {
     	loadPage(navArrayScr[navArrayScr.length - 1], jsStatus);
 	}
-    
+
 }
 function navPopToRootView(jsStatus) {
     var rootView = navArrayScr[0];
@@ -5169,11 +5169,11 @@ function logoutExit() {
 		}, 5000);
     }
     setInterlockEnable();
-	
+
 	THEBTouchID.quitApplication('abc', function() {
-	
+
 	}, function() {
-	
+
 	});
 }
 
@@ -5203,7 +5203,7 @@ function setTimerCheckLogout() {
 		   function resetTimeoutLogout()
 		   {
 				clearTimeout(wait);
-				
+
 				gLastUsingTime = getCurrentTime();
 				if(gIsLogin) {
 					wait = setTimeout(logout, CONST_TIMER_TO_LOGOUT * 1000);
@@ -5373,7 +5373,7 @@ function isIOS_Safari()
 	else
 	{
 		return false;
-	}	
+	}
 }
 
 function hiddenKeyBoard() {
@@ -5384,7 +5384,7 @@ function hiddenKeyBoard() {
 		if(document.activeElement)
 			document.activeElement.blur(); //hidden keyboard
 	}
-	
+
     var tmpArrInputNote = document.getElementsByTagName('input');
 	if(tmpArrInputNote && tmpArrInputNote.length > 0) {
 		for (var i = 0; i < tmpArrInputNote.length; i++) {
@@ -5412,20 +5412,20 @@ function checkToLogoutSystem() {
 		logInfo('logout');
 		logout();
 	}
-	
+
 }
 
 function handleTouchStart(evt) {
 	//evt.preventDefault();
 	checkToLogoutSystem();
-	
+
     if (evt.target.nodeType != 1) return;
 	//var tmpMenu = document.getElementById('menu-section');
 	//if(tmpMenu.style.display != 'none'  || !gIsLogin) return;
 	if(gModeScreenView != CONST_MODE_SCR_SMALL) return; // || !gIsLogin
-	
+
 	if((currentPage == "bankinfo/bank-info-tpb-atm-map")) return;
-	
+
     lockTouchSlide = checkTouchLocked();
 	if((browserName.toString() == 'Safari')||(browserName.toString() == 'iPad')||(browserName.toString() == 'iPhone'))
 	{
@@ -5458,7 +5458,7 @@ function handleTouchStart(evt) {
 function handleTouchMove(evt) {
 	evt.preventDefault();
 	if(gModeScreenView != CONST_MODE_SCR_SMALL) return;
-	
+
     if (hasTouch) {
         pointEndX = evt.touches[0].pageX;
         pointEndY = evt.touches[0].pageY;
@@ -5473,7 +5473,7 @@ function handleTouchMove(evt) {
 function handleTouchEnd(evt) {
 	//evt.preventDefault();
 	if(gModeScreenView != CONST_MODE_SCR_SMALL) return;
-	
+
     var distX = 0,
         distY = 0;
     distX = Math.abs(pointEndX - pointStartX);
@@ -5482,7 +5482,7 @@ function handleTouchEnd(evt) {
     /*if ((distX > 10) || (distY > 0)) {
         //hiddenKeyBoard();
         //if (Environment.isAndroid() || Environment.isBlackBerry() || Environment.isIOS()) {
-		if((Environment.isIOS() && !Environment.isWindows()) || Environment.isBlackBerry()) {// || Environment.isAndroid()) 
+		if((Environment.isIOS() && !Environment.isWindows()) || Environment.isBlackBerry()) {// || Environment.isAndroid())
          	hiddenKeyBoard();
          }
     }*/
@@ -5494,7 +5494,7 @@ function handleTouchEnd(evt) {
             if (!content.isOpen && !contentPromotion.isOpen && stNode && !accNode && !slideViewNode) {
                 openMenuContent();
             }
-			
+
         }
 		if ((contentPromotion != undefined) && (contentPromotion.isOpen) && stNode && !accNode && !slideViewNode) {
 			closeMenuPromotion();
@@ -5510,7 +5510,7 @@ function handleTouchEnd(evt) {
         if ((content != undefined) && (content.isOpen) && stNode && !accNode && !slideViewNode) {
             closeMenuContent();
         }
-		
+
     }
     else if ((distX < 5) && (distY < 5)) {
         var stNode = checkIsChildOfClass(evt.target, 'main-layout');
@@ -5621,7 +5621,7 @@ function stopProgressBar(nodeID) {
 /*** CHANGE LANGUAGE ***/
 
 function changeLanguageInView() {
-	
+
 	//hide module eGold - do not have English language
 	if(gUserInfo.lang == 'EN') {
 		if(document.getElementById('goldTrade')) document.getElementById('goldTrade').style.display = 'none';
@@ -5629,7 +5629,7 @@ function changeLanguageInView() {
 	else {
 		if(document.getElementById('goldTrade')) document.getElementById('goldTrade').style.display = '';
 	}
-	
+
     changeLanguageInMainContentInAtt('placeholder', 'mainViewContent');
     changeLanguageInMainContentInAtt('value', 'mainViewContent');
 	changeLanguageInMainContentInAtt('placeholder', 'mainViewVerticalSlide');
@@ -5637,9 +5637,9 @@ function changeLanguageInView() {
     changeLanguageInMainContentInAtt('value', 'accountSelectContents');
     changeLanguageInMainContentInAtt('value', 'divbottomcenter');
     changeLanguageInMainContentInAtt('value', 'alert-confirm-dialog');
-    changeLanguageInMainContentInAtt('value', 'alert-info-dialog');	
+    changeLanguageInMainContentInAtt('value', 'alert-info-dialog');
     changeLanguageInMainContentInAtt('value', 'esaving.accountselection');
-	
+
 	changeLanguageInMainContentInAtt('value', 'alert-KHCN-KHDN-TERMS-dialog');
 	changeLanguageInMainContentInAtt('value', 'alert-KHCN-KHDN-INSTRUCTION-dialog');
 	changeLanguageInMainContentInAtt('value', 'alert-KHCN-KHDN-FAQ-dialog');
@@ -5959,7 +5959,7 @@ function getUserInfoToLocal() {
 		try {
 			// Web storage is supported
 			var tmpUserNo = localStorage.getItem('BhipUserNumber');
-	
+
 			if ((tmpUserNo != undefined) && (tmpUserNo != null)) {
 				gCustomerNo = tmpUserNo;
 				gCustomerNanme = localStorage.getItem('BhipUserName');
@@ -5971,7 +5971,7 @@ function getUserInfoToLocal() {
 			logInfo('Browser not support local store');
 			return false;
 		}
-        
+
     }
     else {
         // Web storage is NOT supported
@@ -5989,7 +5989,7 @@ function setGoldTerm(inStr) {
 		catch(err) {
 			logInfo('Browser not support local store');
 		}
-        
+
     }
     else {
         // Web storage is NOT supported
@@ -6067,7 +6067,7 @@ function handleKeyboardShowAndHidden() {
 	var timeOutFocus;
 	var tmpWP = navigator.userAgent.match(/IEMobile|WPDesktop/i);
 	var tmpIPad = navigator.userAgent.match(/iPad/i);
-	
+
 	if(arrayInputs && arrayInputs.length > 0) {
 		for (var i = 0; i < arrayInputs.length; i++) {
 			var elm = arrayInputs[i];
@@ -6086,7 +6086,7 @@ function handleKeyboardShowAndHidden() {
 					clearTimeout(timeOutToChangeSize); //fix on iPad iOS6
 					timeOutToChangeSize = null;
 				}
-				
+
 				clearTimeout(timeOutFocus);
 				timeOutFocus = null;
 			}, true);
@@ -6116,12 +6116,12 @@ function handleKeyboardShowAndHidden() {
 							// applyDynamicPromotionWithNumOfItems(10);
 						}
 					}, 500);
-					
+
 				}, true);
 			}
 		}
 	}
-	
+
 	if(arrayInputsTextArea && arrayInputsTextArea.length > 0) {
 		for (var i = 0; i < arrayInputsTextArea.length; i++) {
 			var elm = arrayInputsTextArea[i];
@@ -6142,7 +6142,7 @@ function handleKeyboardShowAndHidden() {
 				}
 				clearTimeout(timeOutFocus);
 				timeOutFocus = null;
-				
+
 			}, true);
 			if(!tmpWP) {
 				elm.addEventListener('blur', function() {
@@ -6170,7 +6170,7 @@ function handleKeyboardShowAndHidden() {
 							// applyDynamicPromotionWithNumOfItems(10);
 						}
 					}, 500);
-					
+
 				}, true);
 			}
 		}
@@ -6182,7 +6182,7 @@ function handleKeyboardShowAndHidden() {
 /*** EGOLD TRANSACTION ***/
 
 function openEGoldView() {
-	
+
 	//openEGoldMenu();
 	if(!gUserInfo.goldTermConfirmed) {
 		navController.pushToView('egold/gold-term-confirm-scr', true);
@@ -6197,13 +6197,13 @@ function openEGoldMenu() {
 	setTimeout(function(e) {
 		if (!content.isOpen && !contentPromotion.isOpen) {
 			openMenuContent();
-			
+
 			var nodeEGoldMenu = document.getElementById('goldTrade');
 			if((nodeEGoldMenu != undefined) && (nodeEGoldMenu != null) && (currentDisplayMenu != nodeEGoldMenu)) {
 				applyScrollForMe(nodeEGoldMenu);
 			}
 		}
-	}, 300);	
+	}, 300);
 }
 
 /*** EGOLD TRANSACTION END ***/
@@ -6229,7 +6229,7 @@ function openMenuContent() {
 	displayMenuSection(content.isOpen);
 	setInterlockEnable();
 	//LamPT Add thêm refresh cho menu scroll khi show menu
-	setTimeout(menuScroll.refresh(), 300);			
+	setTimeout(menuScroll.refresh(), 300);
 }
 function closeMenuContent() {
 	showMaskSlideMenu(false);
@@ -6279,7 +6279,7 @@ function showMaskSlideMenu(inStatus) {
 			}, 1000);
 		}
 	//}
-	
+
 }
 
 /*** MASK WHEN SHOW SLIDE MENU END ***/
@@ -6287,20 +6287,20 @@ function showMaskSlideMenu(inStatus) {
 /*** DISPLAY ON DESKTOP ***/
 
 function setViewOnDesktopWhenLogin() {
-		
+
 	var tmpNodeMenu = document.getElementById('menu-section');
 	tmpNodeMenu.style.display = 'block';
-	
+
 	//updateViewForDesktop();
-	
+
 	updateMainContentWidth();
 }
 
 function updateViewForDesktop() {
 	//close menu & promotion view before update resize
-	if(content != undefined) content.close(); 
+	if(content != undefined) content.close();
 	if(contentPromotion != undefined) contentPromotion.close();
-	
+
 	document.body.style.backgroundColor = '#F1F1F1';
 	var tmpNodeMain = document.getElementById('mainview');
 	var tmpNodePage = document.getElementById('fullPage');
@@ -6321,7 +6321,7 @@ function updateViewForDesktop() {
 	}
 	var tmpNodePage = document.getElementById('fullPage');
 	tmpNodePage.setAttribute('align', 'left'); //left
-	
+
 	tmpNodeMain.style.borderLeftStyle = 'dashed';
 	tmpNodeMain.style.borderRightStyle = 'dashed';
 	var tmpNodeHeader = tmpNodeMain.getElementsByClassName('header')[0];
@@ -6335,14 +6335,14 @@ function updateViewForDesktop() {
 		document.getElementById('headerib').style.display = 'none';
 	}
 	document.getElementById('mainlayoutfooter').style.display = 'none';
-	
+
 }
 
 function updateViewForMobile() {
 	//close menu & promotion view before update resize
-	if(content != undefined) content.close(); 
+	if(content != undefined) content.close();
 	if(contentPromotion != undefined) contentPromotion.close();
-	
+
 	document.body.style.backgroundColor = '#5F2F85';
 	var tmpNodePage = document.getElementById('fullPage');
 	tmpNodePage.setAttribute('align', 'left'); //left
@@ -6360,15 +6360,15 @@ function updateViewForMobile() {
 	document.getElementById('menu-section').style.display = 'none';
 	document.getElementById('headermb').style.display = 'block';
 	document.getElementById('headerib').style.display = 'none';
-	
-	
+
+
 	if (!gIsLogin)
 	{
 		document.getElementById('mainlayoutfooter').style.display = 'block';
 	}
-	
-	
-	
+
+
+
 }
 
 var CONST_MODE_SCR_SMALL = 1;
@@ -6379,7 +6379,7 @@ var CONST_MODE_SCR_FULL = 3;
 //var isModelMobile = navigator.userAgent.match(/Android|iPhone|iPod|IEMobile/i);
 
 function updateMainContentWidth(inWidth, inHeight) {
-	
+
 	if(!inWidth) {
 		inWidth = window.innerWidth
 			|| document.documentElement.clientWidth
@@ -6393,16 +6393,16 @@ function updateMainContentWidth(inWidth, inHeight) {
 	var tmpNodePage = document.getElementById('fullPage');
 	tmpNodePage.style.height = inHeight + 'px';
 	var tmpNodePageHeader = document.getElementById('pageHeader');
-	
+
 	var isIPad = navigator.userAgent.match(/iPad/i);
-	
+
 	//TUANNM5 update pinpad
 	document.getElementById('div-pinpad').style.width = inWidth;
 	document.getElementById('div-pinpad').style.height = inHeight;
-	
+
 	//TUANNM5 end update
-	
-	
+
+
 	var tmpNodeMain = document.getElementById('mainview');
 	var tmpMainViewWidth = 0;
 	if (inWidth < 801) { //width to change mode
@@ -6416,9 +6416,9 @@ function updateMainContentWidth(inWidth, inHeight) {
 			tmpNodePageHeader.style.display = 'block';
 		}
 		updateViewForMobile();
-		
+
 		tmpNodeMain.style.borderRightStyle = 'none';
-		changeJSandCSStoMB();			
+		changeJSandCSStoMB();
 	}
 	else {
 		tmpMainViewWidth = (inWidth - 260);
@@ -6433,8 +6433,8 @@ function updateMainContentWidth(inWidth, inHeight) {
 		}
 		document.body.height = inHeight;
 		windowScrollToTop();
-		
-		
+
+
 		updateViewForDesktop();
 		changeJSandCSStoIB();
 		tmpNodeMain.style.borderRightStyle = 'none';
@@ -6444,14 +6444,14 @@ function updateMainContentWidth(inWidth, inHeight) {
 			tmpMenu.style.opacity = 1;
 		}
 	}
-	
+
 	if(gIsLogin) {
 		tmpNodeMain.style.width = tmpMainViewWidth + 'px';
 	}
 }
 
 function keyboardEvent() {
-	
+
 	var tmpArrayInput = document.getElementsByTagName('input');
 	for(var i=0; i<tmpArrayInput.length; i++) {
 		var tmpInputNode = tmpArrayInput[i];
@@ -6463,7 +6463,7 @@ function keyboardEvent() {
 			//setTimeout(function() {
 				//alert('focus me!!');
 			//}, 10);
-			
+
 		}
 		tmpInputNode.onblur = function() {
 			setTimeout(function() {
@@ -6475,9 +6475,9 @@ function keyboardEvent() {
 					gOldDeviceHeight = currentClientHeight;
 					windowScrollToTop();
 				}
-				
+
 			}, 10);
-			
+
 		}
 	}
 	var tmpArrayTextarea = document.getElementsByTagName('textarea');
@@ -6529,11 +6529,11 @@ mode = 0 : mobile
 mode = 1 : desktop
 */
 //function initLanguageOnIB(mode) {
-function initLanguageOnIB() {	
-	
+function initLanguageOnIB() {
+
 	//document.getElementById('lblChangLanguageIBTitle').innerHTML = CONST_STR.get('TPBANK_TITLE');
 	document.getElementById('lblChangLanguage').innerHTML = CONST_STR.get('MAIN_SCR_HEADER_TITLE');
-	
+
 	document.getElementById('btnTERMS_KHDN').value = CONST_STR.get('ALERT_BTN_KHDN');
 	document.getElementById('btnTERMS_KHCN').value = CONST_STR.get('ALERT_BTN_KHCN');
 	document.getElementById('btnINSTR_KHDN').value = CONST_STR.get('ALERT_BTN_KHDN');
@@ -6542,23 +6542,23 @@ function initLanguageOnIB() {
 	document.getElementById('btnFAQ_KHCN').value = CONST_STR.get('ALERT_BTN_KHCN');
 	document.getElementById('btnOK_SCHEDULE').value = CONST_STR.get('ALERT_BTN_OK_TITLE_SCHEDULE');
 	document.getElementById('btnCANCEL_SCHEDULE').value = CONST_STR.get('ALERT_BTN_CANCEL_TITLE_SCHEDULE');
-	
+
 	document.getElementById('spanLoginContact').innerHTML = CONST_STR.get('LOGIN_CONTACT');
 	document.getElementById('spanCustomerService').innerHTML = CONST_STR.get('LOGIN_CUSTOMER_SERVICE');
 	document.getElementById('spanLoginBranch').innerHTML = CONST_STR.get('LOGIN_BRANCH');
 	document.getElementById('spanLoginATM').innerHTML = CONST_STR.get('LOGIN_ATM');
 	document.getElementById('spanLoginEmail').innerHTML = CONST_STR.get('LOGIN_EMAIL');
 	document.getElementById('spanLoginChat').innerHTML = CONST_STR.get('LOGIN_CHAT');
-	
+
 	//load btn icon language
 	var nodeBtnLang = document.getElementById('btnChangLanguage'); //mb language button
-	if (gUserInfo.lang == "EN") {	
+	if (gUserInfo.lang == "EN") {
 		/*
 		if (mode == 0)
 		{
 			nodeBtnLang.innerHTML = "<img class='languageEnglishFlag' src='./assets/images/Vietnam_flag_round_30.png' onClick='changeLanguageOnIB(0)'>";
 		}
-		
+
 		if (mode == 1)
 		{
 			nodeBtnLang.innerHTML = "<img class='languageEnglishFlag' src='./assets/images/IB_Vietnamese.png' onClick='changeLanguageOnIB(1)'>";
@@ -6567,13 +6567,13 @@ function initLanguageOnIB() {
 		nodeBtnLang.innerHTML = "<img class='languageEnglishFlag' src='./assets/images/Vietnam_flag_round_30.png' onClick='changeLanguageOnIB()'>";
 	}
 	else {
-		gUserInfo.lang = "VN";		
+		gUserInfo.lang = "VN";
 		/*
 		if (mode == 0)
 		{
 			nodeBtnLang.innerHTML = "<img class='languageEnglishFlag' src='./assets/images/English_flag_round_30.png' onClick='changeLanguageOnIB(0)'>";
 		}
-		
+
 		if (mode == 1)
 		{
 			nodeBtnLang.innerHTML = "<img class='languageEnglishFlag' src='./assets/images/IB_English.png' onClick='changeLanguageOnIB(1)'>";
@@ -6581,7 +6581,7 @@ function initLanguageOnIB() {
 		*/
 		nodeBtnLang.innerHTML = "<img class='languageEnglishFlag' src='./assets/images/English_flag_round_30.png' onClick='changeLanguageOnIB()'>";
 	}
-	
+
 	var nodeBtnLangIB = document.getElementById('btnChangLanguageIB'); //ib language button
 	if (gUserInfo.lang == "EN") {
 		/*
@@ -6589,7 +6589,7 @@ function initLanguageOnIB() {
 		{
 			nodeBtnLangIB.innerHTML = "<img class='languageEnglishFlag' src='./assets/images/Vietnam_flag_round_30.png' onClick='changeLanguageOnIB(0)'>";
 		}
-		
+
 		if (mode == 1)
 		{
 			nodeBtnLangIB.innerHTML = "<img class='languageEnglishFlag' src='./assets/images/IB_Vietnamese.png' onClick='changeLanguageOnIB(1)'>";
@@ -6604,7 +6604,7 @@ function initLanguageOnIB() {
 		{
 			nodeBtnLangIB.innerHTML = "<img class='languageEnglishFlag' src='./assets/images/English_flag_round_30.png' onClick='changeLanguageOnIB(0)'>";
 		}
-		
+
 		if (mode == 1)
 		{
 			nodeBtnLangIB.innerHTML = "<img class='languageEnglishFlag' src='./assets/images/IB_English.png' onClick='changeLanguageOnIB(1)'>";
@@ -6616,12 +6616,12 @@ function initLanguageOnIB() {
 function changeMenuLogout(){
 	var menu_logout = document.getElementById('id.menu_logout.caption');
 	if(menu_logout!=null){
-		menu_logout.innerHTML = CONST_STR.get('MENU_LOGOUT');	
+		menu_logout.innerHTML = CONST_STR.get('MENU_LOGOUT');
 	}
 }
 //function changeLanguageOnIB(mode) {
 function changeLanguageOnIB() {
-	
+
 	if (gUserInfo.lang == "VN") {
 		gUserInfo.lang = "EN";
 		setLanguageConfig(gUserInfo.lang);
@@ -6630,13 +6630,13 @@ function changeLanguageOnIB() {
 		gUserInfo.lang = "VN";
 		setLanguageConfig(gUserInfo.lang);
 	}
-	
-	
+
+
 	changeMenuLanguage();
 	//initLanguageOnIB(mode);
 	initLanguageOnIB();
 	//initFeedback();
-	
+
 	if(gIsLogin) {
 		//reset cache
 		navController.resetAll();
@@ -6649,9 +6649,9 @@ function changeLanguageOnIB() {
 	else {
 		currentPage = "";
 		cachedPages = "";
-		
+
 		navController.initWithRootView('login-scr', true);
-		
+
 		//20140911: hien box lien he - begin
 		var tmpNodeMain = document.getElementById('mainview');
 		tmpNodeMain.style.cssFloat = 'none';
@@ -6696,7 +6696,7 @@ var gConditions = {	"amount":
 								"maxlength":"50",
 								"func":""
 							}
-							
+
 				}
 
 function validateFunc(inValue, inConditions){
@@ -6854,17 +6854,17 @@ function getObjFromJSON(inStr) {
 /*** PAGE INDICATOR ***/
 
 function genPageIndicatorHtml(inTotalPages, inCurIdx, inMaxBtn, inArrDisable) {
-	
+
 	if (inTotalPages < 2) {
 		return '';
 	}
-	
+
 	var pageIndicator = '<ul class="pagination">';
 	var pageTotal = inTotalPages;//8;
 	var pageCurrentIdx = inCurIdx? inCurIdx: 1; //min is 1
 	var maxShowNum = (inMaxBtn && (inMaxBtn != 0))? inMaxBtn: 6; //default: 6
 	var arrDisable = inArrDisable; //[2];//inArrDisable;
-	
+
 	if(pageTotal < maxShowNum + 1) {
 		for(var i=0; i<pageTotal; i++) {
 			if(pageCurrentIdx == i+1) {
@@ -7126,11 +7126,11 @@ function selectedPageAtIndex(idx, inNode, inTotalPage, inMaxNum, inArrDisable) {
 function printNodeWithAll(inNode) {
 	//Save old page
 	var oldPage = document.body.innerHTML;
-	
+
 	var printContainer = document.createElement("div");
 	printContainer.setAttribute("style", "sytle='padding-top:10px;'");
 	printContainer.innerHTML = inNode.innerHTML;
-	
+
 	var linkStyle1 = document.createElement("link");
 	linkStyle1.setAttribute("rel", "stylesheet");
 	linkStyle1.setAttribute("type", "text/css");
@@ -7141,7 +7141,7 @@ function printNodeWithAll(inNode) {
 	linkStyle2.setAttribute("type", "text/css");
 	linkStyle2.setAttribute("href", "css/ebankstyle.css");
 	printContainer.appendChild(linkStyle2);
-	
+
 	/*var pri = document.getElementById("ifmcontentstoprint").contentWindow;
 	pri.document.open();
 	pri.document.write(printContainer.innerHTML);
@@ -7149,17 +7149,17 @@ function printNodeWithAll(inNode) {
 	pri.focus();
 	//pri.scroll(0,0);
 	pri.print();*/
-	document.body.innerHTML = 
-          "<html><head><title></title></head><body>" + 
+	document.body.innerHTML =
+          "<html><head><title></title></head><body>" +
           printContainer.innerHTML + "</body>";
 	setTimeout(function(){
 		//Print Page
         window.print();
-	
+
 		//Restore orignal HTML
 		document.body.innerHTML = oldPage;
 	}, 300);
-        
+
 }
 
 /*** PRINT END ***/
@@ -7259,11 +7259,11 @@ function handleCalendarNav(tbx, e) {
 	var month;
 	var year;
 	var monthLength = [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ];
-	
-	if (tbx.value.length == 0) { 
+
+	if (tbx.value.length == 0) {
 		tbx.value = "dd/mm/yyyy";
 	}
-	
+
 	if (tbx.value.length > 0) {
 		var tmpArr = tbx.value.split('/');
 		tmpArr[0] = tmpArr[0] == "dd" ? "1" : tmpArr[0];
@@ -7272,7 +7272,7 @@ function handleCalendarNav(tbx, e) {
 		month = Number(tmpArr[1]);
 		tmpArr[2] = tmpArr[2] == "yyyy" ? minYear + "" : tmpArr[2];
 		year = Number(tmpArr[2]);
-		
+
 		// Adjust for leap years
 		if(year % 400 == 0 || (year % 100 != 0 && year % 4 == 0)) {
 			monthLength[1] = 29;
@@ -7289,10 +7289,10 @@ function handleCalendarNav(tbx, e) {
 		newYearStr = "";
 		return;
 	}
-	
-	if(window.event){ // IE					
+
+	if(window.event){ // IE
 		keynum = e.keyCode;
-	}else if(e.which){ // Netscape/Firefox/Opera					
+	}else if(e.which){ // Netscape/Firefox/Opera
 		keynum = e.which;
 	 }
 //	logInfo(keynum);
@@ -7302,9 +7302,9 @@ function handleCalendarNav(tbx, e) {
 	if (keynum != 8 && keynum != 32 && keynum != 37 && keynum != 38 && keynum != 39 && keynum != 40 && (keynum < 48 || (keynum > 57 && keynum < 96) || keynum > 105)) {
 		return false;
 	}
-	
+
 	//HANDLE NAVIGATION KEY
-	
+
 	//left
 	if (keynum == 37) {
 		if (carretPos == 6) {
@@ -7313,11 +7313,11 @@ function handleCalendarNav(tbx, e) {
 		} else if (carretPos == 3) {
 			newDayStr = "";
 			setSelection(tbx, 0, 2);
-		} 
+		}
 		return false;
 	//up
 	} else if (keynum == 38) {
-		
+
 		//dd
 		if (carretPos == 0) {
 			// Check the range of the day
@@ -7332,11 +7332,11 @@ function handleCalendarNav(tbx, e) {
 			// Check the range of the month
    			if (month < 12) {
 				month++;
-				
+
 				if (day > monthLength[month - 1]) {
 					day = monthLength[month - 1];
 				}
-				
+
 				tbx.value = day < 10 ? "0" + day + "/" : day + "/";
 				tbx.value += month < 10 ? "0" + month + "/" + year : month + "/" + year;
 			}
@@ -7346,23 +7346,23 @@ function handleCalendarNav(tbx, e) {
 			// Check the range of the year
    			if (year < maxYear) {
 				year++;
-		
+
 				// Adjust for leap years
 				if(year % 400 == 0 || (year % 100 != 0 && year % 4 == 0)) {
 					monthLength[1] = 29;
 				} else {
 					monthLength[1] = 28;
 				}
-				
+
 				if (day > monthLength[month - 1]) {
 					day = monthLength[month - 1];
 				}
-				
+
 				tbx.value = day < 10 ? "0" + day + "/" : day + "/";
 				tbx.value += month < 10 ? "0" + month + "/" + year : month + "/" + year;
 			}
 			setSelection(tbx, 6, 10);
-		} 
+		}
 		return false;
 	//right and space
 	} else if (keynum == 39 || keynum == 32) {
@@ -7376,7 +7376,7 @@ function handleCalendarNav(tbx, e) {
 		return false;
 	//down
 	} else if (keynum == 40) {
-		
+
 		//dd
 		if (carretPos == 0) {
 			// Check the range of the day
@@ -7391,11 +7391,11 @@ function handleCalendarNav(tbx, e) {
 			// Check the range of the month
    			if (month > 1) {
 				month--;
-				
+
 				if (day > monthLength[month - 1]) {
 					day = monthLength[month - 1];
 				}
-				
+
 				tbx.value = day < 10 ? "0" + day + "/" : day + "/";
 				tbx.value += month < 10 ? "0" + month + "/" + year : month + "/" + year;
 			}
@@ -7405,14 +7405,14 @@ function handleCalendarNav(tbx, e) {
 			// Check the range of the year
    			if (year > minYear) {
 				year--;
-				
+
 				// Adjust for leap years
 				if(year % 400 == 0 || (year % 100 != 0 && year % 4 == 0)) {
 					monthLength[1] = 29;
 				} else {
 					monthLength[1] = 28;
 				}
-				
+
 				if (day > monthLength[month - 1]) {
 					day = monthLength[month - 1];
 				}
@@ -7420,27 +7420,27 @@ function handleCalendarNav(tbx, e) {
 				tbx.value += month < 10 ? "0" + month + "/" + year : month + "/" + year;
 			}
 			setSelection(tbx, 6, 10);
-		} 
+		}
 		return false;
 	}
-	
+
 	//HANDLE NUMBERIC KEY and DELETE KEY
 	if (keynum == 8 || (keynum >= 48 && keynum <= 57) || (keynum >= 96 && keynum <= 105)) {
-		
-		
+
+
 		if (keynum == 8) {
 			e.preventDefault();
 			e.stopPropagation();
 		}
-		
+
 		var tmpDate = tbx.value;
 		var oriDate = tmpDate;
 		var newDay, newMonth, newYear;
 		keynum = keynum > 57 ? keynum - 48 : keynum;
-		
+
 		//dd
 		if (carretPos == 0) {
-			
+
 			//delete key
 			if (keynum == 8) {
 				tmpDate = replaceAt(tmpDate, 0, "d");
@@ -7450,7 +7450,7 @@ function handleCalendarNav(tbx, e) {
 				setSelection(tbx, 0, 2);
 				return;
 			}
-			
+
 			if (newDayStr.length == 0 || newDayStr.length >= 2) {
 				newDayStr = String.fromCharCode(keynum);
 				newDay = Number(newDayStr);
@@ -7458,7 +7458,7 @@ function handleCalendarNav(tbx, e) {
 				newDayStr += String.fromCharCode(keynum);
 				newDay = Number(newDayStr);
 			}
-			
+
 			// Check the range of the day
    			if (newDay >= 1 && newDay <= monthLength[month - 1]) {
 				tbx.value = newDay < 10 ? "0" + newDay + "/" : newDay + "/";
@@ -7472,8 +7472,8 @@ function handleCalendarNav(tbx, e) {
 				} else {
 					tbx.value += year;
 				}
-				
-				if ((newDayStr.length == 1 && newDay > 3) || 
+
+				if ((newDayStr.length == 1 && newDay > 3) ||
 					(newDayStr.length == 2)) {
 					carretPos = 3;
 				}
@@ -7497,7 +7497,7 @@ function handleCalendarNav(tbx, e) {
 			}
 		//mm
 		} else if (carretPos == 3) {
-			
+
 			//delete key
 			if (keynum == 8) {
 				if (tmpDate.substring(3, 5) == "mm") {
@@ -7517,7 +7517,7 @@ function handleCalendarNav(tbx, e) {
 					return;
 				}
 			}
-			
+
 			if (newMonthStr.length == 0 || newMonthStr.length >= 2) {
 				newMonthStr = String.fromCharCode(keynum);
 				newMonth = Number(newMonthStr);
@@ -7525,14 +7525,14 @@ function handleCalendarNav(tbx, e) {
 				newMonthStr += String.fromCharCode(keynum);
 				newMonth = Number(newMonthStr);
 			}
-			
+
 			// Check the range of the month
    			if (newMonth >= 1 && newMonth <= 12) {
-				
+
 				if (day > monthLength[newMonth - 1]) {
 					day = monthLength[newMonth - 1];
 				}
-				
+
 				tbx.value = day < 10 ? "0" + day + "/" : day + "/";
 				tbx.value += newMonth < 10 ? "0" + newMonth + "/" : newMonth + "/";
 				if (year < 10) {
@@ -7544,7 +7544,7 @@ function handleCalendarNav(tbx, e) {
 				} else {
 					tbx.value += year;
 				}
-				
+
 				if ((newMonthStr.length == 1 && newMonth > 1) || (newMonthStr.length == 2)) {
 					carretPos = 6;
 				}
@@ -7556,9 +7556,9 @@ function handleCalendarNav(tbx, e) {
 				} else {
 					newMonthStr = "0";
 				}
-				
+
 				//newMonthStr = newMonthStr.length == 2 ? newMonthStr.charAt(1) : "";
-				
+
 				carretPos = 3;
 				tbx.value = oriDate;
 			}
@@ -7569,7 +7569,7 @@ function handleCalendarNav(tbx, e) {
 			}
 		//yyyy
 		} else if (carretPos == 6) {
-			
+
 			//delete key
 			if (keynum == 8) {
 				if (tmpDate.substring(6,10) == "yyyy") {
@@ -7591,7 +7591,7 @@ function handleCalendarNav(tbx, e) {
 					return;
 				}
 			}
-			
+
 			if (newYearStr.length == 0 || newYearStr.length >= 4) {
 				newYearStr = String.fromCharCode(keynum);
 				newYear = Number(newYearStr);
@@ -7599,21 +7599,21 @@ function handleCalendarNav(tbx, e) {
 				newYearStr += String.fromCharCode(keynum);
 				newYear = Number(newYearStr);
 			}
-			
+
 			// Check the range of the year
    			if (newYear >= 1 && newYear <= maxYear) {
-				
+
 				// Adjust for leap years
 				if(newYear % 400 == 0 || (newYear % 100 != 0 && newYear % 4 == 0)) {
 					monthLength[1] = 29;
 				} else {
 					monthLength[1] = 28;
 				}
-				
+
 				if (day > monthLength[month - 1]) {
 					day = monthLength[month - 1];
 				}
-				
+
 				tbx.value = day < 10 ? "0" + day + "/" : day + "/";
 				tbx.value += month < 10 ? "0" + month + "/" : month + "/";
 				if (newYear < 10) {
@@ -7635,8 +7635,8 @@ function handleCalendarNav(tbx, e) {
 				tbx.value = oriDate;
 			}
 			setSelection(tbx, 6, 10);
-		} 
-		
+		}
+
 		return false;
 	}
 }
@@ -7683,7 +7683,7 @@ function getDiffDaysBetween(inStart, inEnd, inType) {
 	var date1 = (typeof(inStart) == 'string')? getDateFromString(inStart, inType): inStart;
 	var date2 = (typeof(inEnd) == 'string')? getDateFromString(inEnd, inType): inEnd;
 	var timeDiff = date2.getTime() - date1.getTime();//Math.abs(date2.getTime() - date1.getTime());
-	var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+	var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
 	return diffDays;
 }
 
@@ -7716,15 +7716,15 @@ function getStringFromDate(inDate) { //output format dd/MM/yyyy
 // sort
 var sort_by = function(field, reverse, primer){
 
-   var key = primer ? 
-       function(x) {return primer(x[field])} : 
+   var key = primer ?
+       function(x) {return primer(x[field])} :
        function(x) {return x[field]};
 
    reverse = [-1, 1][+!!reverse];
 
    return function (a, b) {
        return a = key(a), b = key(b), reverse * ((a > b) - (b > a));
-     } 
+     }
 }
 
 /*** EXT END ***/
@@ -7753,7 +7753,7 @@ function openLinkInWindows(inUrl, inType, startFunc, stopFunc, errFunc, exitFunc
 		else if(inUrl.indexOf('/') == 0) {
 			inUrl = CONST_WEB_URL_LINK + inUrl.substr(1, inUrl.length);
 		}
-		
+
 		/*
 		inType:
 		_self: Opens in the Cordova WebView if the URL is in the white list, otherwise it opens in the InAppBrowser.
@@ -7766,33 +7766,33 @@ function openLinkInWindows(inUrl, inType, startFunc, stopFunc, errFunc, exitFunc
 		}
 		if(!inType || inType=='') inType = '_blank';
 		var ref = window.open(inUrl, inType, 'location=yes');
-		ref.addEventListener('loadstart', function(event) { 
-			logInfo('open link start: ' + event.url); 
+		ref.addEventListener('loadstart', function(event) {
+			logInfo('open link start: ' + event.url);
 			if(typeof(startFunc) == 'function') {
 				startFunc();
 			}
 		});
-		ref.addEventListener('loadstop', function(event) { 
-			logInfo('open link stop: ' + event.url); 
+		ref.addEventListener('loadstop', function(event) {
+			logInfo('open link stop: ' + event.url);
 			if(typeof(stopFunc) == 'function') {
 				stopFunc();
 			}
 		});
-		ref.addEventListener('loaderror', function(event) { 
-			logInfo('open link error ' + inUrl + ': ' + event.message); 
+		ref.addEventListener('loaderror', function(event) {
+			logInfo('open link error ' + inUrl + ': ' + event.message);
 			if(typeof(errFunc) == 'function') {
 				errFunc();
 			}
 		});
-		ref.addEventListener('exit', function(event) { 
-			logInfo('exit open link' + inUrl + ': ' + event.type); 
+		ref.addEventListener('exit', function(event) {
+			logInfo('exit open link' + inUrl + ': ' + event.type);
 			if(typeof(exitFunc) == 'function') {
 				exitFunc();
 			}
 		});
 	}
 	else {
-		
+
 		var tmpANode = document.getElementById('atag-opentab');
 		if(Environment.isAndroid()) {
 			window.open(inUrl); //fix được với Android
@@ -7819,13 +7819,13 @@ function openLinkInWindows(inUrl, inType, startFunc, stopFunc, errFunc, exitFunc
 
 var dataURLFeedback;
 var isFeedbackOpened = false;
-function Html2Canvas(inNode){	
+function Html2Canvas(inNode){
 //initFeedback();
 	if(!isFeedbackOpened){
 		document.getElementById('btnFeedback').style.display = 'none';
 		//inNode.style.display = 'none';
 		html2canvas(document.body, {
-			onrendered: function(canvas) {				
+			onrendered: function(canvas) {
 				// canvas is the final rendered <canvas> element
 				dataURLFeedback = canvas.toDataURL();
 				navController.pushToView('accessory/feedback', true, 'xsl');
@@ -7850,7 +7850,7 @@ function genMenuSection() {
 	for (var k=0; k < gMenuUserOrder.length; k++) {
 		for(var i=0; i < gMenuList.length; i++) {
 			var tmpMenuObj = gMenuList[i];
-			
+
 			if(tmpMenuObj.menuID.length > 1 && tmpMenuObj.parentMenuID.length == 0 && gMenuUserOrder[k] == tmpMenuObj.menuID) {
 				var tmpModuleNode = document.createElement('li');
 				tmpModuleNode.setAttribute('id', tmpMenuObj.menuID);
@@ -7869,7 +7869,7 @@ function genMenuSection() {
 				var tmpModuleSpan = document.createElement('span');
 				tmpModuleSpan.innerHTML = '1';
 				tmpModuleDiv.appendChild(tmpModuleSpan);
-			
+
 				if(tmpMenuObj.imgHighlight && tmpMenuObj.imgHighlight.length > 0) {
 					var tmpModuleImg = document.createElement('img');
 					tmpModuleImg.setAttribute('src', tmpMenuObj.imgHighlight);
@@ -7885,20 +7885,20 @@ function genMenuSection() {
 						break;
 					}
 				}
-				
+
 				if(childNodeStatus) {
 					var tmpChildMenu = document.createElement('ul');
 					tmpChildMenu.setAttribute('class', 'menu-layout-contents-sub');
 					tmpModuleNode.appendChild(tmpChildMenu);
-					
+
 					var tmpChildDiv = document.createElement('div');
 					tmpChildDiv.setAttribute('id', 'wrapper_' + tmpMenuObj.menuID);
 					tmpChildDiv.setAttribute('class', 'wrapper');
 					tmpChildMenu.appendChild(tmpChildDiv);
-					
+
 					var tmpChildScrollDiv = document.createElement('div');
 					tmpChildDiv.appendChild(tmpChildScrollDiv);
-					
+
 					for(var j=0; j < gMenuList.length; j++) {
 						var tmpChildMenuObj = gMenuList[j];
 						if (tmpChildMenuObj.parentMenuID.length > 0 && tmpChildMenuObj.parentMenuID == tmpMenuObj.menuID && tmpChildMenuObj.hiddenStatus == 'N') {
@@ -7910,7 +7910,7 @@ function genMenuSection() {
 							tmpFuncDiv.setAttribute('onClick', tmpChildMenuObj.onClick);
 							tmpFuncDiv.setAttribute('id', tmpChildMenuObj.path);
 							tmpFuncLi.appendChild(tmpFuncDiv);
-							
+
 							var tmpFuncEm = document.createElement('em');
 							tmpFuncEm.setAttribute('class', tmpChildMenuObj.iconCode);
 							tmpFuncDiv.appendChild(tmpFuncEm);
@@ -7949,9 +7949,9 @@ function genMenuSection() {
 								tmpFuncSpan.setAttribute('onClick','show_hint(event, "QUICK_TIP_CUSTOMIZE_MENU");');
 								tmpFuncSpan.style.display ='block';
 							}*/
-							
-							
-							
+
+
+
 							tmpFuncDiv.appendChild(tmpFuncSpan);
 							if(tmpChildMenuObj.imgHighlight && tmpChildMenuObj.imgHighlight.length > 0) {
 								var tmpFuncImg = document.createElement('img');
@@ -7968,7 +7968,7 @@ function genMenuSection() {
 			}
 		}
 	}
-	
+
 	//logInfo('Menu section: ' + menuContentList.innerHTML);
 	//var gMenuRawData = document.createElement('div');
 	// add quick change menu style default
@@ -8051,7 +8051,7 @@ function genMenuSection() {
 	if (document.getElementById('wrapper_mAccInfo')) {
 		gAccInfoMenuElements = document.getElementById('wrapper_mAccInfo').innerHTML; //FIX FOR JUMBO
 	}
-	
+
 	changeMenuLanguage();
 	applyDynamicCommonStyleSheet();
 }
@@ -8191,17 +8191,17 @@ function show_hint(event,content) {
     }
     hint.style.display = "block";
     hint.style.zIndex = 2011;
-    if (!event) { 
+    if (!event) {
         event = window.event;
     }
         var hinttip = document.getElementById("search_dialog");
         var left = event.clientX - hinttip.clientWidth/2;
         if(left < 0 || screen.width < 450) left = 0;
-        if(screen.width < 450) hinttip.style.width = screen.width + "px"; 
+        if(screen.width < 450) hinttip.style.width = screen.width + "px";
         if((left + hinttip.clientWidth)>clientWidth){
             left = clientWidth - hinttip.clientWidth;
-        } 
-        var top = event.clientY - hinttip.clientHeight - document.getElementById(event.target.id).offsetHeight; 
+        }
+        var top = event.clientY - hinttip.clientHeight - document.getElementById(event.target.id).offsetHeight;
         hinttip.style.left= left +"px";
         hinttip.style.top=top +100+ "px";
 
@@ -8232,7 +8232,7 @@ function showQRCodeView() {
         function (result) {
             if(result.cancelled != 1){
                 var format = result.format;
-				
+
                 if(format == 'QR_CODE'){
                     var qrCodeText = result.text;
                     if(qrCodeText.indexOf('xacthucbaolanh') > -1){
@@ -8272,7 +8272,7 @@ function showQRCodeView() {
                     showAlertText(CONST_STR.get('QR_CODE_SCAN_FAIL'));
                     return;
                 }
-				
+
             } else {
                 // cancle
             }
@@ -8313,15 +8313,15 @@ function requestMBServiceQRSuccesss(e){
 		} else {
 			navController.pushToView('stk', true, 'html');
 		}
-        
+
     } else{
         setReviewXmlStore('not_found');
 		if (currentPage == "stk") {
             reloadStk();
 		} else {
         	navController.pushToView('stk', true, 'html');
-		}    
-        
+		}
+
     }
 }
 
@@ -8344,3 +8344,24 @@ function loadData(dataLink, callback) {
     };
     xobj.send(null);
 }
+function changeBackGround(){
+    var imageID = Math.floor(Math.random() * 3) + 1;
+    $("#fullPage").css({
+        'background-image':  '',
+    });
+    $("#fullPage").css({
+         'background-image':  'url(./assets/images/' +imageID + '.jpg)',
+     });
+}
+function setBackGround(){
+    $("#fullPage").css({
+        'background-image':  'url(./assets/images/1.jpg)',
+    });
+}
+function removeBackGround(){
+    $("#fullPage").css({
+        'background-image':  '',
+    });
+}
+
+

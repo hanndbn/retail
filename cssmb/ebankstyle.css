@@ -5043,3 +5043,7 @@ div#menu_switch_fingerprint.custom-switch.custom-switch-on span.custom-switch-la
 }
 
 /* END REGISTER MK SOFT */
+
+#parse_transaction{
+	margin-top: 0px;
+}

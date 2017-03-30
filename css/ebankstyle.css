@@ -2952,6 +2952,10 @@ p.pcopyrighttext {
 .table-account tr td .td-left {
 	text-align:left;
 }
+
+.table-account tr td .td-right {
+	text-align:right;
+}
 .table-account tr td .td-date-gold {
 	text-align:center;
 }

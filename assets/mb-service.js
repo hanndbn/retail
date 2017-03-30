@@ -1770,20 +1770,9 @@ function queryInfoOfAccountNo(inAccNo) {
 function gotoHomePage()
 {
 	if(gIsLogin)
-	{			
-		/*if(gUserInfo.lang == 'VN')
-		{
-		  navController.initWithRootView('homepagexsl/homepage-scr', true, 'xsl');
-		  navController.setDefaultPage('homepagexsl/homepage-scr', 'xsl');
-		}
-		else
-		{
-		  navController.initWithRootView('homepagexsl/homepage-scr-eng', true, 'xsl');
-		  navController.setDefaultPage('homepagexsl/homepage-scr-eng', 'xsl');
-		}*/
-		/*navController.initWithRootView('homepagexsl/homepage-scr', true, 'xsl');*/
-		navController.initWithRootView('homepagexsl/homepage-dynamic-scr', true, 'xsl');
-		navController.setDefaultPage('homepagexsl/homepage-dynamic-scr', 'xsl');
+	{
+		navController.initWithRootView('indexxsl/index-scr', true, 'xsl');
+		navController.setDefaultPage('indexxsl/index-scr', 'xsl');
 	}
 }
 

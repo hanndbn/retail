@@ -146,7 +146,7 @@ function genXMLHistoryDoc(inHisArray) {
     tmpChildNode = createXMLNode('coltitle2', CONST_STR.get('GROUP_MANAGER_NPP_COUNTRY'), docXml, tmpXmlNodeTitle);
     tmpChildNode = createXMLNode('coltitle3', CONST_STR.get('GROUP_MANAGER_NPP_SPONSOR_ID'), docXml, tmpXmlNodeTitle);
     tmpChildNode = createXMLNode('coltitle4', CONST_STR.get('GROUP_MANAGER_NPP_CITY'), docXml, tmpXmlNodeTitle);
-    tmpChildNode = createXMLNode('coltitle5', CONST_STR.get('GROUP_MANAGER_NPP_NAME'), docXml, tmpXmlNodeTitle);
+    tmpChildNode = createXMLNode('coltitle5', CONST_STR.get('GROUP_MANAGER_NPP_DIRECT_NAME'), docXml, tmpXmlNodeTitle);
     tmpChildNode = createXMLNode('coltitle6', CONST_STR.get('GROUP_MANAGER_NPP_LAST_DATE_SIGN_IN'), docXml, tmpXmlNodeTitle);
     tmpChildNode = createXMLNode('coltitle7', CONST_STR.get('GROUP_MANAGER_NPP_DT'), docXml, tmpXmlNodeTitle);
     tmpChildNode = createXMLNode('coltitle8', CONST_STR.get('GROUP_MANAGER_NPP_STATUS'), docXml, tmpXmlNodeTitle);
@@ -164,7 +164,7 @@ function genXMLHistoryDoc(inHisArray) {
         tmpChildNode = createXMLNode('colcontent3', tmpHisObj.nppSponsorId, docXml, tmpXmlNodeInfo);
         tmpChildNode = createXMLNode('coltitle4', CONST_STR.get('GROUP_MANAGER_NPP_CITY'), docXml, tmpXmlNodeInfo);
         tmpChildNode = createXMLNode('colcontent4', tmpHisObj.city, docXml, tmpXmlNodeInfo);
-        tmpChildNode = createXMLNode('coltitle5', CONST_STR.get('GROUP_MANAGER_NPP_NAME'), docXml, tmpXmlNodeInfo);
+        tmpChildNode = createXMLNode('coltitle5', CONST_STR.get('GROUP_MANAGER_NPP_DIRECT_NAME'), docXml, tmpXmlNodeInfo);
         tmpChildNode = createXMLNode('colcontent5', tmpHisObj.nppName, docXml, tmpXmlNodeInfo);
         tmpChildNode = createXMLNode('coltitle6', CONST_STR.get('GROUP_MANAGER_NPP_LAST_DATE_SIGN_IN'), docXml, tmpXmlNodeInfo);
         tmpChildNode = createXMLNode('colcontent6', tmpHisObj.loginDate, docXml, tmpXmlNodeInfo);

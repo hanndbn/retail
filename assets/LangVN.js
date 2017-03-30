@@ -1831,7 +1831,7 @@ var pConstants_VN = {
 	 'ACC_HIS_DATE_OVER_90DAYS' 					: 'Mỗi kỳ truy vấn không vượt quá 90 ngày.', 
 	 'ACC_HIS_DATE_OVER_1YEAR' 						: 'Không có kết quả tra cứu. Quý khách chỉ xem được các giao dịch trong 1 năm gần đây.', 
 	 
-	 'ACC_PASSWORD_NOTE' 							: '<div style="color: #FFF; font-weight: normal;">Đổi mật khẩu là cách đơn giản nhất để đảm bảo an toàn cho dịch vụ eBank của Quý khách!</div><br/><div style="font-weight: normal;"><b><u>Một số lưu ý khi đổi mật khẩu:</u></b><ul><li class="li-style">Mật khẩu mới cần chứa tối thiểu 7 ký tự và tối đa 16 ký tự, không bao gồm khoảng trắng, không chứa ký tự đặc biệt</li><li class="li-style">Để đảm bảo an toàn, mật khẩu mới mà Quý khách chọn nên bao gồm cả chữ hoa, chữ thường và ký tự số</li><li class="li-style">Mật khẩu mới không được trùng với tên đăng nhập và mật khẩu hiện tại</li><li class="li-style">Mật khẩu mới có giá trị trong vòng 3 tháng</li><li class="li-style">Mật khẩu mới không được trùng với mật khẩu đã sử dụng 4 lần trước đó.</li></ul></div>',
+	 'ACC_PASSWORD_NOTE' 							: '<div style="font-weight: normal;"><b><u>Một số lưu ý khi đổi mật khẩu:</u></b><ul><li class="li-style">Mật khẩu mới cần chứa tối thiểu 7 ký tự và tối đa 16 ký tự, không bao gồm khoảng trắng, không chứa ký tự đặc biệt</li><li class="li-style">Để đảm bảo an toàn, mật khẩu mới mà Quý khách chọn nên bao gồm cả chữ hoa, chữ thường và ký tự số</li><li class="li-style">Mật khẩu mới không được trùng với tên đăng nhập và mật khẩu hiện tại</li><li class="li-style">Mật khẩu mới có giá trị trong vòng 3 tháng</li><li class="li-style">Mật khẩu mới không được trùng với mật khẩu đã sử dụng 4 lần trước đó.</li></ul></div>',
 	 
 	 //Promotion
 	 'PROMOTION_SCREEN_TITLE' 						: 'Tin tức khuyến mại',
@@ -3230,15 +3230,35 @@ var pConstants_VN = {
 
 
 	'GROUP_MANAGER_NPP_DIRECT_LIST' : 'Danh sách nhà phân phối trực tiêp',
-	'GROUP_MANAGER_NPP_NAME' : 'Tên nhà phân phối',
+	'GROUP_MANAGER_NPP__DIRECT_NAME' : 'Tên nhà phân phối',
 	'GROUP_MANAGER_ORDER_TIME' : 'Thời gian đặt hàng',
 	'GROUP_MANAGER_TOTAL_VOLUME' : 'Doanh số',
 
 
+	//INDEX PAGE
+    'INDEX_PAGE_TITLE' : 'Trang chủ',
+    'INDEX_PAGE_BONUS_TITLE' : 'Thông tin tiền thưởng',
+    'INDEX_PAGE_STATUS_TITLE' : 'Trạng thái hiện tại',
+    'INDEX_PAGE_RANK_TITLE' : 'Cấp bậc hiện tại',
+    'INDEX_PAGE_STANDARD_TITLE' : 'Tiêu chuẩn hiện tại',
+    'INDEX_PAGE_TOTAL_VOLUME_TITLE' : 'Doanh số cá nhân(theo tháng)',
+    'INDEX_PAGE_TOTAL_SCORE_TITLE' : 'Tổng điểm đã trả/chưa trả',
+    'INDEX_PAGE_DESTINATION_SCORE_TITLE' : 'Điểm được tính để đạt vị trí',
 
+	'INDEX_PAGE_DESTINATION_VOLUME_HISTORY' : 'Danh sách các điểm',
+
+	//LIST VOLUME HISTORY
+    'LIST_VOLUME_HISTORY_TIME' : 'Period Start / Period End',
+    'LIST_VOLUME_HISTORY_PERSONAL_VOLUME' : 'Personal Volume',
+    'LIST_VOLUME_HISTORY_LEFT_CARRYOVER' : 'Left Carryover',
+    'LIST_VOLUME_HISTORY_RIGHT_CARRYOVER' : 'Right Carryover',
+    'LIST_VOLUME_HISTORY_LEFT_VOLUME' : 'Left Volume',
+    'LIST_VOLUME_HISTORY_RIGHT_VOLUME' : 'Right Volume',
+    'LIST_VOLUME_HISTORY_LEFT_TOTAL' : 'Left Total',
+    'LIST_VOLUME_HISTORY_RIGHT_TOTAL' : 'Right Total',
 
 	// MESSAGE
     'WRONG_PASSWORD' : 'Quý Khách đã nhập sai mật khẩu. Vui lòng nhập lại',
 	// INDEX PAGE
-	'INDEX_PAGE' : 'groupxsl/group-list-npp',
+	'INDEX_PAGE' : 'indexxsl/index-scr',
 };

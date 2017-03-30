@@ -8,6 +8,7 @@ setInputOnlyASCII('login.txt.password', CONST_STR.get("ERR_INPUT_ONLY_ASCII_CHAR
 var statusAccMode = false;
 initLoginScr();
 function initLoginScr() {
+    setBackGround();
     statusAccMode = getUserInfoToLocal(); //get local data
     if (getURLParam('cif')) {
         statusAccMode = false;
@@ -147,6 +148,7 @@ function sendJSONRequest() {
 }
 
 function requestMBServiceSuccess(loginInfo) {
+    removeBackGround();
     hideLoadingMask();
     gIsLogin = true;
     // set info data
