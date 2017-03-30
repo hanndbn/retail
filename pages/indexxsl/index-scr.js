@@ -57,7 +57,7 @@ function setVolumeHistory(accountDetail) {
     document.getElementById("rank").value = accountDetail.rank === '0' ? 'Distributor' : accountDetail.rank === '1' ? 'Member' : 'Professional';
     document.getElementById("standard").value = accountDetail.standard;
     var tmpTotalVolume = formatNumberToCurrency(accountDetail.totalVolume);
-    if (tmpTotalVolume == '0' || tmpTotalVolume == 0 || !tmpTotalVolume) tmpTotalVolume = '';
+    if (tmpTotalVolume === '0' || tmpTotalVolume === 0 || !tmpTotalVolume) tmpTotalVolume = '';
     document.getElementById("totalVolume").value = tmpTotalVolume;
     document.getElementById("totalScore").value = accountDetail.totalScore;
     document.getElementById("destinationScore").value = accountDetail.destinationScore;
@@ -65,7 +65,7 @@ function setVolumeHistory(accountDetail) {
 
 
 function parserVolumeHistory(volumeHistoryList) {
-    if ((volumeHistoryList == undefined) || (volumeHistoryList.length < 1)) {
+    if ((volumeHistoryList === undefined) || (volumeHistoryList.length < 1)) {
         var tmpNode = document.getElementById('volumeHistory');
         tmpNode.innerHTML = CONST_STR.get('NO_DATA');
         return;
@@ -101,8 +101,7 @@ function parserVolumeHistory(volumeHistoryList) {
 function pageIndicatorSelected(selectedIdx, selectedPage) {
     pageIndex = selectedIdx;
 
-    var arrMedial = new Array();
-    arrMedial = getItemsPerPage(volumeHistoryList, selectedIdx);
+    var arrMedial = getItemsPerPage(volumeHistoryList, selectedIdx);
     //gen xml
     var tmpXmlDoc = genXMLHistoryDoc(arrMedial);
     //gen xsl
@@ -185,5 +184,39 @@ function genXMLHistoryDoc(inHisArray) {
     }
     return docXml;
 }
+//-------------------------------------------------------------------------------------------------------------------------
+// week volume
+//-------------------------------------------------------------------------------------------------------------------------
 
+function parserWeekVolume(weekVolume) {
+    if ((volumeHistoryList === undefined) || (volumeHistoryList.length < 1)) {
+        var tmpNode = document.getElementById('volumeHistory');
+        tmpNode.innerHTML = CONST_STR.get('NO_DATA');
+        return;
+    }
+    totalPage = 0;
+    if (volumeHistoryList.length > 0) {
+        //total page
+        totalPage = calTotalPage(volumeHistoryList);
+
+        //gen page indicator
+        pageIndex = 1;
+        genPagging(totalPage, pageIndex);
+
+        //get object per page
+        var arrMedial = getItemsPerPage(volumeHistoryList, pageIndex);
+
+        //gen xml
+        var tmpXmlDoc = genXMLHistoryDoc(arrMedial);
+        //gen xsl
+        xslAccHisTable = getCachePageXsl("indexxsl/index-volume-history-table");
+        var tmpXslDoc = xslAccHisTable;
+        //gen html from xml and xsl
+        genHTMLStringWithXMLScrollto(tmpXmlDoc, tmpXslDoc, function (oStr) {
+            var tmpNode = document.getElementById('volumeHistory');
+            tmpNode.innerHTML = oStr;
+        }, null, null, null);
+    }
+
+}
 
