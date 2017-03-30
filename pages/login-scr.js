@@ -164,8 +164,8 @@ function requestMBServiceSuccess(loginInfo) {
     //navController.pushToView('accountxsl/account-change-password-scr', true, 'xsl');
     //navController.initWithRootView('utilitiesxsl/change-personal-info-scr', true, 'xsl');
     //navController.setDefaultPage('utilitiesxsl/change-personal-info-scr', 'xsl');
-    navController.initWithRootView('utilitiesxsl/request-support-scr', true, 'xsl');
-    navController.setDefaultPage('utilitiesxsl/request-support-scr', 'xsl');
+    navController.initWithRootView(CONST_STR.get('INDEX_PAGE'), true, 'xsl');
+    navController.setDefaultPage(CONST_STR.get('INDEX_PAGE'), 'xsl');
 };
 
 //event listener: http request success

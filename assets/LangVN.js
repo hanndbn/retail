@@ -3195,6 +3195,7 @@ var pConstants_VN = {
     'MENU_CHANGE_INFO_SUCCESS_MESSAGE'						: 'Thay đổi thông tin thành công!',
 
     'CHANGE_PASS_SUBMIT' : 'Xác Nhận',
+    'NO_DATA' : 'Không có dữ liệu',
 
 	// PAGE REQUEST SUPPORT
     'REQUEST_SUPPORT_TITLE' : 'YÊU CẦU THÔNG TIN',
@@ -3207,7 +3208,37 @@ var pConstants_VN = {
     'MESSAGE_REQUEST_SUPPORT_SUBMIT' : 'Gửi yêu cầu thông tin thành công!',
     'REQUEST_SUPPORT_TYPE_UPPERCASE' : 'LOẠI YÊU CẦU',
 
-	// MESSAGE
-    'WRONG_PASSWORD' : 'Quý Khách đã nhập sai mật khẩu. Vui lòng nhập lại'
+	//GROUP MANAGER
+	'GROUP_MANAGER_HEADER' : 'Quản lý nhóm',
+	'GROUP_MANAGER_TREE_GRAPHICAL' : 'Danh sách dạng Tree Graphical',
+	// GROUP ORDER LIST
+	'GROUP_MANAGER_ORDER_LIST' : 'Danh sách đơn hàng',
+    'GROUP_MANAGER_ORDER_LIST_TITLE' : 'Danh sách đơn hàng active',
 
+	// GROUP NPP LIST
+	'GROUP_MANAGER_NPP_LIST' : 'Danh sách nhà phân phối',
+	'GROUP_MANAGER_NPP_ID' : 'ID',
+	'GROUP_MANAGER_NPP_COUNTRY' : 'Country',
+    'GROUP_MANAGER_NPP_SPONSOR_ID' : 'Quản lý',
+	'GROUP_MANAGER_NPP_CITY' : 'City',
+	'GROUP_MANAGER_NPP_NAME' : 'Name',
+	'GROUP_MANAGER_NPP_LAST_DATE_SIGN_IN' : 'Ngày cấp ID',
+    'GROUP_MANAGER_NPP_DT' : 'Mobile',
+    'GROUP_MANAGER_NPP_STATUS' : 'Status',
+    'GROUP_MANAGER_NPP_RANK' : 'Rank',
+
+
+
+	'GROUP_MANAGER_NPP_DIRECT_LIST' : 'Danh sách nhà phân phối trực tiêp',
+	'GROUP_MANAGER_NPP_NAME' : 'Tên nhà phân phối',
+	'GROUP_MANAGER_ORDER_TIME' : 'Thời gian đặt hàng',
+	'GROUP_MANAGER_TOTAL_VOLUME' : 'Doanh số',
+
+
+
+
+	// MESSAGE
+    'WRONG_PASSWORD' : 'Quý Khách đã nhập sai mật khẩu. Vui lòng nhập lại',
+	// INDEX PAGE
+	'INDEX_PAGE' : 'groupxsl/group-list-npp',
 };

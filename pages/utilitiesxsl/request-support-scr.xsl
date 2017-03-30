@@ -23,8 +23,8 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
               </tr>
               <tr>
                   <td colspan="2" align="center" valign="middle" class="td-text">
-                    <div class="input-group" style="padding-left: 5px;" onClick="showRequestSuportType()">
-                      <input type="text" class="form-control form-control-righttext"  id="requestsupport.type" value="Đơn hàng" autocomplete="off"  maxlength="16"/>
+                    <div class="input-group" onClick="showRequestSuportType()">
+                      <input type="button" class="form-control form-control-righttext"  id="requestsupport.type" value="Đơn hàng" autocomplete="off"  maxlength="16"/>
                       <span class="icon-movenext input-group-addon input-group-symbol"></span>
                     </div>
                   </td>
@@ -37,7 +37,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
                 <tr>
                     <td colspan="2" align="center" valign="middle" class="td-text">
                         <div class="input-group">
-                            <textarea rows="10" cols="50" class="form-control form-control-righttext"  id="requestsupport.content"  autocomplete="off"  maxlength="200" style="height:120px;resize:none"></textarea>
+                            <textarea rows="10" cols="50" class="form-control form-control-lefttext"  id="requestsupport.content"  autocomplete="off"  maxlength="200" style="height:120px;resize:none;margin-left: 0px;width: 100%;"></textarea>
                             <span class="input-group-addon input-group-symbol"></span>
                         </div>
                     </td>
