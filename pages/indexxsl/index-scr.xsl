@@ -48,8 +48,7 @@
                                 <tr>
                                     <td colspan="2" align="left" valign="middle" class="td-text">
                                         <div class="input-group">
-                                            <span class="input-group-addon" style="width:35%;">INDEX_PAGE_STATUS_TITLE
-                                            </span>
+                                            <span class="input-group-addon" style="width:35%;">INDEX_PAGE_STATUS_TITLE</span>
                                             <input id="status" type="text" disabled="disabled"
                                                    class="form-control form-control-righttext" style="width:100%;"/>
                                         </div>
@@ -58,8 +57,7 @@
                                 <tr>
                                     <td colspan="2" align="left" valign="middle" class="td-text">
                                         <div class="input-group">
-                                            <span class="input-group-addon" style="width:35%;">INDEX_PAGE_RANK_TITLE
-                                            </span>
+                                            <span class="input-group-addon" style="width:35%;">INDEX_PAGE_RANK_TITLE</span>
                                             <input id="rank" type="text" disabled="disabled"
                                                    class="form-control form-control-righttext" style="width:100%;"/>
                                         </div>
@@ -68,9 +66,7 @@
                                 <tr>
                                     <td colspan="2" align="left" valign="middle" class="td-text">
                                         <div class="input-group">
-                                            <span class="input-group-addon" style="width:35%;">
-                                                INDEX_PAGE_STANDARD_TITLE
-                                            </span>
+                                            <span class="input-group-addon" style="width:35%;">INDEX_PAGE_STANDARD_TITLE</span>
                                             <input id="standard" type="text" disabled="disabled"
                                                    class="form-control form-control-righttext" style="width:100%;"/>
                                         </div>
@@ -79,9 +75,7 @@
                                 <tr>
                                     <td colspan="2" align="left" valign="middle" class="td-text">
                                         <div class="input-group">
-                                            <span class="input-group-addon" style="width:35%;">
-                                                INDEX_PAGE_TOTAL_VOLUME_TITLE
-                                            </span>
+                                            <span class="input-group-addon" style="width:35%;">INDEX_PAGE_TOTAL_VOLUME_TITLE</span>
                                             <input id="totalVolume" type="text" disabled="disabled"
                                                    class="form-control form-control-righttext" style="width:100%;"/>
                                         </div>
@@ -90,9 +84,7 @@
                                 <tr>
                                     <td colspan="2" align="left" valign="middle" class="td-text">
                                         <div class="input-group">
-                                            <span class="input-group-addon" style="width:35%;">
-                                                INDEX_PAGE_TOTAL_SCORE_TITLE
-                                            </span>
+                                            <span class="input-group-addon" style="width:35%;">INDEX_PAGE_TOTAL_SCORE_TITLE</span>
                                             <input id="totalScore" type="text" disabled="disabled"
                                                    class="form-control form-control-righttext" style="width:100%;"/>
                                         </div>
@@ -101,229 +93,285 @@
                                 <tr>
                                     <td colspan="2" align="left" valign="middle" class="td-text">
                                         <div class="input-group">
-                                            <span class="input-group-addon" style="width:35%;">
-                                                INDEX_PAGE_DESTINATION_SCORE_TITLE
-                                            </span>
+                                            <span class="input-group-addon" style="width:35%;">INDEX_PAGE_DESTINATION_SCORE_TITLE</span>
                                             <input id="destinationScore" type="text" disabled="disabled"
                                                    class="form-control form-control-righttext" style="width:100%;"/>
                                         </div>
                                     </td>
                                 </tr>
                             </table>
-                            <div id="weekVolume12" style="padding:5px;">
-                                <table style="width:35%;margin-top:20px" align='right' class='table-account'>
-                                    <tr class="trow-title">
-                                        <th colspan="3" width="100%" align='center'>Week2</th>
-                                    </tr>
-                                    <tr class="trow-title">
-                                        <th width="33%" align='center'>coltitle1</th>
-                                        <th width="33%" align='center'>coltitle2</th>
-                                        <th width="34%" align='center'>coltitle3</th>
-                                    </tr>
-                                    <tr>
-                                        <td class="tdselct td-head-color">
-                                            <div class="mobile-mode">coltitle1</div>
-                                            <div class="content-detail">colcontent1</div>
-                                        </td>
-                                        <td>
-                                            <div class="td-date-gold">colcontent2</div>
-                                            <div class="mobile-mode-gold">coltitle2</div>
-                                        </td>
-                                        <td>
-                                            <div class="mobile-mode">coltitle3</div>
-                                            <div class="content-detail">colcontent3</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="tdselct td-head-color">
-                                            <div class="mobile-mode">coltitle1</div>
-                                            <div class="content-detail">colcontent1</div>
-                                        </td>
-                                        <td>
-                                            <div class="td-date-gold">colcontent2</div>
-                                            <div class="mobile-mode-gold">coltitle2</div>
-                                        </td>
-                                        <td>
-                                            <div class="mobile-mode">coltitle3</div>
-                                            <div class="content-detail">colcontent3</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="tdselct td-head-color">
-                                            <div class="mobile-mode">coltitle1</div>
-                                            <div class="content-detail">colcontent1</div>
-                                        </td>
-                                        <td>
-                                            <div class="td-date-gold">colcontent2</div>
-                                            <div class="mobile-mode-gold">coltitle2</div>
-                                        </td>
-                                        <td>
-                                            <div class="mobile-mode">coltitle3</div>
-                                            <div class="content-detail">colcontent3</div>
-                                        </td>
-                                    </tr>
-                                </table>
-                                <table style="width:35%;margin-top:20px;margin-right:20px" align='right'
-                                       class='table-account'>
-                                    <tr class="trow-title">
-                                        <th colspan="3" width="100%" align='center'>Week1</th>
-                                    </tr>
-                                    <tr class="trow-title">
-                                        <th width="33%" align='center'>coltitle1</th>
-                                        <th width="33%" align='center'>coltitle2</th>
-                                        <th width="34%" align='center'>coltitle3</th>
-                                    </tr>
-                                    <tr>
-                                        <td class="tdselct td-head-color">
-                                            <div class="mobile-mode">coltitle2</div>
-                                            <div class="content-detail">colcontent1</div>
-                                        </td>
-                                        <td>
-                                            <div class="td-date-gold">colcontent2</div>
-                                            <div class="mobile-mode-gold">coltitle2</div>
-                                        </td>
-                                        <td>
-                                            <div class="mobile-mode">coltitle3</div>
-                                            <div class="content-detail">colcontent3</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="tdselct td-head-color">
-                                            <div class="mobile-mode">coltitle1</div>
-                                            <div class="content-detail">colcontent1</div>
-                                        </td>
-                                        <td>
-                                            <div class="td-date-gold">colcontent2</div>
-                                            <div class="mobile-mode-gold">coltitle2</div>
-                                        </td>
-                                        <td>
-                                            <div class="mobile-mode">coltitle3</div>
-                                            <div class="content-detail">colcontent3</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="tdselct td-head-color">
-                                            <div class="mobile-mode">coltitle1</div>
-                                            <div class="content-detail">colcontent1</div>
-                                        </td>
-                                        <td>
-                                            <div class="td-date-gold">colcontent2</div>
-                                            <div class="mobile-mode-gold">coltitle2</div>
-                                        </td>
-                                        <td>
-                                            <div class="mobile-mode">coltitle3</div>
-                                            <div class="content-detail">colcontent3</div>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div id="weekVolume34" style="padding:5px">
-                                <table style="width:35%;margin-top:20px" align='right' class='table-account'>
-                                    <tr class="trow-title">
-                                        <th colspan="3" width="100%" align='center'>Week4</th>
-                                    </tr>
-                                    <tr class="trow-title">
-                                        <th width="33%" align='center'>coltitle1</th>
-                                        <th width="33%" align='center'>coltitle2</th>
-                                        <th width="34%" align='center'>coltitle3</th>
-                                    </tr>
-                                    <tr>
-                                        <td class="tdselct td-head-color">
-                                            <div class="mobile-mode">coltitle1</div>
-                                            <div class="content-detail">colcontent1</div>
-                                        </td>
-                                        <td>
-                                            <div class="td-date-gold">colcontent2</div>
-                                            <div class="mobile-mode-gold">coltitle2</div>
-                                        </td>
-                                        <td>
-                                            <div class="mobile-mode">coltitle3</div>
-                                            <div class="content-detail">colcontent3</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="tdselct td-head-color">
-                                            <div class="mobile-mode">coltitle1</div>
-                                            <div class="content-detail">colcontent1</div>
-                                        </td>
-                                        <td>
-                                            <div class="td-date-gold">colcontent2</div>
-                                            <div class="mobile-mode-gold">coltitle2</div>
-                                        </td>
-                                        <td>
-                                            <div class="mobile-mode">coltitle3</div>
-                                            <div class="content-detail">colcontent3</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="tdselct td-head-color">
-                                            <div class="mobile-mode">coltitle1</div>
-                                            <div class="content-detail">colcontent1</div>
-                                        </td>
-                                        <td>
-                                            <div class="td-date-gold">colcontent2</div>
-                                            <div class="mobile-mode-gold">coltitle2</div>
-                                        </td>
-                                        <td>
-                                            <div class="mobile-mode">coltitle3</div>
-                                            <div class="content-detail">colcontent3</div>
-                                        </td>
-                                    </tr>
-                                </table>
-                                <table style="width:35%;margin-top:20px;margin-right:20px" align='right'
-                                       class='table-account'>
-                                    <tr class="trow-title">
-                                        <th colspan="3" width="100%" align='center'>Week3</th>
-                                    </tr>
-                                    <tr class="trow-title">
-                                        <th width="33%" align='center'>coltitle1</th>
-                                        <th width="33%" align='center'>coltitle2</th>
-                                        <th width="34%" align='center'>coltitle3</th>
-                                    </tr>
-                                    <tr>
-                                        <td class="tdselct td-head-color">
-                                            <div class="mobile-mode">coltitle1</div>
-                                            <div class="content-detail">colcontent1</div>
-                                        </td>
-                                        <td>
-                                            <div class="td-date-gold">colcontent2</div>
-                                            <div class="mobile-mode-gold">coltitle2</div>
-                                        </td>
-                                        <td>
-                                            <div class="mobile-mode">coltitle3</div>
-                                            <div class="content-detail">colcontent3</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="tdselct td-head-color">
-                                            <div class="mobile-mode">coltitle1</div>
-                                            <div class="content-detail">colcontent1</div>
-                                        </td>
-                                        <td>
-                                            <div class="td-date-gold">colcontent2</div>
-                                            <div class="mobile-mode-gold">coltitle2</div>
-                                        </td>
-                                        <td>
-                                            <div class="mobile-mode">coltitle3</div>
-                                            <div class="content-detail">colcontent3</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="tdselct td-head-color">
-                                            <div class="mobile-mode">coltitle1</div>
-                                            <div class="content-detail">colcontent1</div>
-                                        </td>
-                                        <td>
-                                            <div class="td-date-gold">colcontent2</div>
-                                            <div class="mobile-mode-gold">coltitle2</div>
-                                        </td>
-                                        <td>
-                                            <div class="mobile-mode">coltitle3</div>
-                                            <div class="content-detail">colcontent3</div>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
+                            <table width="100%" align="center">
+                                <tr>
+                                    <td colspan="2">
+                                        <h5 class="Header">
+                                            <span>LIST_VOLUME_WEEK1</span> (27/03/2017-02/04/2017)
+                                        </h5>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table align='left' id="weely-volume" class='table-account'>
+                                <tr class="trow-title">
+                                    <th width="25%" align='center'/>
+                                    <th width="25%" align='center'><span>LIST_VOLUME_LEFT</span></th>
+                                    <th width="25%" align='center'><span>LIST_VOLUME_RIGHT</span></th>
+                                    <th width="25%" align='center'><span>LIST_VOLUME_TOTAL</span></th>
+                                </tr>
+                                <tr>
+                                    <td class="tdselct td-head-color">
+                                        <div><span>WEEK_VOLUME_BONUS_TITLE</span></div>
+                                    </td>
+                                    <td>
+                                        <div class="mobile-mode"><span>LIST_VOLUME_LEFT</span></div>
+                                        <div class="content-detail">1</div>
+                                    </td>
+                                    <td>
+                                        <div class="td-date-gold">2</div>
+                                        <div class="mobile-mode-gold"><span>LIST_VOLUME_RIGHT</span></div>
+                                    </td>
+                                    <td>
+                                        <div class="mobile-mode"><span>LIST_VOLUME_TOTAL</span></div>
+                                        <div class="content-detail">3</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div><span>WEEK_VOLUME_NPP_TITLE</span></div>
+                                    </td>
+                                    <td>
+                                        <div class="mobile-mode"><span>LIST_VOLUME_LEFT</span></div>
+                                        <div class="content-detail">1</div>
+                                    </td>
+                                    <td>
+                                        <div class="td-date-gold">2</div>
+                                        <div class="mobile-mode-gold"><span>LIST_VOLUME_RIGHT</span></div>
+                                    </td>
+                                    <td>
+                                        <div class="mobile-mode"><span>LIST_VOLUME_TOTAL</span></div>
+                                        <div class="content-detail">3</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div><span>WEEK_VOLUME_SPONSOR_TITLE</span></div>
+                                    </td>
+                                    <td>
+                                        <div class="mobile-mode"><span>LIST_VOLUME_LEFT</span></div>
+                                        <div class="content-detail">1</div>
+                                    </td>
+                                    <td>
+                                        <div class="td-date-gold">2</div>
+                                        <div class="mobile-mode-gold"><span>LIST_VOLUME_RIGHT</span></div>
+                                    </td>
+                                    <td>
+                                        <div class="mobile-mode"><span>LIST_VOLUME_TOTAL</span></div>
+                                        <div class="content-detail">3</div>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table width="100%" align="center">
+                                <tr>
+                                    <td colspan="2">
+                                        <h5 class="Header">
+                                            <span>LIST_VOLUME_WEEK2</span> (3/20/2017-3/26/2017)
+                                        </h5>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table align='left' id="weely-volume" class='table-account'>
+                                <tr class="trow-title">
+                                    <th width="25%" align='center'/>
+                                    <th width="25%" align='center'><span>LIST_VOLUME_LEFT</span></th>
+                                    <th width="25%" align='center'><span>LIST_VOLUME_RIGHT</span></th>
+                                    <th width="25%" align='center'><span>LIST_VOLUME_TOTAL</span></th>
+                                </tr>
+                                <tr>
+                                    <td class="tdselct td-head-color">
+                                        <div><span>WEEK_VOLUME_BONUS_TITLE</span></div>
+                                    </td>
+                                    <td>
+                                        <div class="mobile-mode"><span>LIST_VOLUME_LEFT</span></div>
+                                        <div class="content-detail">1</div>
+                                    </td>
+                                    <td>
+                                        <div class="td-date-gold">2</div>
+                                        <div class="mobile-mode-gold"><span>LIST_VOLUME_RIGHT</span></div>
+                                    </td>
+                                    <td>
+                                        <div class="mobile-mode"><span>LIST_VOLUME_TOTAL</span></div>
+                                        <div class="content-detail">3</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div><span>WEEK_VOLUME_NPP_TITLE</span></div>
+                                    </td>
+                                    <td>
+                                        <div class="mobile-mode"><span>LIST_VOLUME_LEFT</span></div>
+                                        <div class="content-detail">1</div>
+                                    </td>
+                                    <td>
+                                        <div class="td-date-gold">2</div>
+                                        <div class="mobile-mode-gold"><span>LIST_VOLUME_RIGHT</span></div>
+                                    </td>
+                                    <td>
+                                        <div class="mobile-mode"><span>LIST_VOLUME_TOTAL</span></div>
+                                        <div class="content-detail">3</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div><span>WEEK_VOLUME_SPONSOR_TITLE</span></div>
+                                    </td>
+                                    <td>
+                                        <div class="mobile-mode"><span>LIST_VOLUME_LEFT</span></div>
+                                        <div class="content-detail">1</div>
+                                    </td>
+                                    <td>
+                                        <div class="td-date-gold">2</div>
+                                        <div class="mobile-mode-gold"><span>LIST_VOLUME_RIGHT</span></div>
+                                    </td>
+                                    <td>
+                                        <div class="mobile-mode"><span>LIST_VOLUME_TOTAL</span></div>
+                                        <div class="content-detail">3</div>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table width="100%" align="center">
+                                <tr>
+                                    <td colspan="2">
+                                        <h5 class="Header">
+                                            <span>LIST_VOLUME_WEEK3</span> (13/03/2017-19/03/2017)
+                                        </h5>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table align='left' id="weely-volume" class='table-account'>
+                                <tr class="trow-title">
+                                    <th width="25%" align='center'/>
+                                    <th width="25%" align='center'><span>LIST_VOLUME_LEFT</span></th>
+                                    <th width="25%" align='center'><span>LIST_VOLUME_RIGHT</span></th>
+                                    <th width="25%" align='center'><span>LIST_VOLUME_TOTAL</span></th>
+                                </tr>
+                                <tr>
+                                    <td class="tdselct td-head-color">
+                                        <div><span>WEEK_VOLUME_BONUS_TITLE</span></div>
+                                    </td>
+                                    <td>
+                                        <div class="mobile-mode"><span>LIST_VOLUME_LEFT</span></div>
+                                        <div class="content-detail">1</div>
+                                    </td>
+                                    <td>
+                                        <div class="td-date-gold">2</div>
+                                        <div class="mobile-mode-gold"><span>LIST_VOLUME_RIGHT</span></div>
+                                    </td>
+                                    <td>
+                                        <div class="mobile-mode"><span>LIST_VOLUME_TOTAL</span></div>
+                                        <div class="content-detail">3</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tdselct td-head-color">
+                                        <div><span>WEEK_VOLUME_NPP_TITLE</span></div>
+                                    </td>
+                                    <td>
+                                        <div class="mobile-mode"><span>LIST_VOLUME_LEFT</span></div>
+                                        <div class="content-detail">1</div>
+                                    </td>
+                                    <td>
+                                        <div class="td-date-gold">2</div>
+                                        <div class="mobile-mode-gold"><span>LIST_VOLUME_RIGHT</span></div>
+                                    </td>
+                                    <td>
+                                        <div class="mobile-mode"><span>LIST_VOLUME_TOTAL</span></div>
+                                        <div class="content-detail">3</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tdselct td-head-color">
+                                        <div><span>WEEK_VOLUME_SPONSOR_TITLE</span></div>
+                                    </td>
+                                    <td>
+                                        <div class="mobile-mode"><span>LIST_VOLUME_LEFT</span></div>
+                                        <div class="content-detail">1</div>
+                                    </td>
+                                    <td>
+                                        <div class="td-date-gold">2</div>
+                                        <div class="mobile-mode-gold"><span>LIST_VOLUME_RIGHT</span></div>
+                                    </td>
+                                    <td>
+                                        <div class="mobile-mode"><span>LIST_VOLUME_TOTAL</span></div>
+                                        <div class="content-detail">3</div>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table width="100%" align="center">
+                                <tr>
+                                    <td colspan="2">
+                                        <h5 class="Header">
+                                            <span>LIST_VOLUME_WEEK4</span> (06/03/2017-12/03/2017)
+                                        </h5>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table align='left' id="weely-volume" class='table-account'>
+                                <tr class="trow-title">
+                                    <th width="25%" align='center'/>
+                                    <th width="25%" align='center'><span>LIST_VOLUME_LEFT</span></th>
+                                    <th width="25%" align='center'><span>LIST_VOLUME_RIGHT</span></th>
+                                    <th width="25%" align='center'><span>LIST_VOLUME_TOTAL</span></th>
+                                </tr>
+                                <tr>
+                                    <td class="tdselct td-head-color">
+                                        <div><span>WEEK_VOLUME_BONUS_TITLE</span></div>
+                                    </td>
+                                    <td>
+                                        <div class="mobile-mode"><span>LIST_VOLUME_LEFT</span></div>
+                                        <div class="content-detail">1</div>
+                                    </td>
+                                    <td>
+                                        <div class="td-date-gold">2</div>
+                                        <div class="mobile-mode-gold"><span>LIST_VOLUME_RIGHT</span></div>
+                                    </td>
+                                    <td>
+                                        <div class="mobile-mode"><span>LIST_VOLUME_TOTAL</span></div>
+                                        <div class="content-detail">3</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div><span>WEEK_VOLUME_NPP_TITLE</span></div>
+                                    </td>
+                                    <td>
+                                        <div class="mobile-mode"><span>LIST_VOLUME_LEFT</span></div>
+                                        <div class="content-detail">1</div>
+                                    </td>
+                                    <td>
+                                        <div class="td-date-gold">2</div>
+                                        <div class="mobile-mode-gold"><span>LIST_VOLUME_RIGHT</span></div>
+                                    </td>
+                                    <td>
+                                        <div class="mobile-mode"><span>LIST_VOLUME_TOTAL</span></div>
+                                        <div class="content-detail">3</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div><span>WEEK_VOLUME_SPONSOR_TITLE</span></div>
+                                    </td>
+                                    <td>
+                                        <div class="mobile-mode"><span>LIST_VOLUME_LEFT</span></div>
+                                        <div class="content-detail">1</div>
+                                    </td>
+                                    <td>
+                                        <div class="td-date-gold">2</div>
+                                        <div class="mobile-mode-gold"><span>LIST_VOLUME_RIGHT</span></div>
+                                    </td>
+                                    <td>
+                                        <div class="mobile-mode"><span>LIST_VOLUME_TOTAL</span></div>
+                                        <div class="content-detail">3</div>
+                                    </td>
+                                </tr>
+                            </table>
                             <table width="100%" align="center">
                                 <tr>
                                     <td colspan="2">

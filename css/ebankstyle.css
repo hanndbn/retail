@@ -2940,6 +2940,29 @@ p.pcopyrighttext {
 .table-account tr td:nth-of-type(3), .table-account tr td:nth-of-type(4), .table-account tr td:nth-of-type(5) {
 	text-align:right;
 }
+/* weekly volume*/
+#weely-volume.table-account{
+	width:80%;
+}
+#weely-volume.table-account tr td,#weely-volume.table-account tr td .td-date-gold{
+	text-align:center;
+}
+#weely-volume.table-account tr td:first-child{
+	text-align:right;
+}
+#weely-volume.table-account tr th:first-child,
+#weely-volume.table-account tr td:first-child{
+	border: none;
+	background: #fafafa;
+}
+/* volume history*/
+#volume-history.table-account tr td,#volume-history.table-account tr td .td-date-gold{
+	text-align:right;
+}
+#volume-history.table-account tr td:first-child{
+	text-align:left;
+}
+
 .table-account tr td .td-vnd {
 	text-align:center;
 }
@@ -3349,7 +3372,14 @@ p.pcopyrighttext {
 	.table-account {
 		width:100%;
 	}
-	.table-account tr td, .table-account th td { 
+	#weely-volume .table-account{
+		width:100%;
+	}
+	#weely-volume .table-account{
+		width:100%;
+	}
+
+	.table-account tr td, .table-account th td {
 		border: none;
 		border-bottom: 1px solid #252525; 
 		position: relative;

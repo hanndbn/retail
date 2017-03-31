@@ -2,7 +2,7 @@
 <xsl:stylesheet version="1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:template match="/">
-    <table width='98%' align='center' class='table-account'>
+    <table width='98%' align='center' class='table-account' id="volume-history">
       <xsl:for-each select="resptable/tabletitle">
         <tr class="trow-title">
           <th width="30%" align='center'><xsl:value-of select="coltitle1"/></th>

@@ -3257,8 +3257,47 @@ var pConstants_VN = {
     'LIST_VOLUME_HISTORY_LEFT_TOTAL' : 'Left Total',
     'LIST_VOLUME_HISTORY_RIGHT_TOTAL' : 'Right Total',
 
+	//
+    'LIST_VOLUME_WEEK1' : 'Tuần 1',
+    'LIST_VOLUME_WEEK2' : 'Tuần 2',
+    'LIST_VOLUME_WEEK3' : 'Tuần 3',
+    'LIST_VOLUME_WEEK4' : 'Tuần 4',
+    'LIST_VOLUME_LEFT' : 'Trái',
+    'LIST_VOLUME_RIGHT' : 'Phải',
+    'LIST_VOLUME_TOTAL' : 'Tổng cộng',
+	// WEEK TABLE
+    'WEEK_VOLUME_BONUS_TITLE' : 'Bonus Volume:',
+    'WEEK_VOLUME_NPP_TITLE' : 'Total New Distributors:',
+    'WEEK_VOLUME_SPONSOR_TITLE' : 'Personally Sponsored:',
+
+	//COMISSION
+	'COMMISSION_MENU_TITLE':'Quản lý hoa hồng và thưởng',
+	'COMMISSION_DETAIL_TITLE':'Quản lý chi tiết hoa hồng',
+	'COMMISSION_VIEW_WEEK_TITLE':'Theo tuần',
+	'COMMISSION_VIEW_MONTH_TITLE':'Theo tháng',
+	'COMMISSION_VIEW_YEAR_TITLE':'Theo năm',
+	'COMMISSION_INFO_TITLE':'Thông tin hoa hồng hiện tại',
+	'COMMISSION_INFO_DETAIL_TITLE':'Thông tin chi tiết',
+	'COMMISSION_TITLE':'Chọn khoảng thời gian nhận hoa hồng',
+	'COMMISSION_WEEK':'TUẦN',
+	'COMMISSION_MONTH':'THÁNG',
+	'COMMISSION_YEAR':'NĂM',
+	'COMMISSION_CHOOSE_TIME':'Khoảng thời gian',
+	'COMMISSION_WEEK_VOLUME':'Doanh số tuần hiện tại',
+	'COMMISSION_MONTH_VOLUME':'Doanh số tháng hiện tại',
+	'COMMISSION_YEAR_VOLUME':'Doanh số năm hiện tại',
+	'COMMISSION_DIRECT':'Hoa hồng trực tiếp',
+	'COMMISSION_GROUP':'Hoa hồng nhóm',
+	'COMMISSION_LEADER':'Thưởng cấp bậc lãnh đạo quý',
+	'COMMISSION_PRESIDENT':'Chia lợi nhuận CLD chủ tịch',
+	'COMMISSION_TOTAL_VOLUME':'Tổng thu nhập hiện tại',
+
+
+
+
 	// MESSAGE
     'WRONG_PASSWORD' : 'Quý Khách đã nhập sai mật khẩu. Vui lòng nhập lại',
 	// INDEX PAGE
-	'INDEX_PAGE' : 'indexxsl/index-scr',
+	//'INDEX_PAGE' : 'indexxsl/index-scr',
+	'INDEX_PAGE' : 'commissionxsl/comission-scr',
 };
