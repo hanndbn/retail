@@ -181,25 +181,6 @@
 	loadjscssfile('./assets/libs/calendar/datepicker.css', 'css');
 	loadjscssfile('./assets/libs/calendar/datepicker.js', 'js');
 	loadjscssfile('./assets/libs/slip.js', 'js');
-					  
-	setTimeout(function(){
-		loadjscssfile(CONST_WEB_URL_LINK + 'assets/system-payment-config.js', 'js');
-		loadjscssfile(CONST_WEB_URL_LINK + 'assets/sysdata/paymentComboFields.js', 'js');
-		loadjscssfile(CONST_WEB_URL_LINK + 'assets/sysdata/paymentGroups.js', 'js');
-		loadjscssfile(CONST_WEB_URL_LINK + 'assets/sysdata/paymentProviders.js', 'js');
-		loadjscssfile(CONST_WEB_URL_LINK + 'assets/sysdata/paymentRequestFields.js', 'js');
-		loadjscssfile(CONST_WEB_URL_LINK + 'assets/sysdata/paymentServices.js', 'js');
-		setTimeout(function(){
-			loadjscssfile(CONST_WEB_URL_LINK + 'assets/sysdata/branchInterbanks.js', 'js');
-			loadjscssfile(CONST_WEB_URL_LINK + 'assets/sysdata/branchs.js', 'js');
-			loadjscssfile(CONST_WEB_URL_LINK + 'assets/sysdata/countries.js', 'js');
-			loadjscssfile(CONST_WEB_URL_LINK + 'assets/sysdata/districts.js', 'js');
-			loadjscssfile(CONST_WEB_URL_LINK + 'assets/sysdata/interbanks.js', 'js');
-			loadjscssfile(CONST_WEB_URL_LINK + 'assets/sysdata/provinces.js', 'js');
-			loadjscssfile(CONST_WEB_URL_LINK + 'assets/system-data.js', 'js'); 
-		}, 1000);
-		reloadTopBanner();
-	}, 1000);
 	
 	//HuyNT2: Check page load ready
 	/*var timerCheckPageReady = window.setInterval(checkPageReady, 500);

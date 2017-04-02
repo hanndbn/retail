@@ -3218,14 +3218,14 @@ var pConstants_VN = {
 	// GROUP NPP LIST
 	'GROUP_MANAGER_NPP_LIST' : 'Danh sách nhà phân phối',
 	'GROUP_MANAGER_NPP_ID' : 'ID',
-	'GROUP_MANAGER_NPP_COUNTRY' : 'Country',
+	'GROUP_MANAGER_NPP_COUNTRY' : 'Quốc gia',
     'GROUP_MANAGER_NPP_SPONSOR_ID' : 'Quản lý',
-	'GROUP_MANAGER_NPP_CITY' : 'City',
-	'GROUP_MANAGER_NPP_NAME' : 'Name',
+	'GROUP_MANAGER_NPP_CITY' : 'Tỉnh/Thành phố',
+	'GROUP_MANAGER_NPP_NAME' : 'Tên nhà phân phối',
 	'GROUP_MANAGER_NPP_LAST_DATE_SIGN_IN' : 'Ngày cấp ID',
-    'GROUP_MANAGER_NPP_DT' : 'Mobile',
-    'GROUP_MANAGER_NPP_STATUS' : 'Status',
-    'GROUP_MANAGER_NPP_RANK' : 'Rank',
+    'GROUP_MANAGER_NPP_DT' : 'Số điện thoại',
+    'GROUP_MANAGER_NPP_STATUS' : 'Tình Trạng',
+    'GROUP_MANAGER_NPP_RANK' : 'Cấp bậc hiện tại',
 
 
 
@@ -3248,7 +3248,7 @@ var pConstants_VN = {
 	'INDEX_PAGE_DESTINATION_VOLUME_HISTORY' : 'Danh sách các điểm',
 
 	//LIST VOLUME HISTORY
-    'LIST_VOLUME_HISTORY_TIME' : 'Period Start / Period End',
+    'LIST_VOLUME_HISTORY_TIME' : 'Period Start/Period End',
     'LIST_VOLUME_HISTORY_PERSONAL_VOLUME' : 'Personal Volume',
     'LIST_VOLUME_HISTORY_LEFT_CARRYOVER' : 'Left Carryover',
     'LIST_VOLUME_HISTORY_RIGHT_CARRYOVER' : 'Right Carryover',

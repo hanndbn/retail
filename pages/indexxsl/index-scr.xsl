@@ -134,7 +134,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>
+                                    <td class="tdselct td-head-color">
                                         <div><span>WEEK_VOLUME_NPP_TITLE</span></div>
                                     </td>
                                     <td>
@@ -151,7 +151,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>
+                                    <td class="tdselct td-head-color">
                                         <div><span>WEEK_VOLUME_SPONSOR_TITLE</span></div>
                                     </td>
                                     <td>
@@ -202,7 +202,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>
+                                    <td class="tdselct td-head-color">
                                         <div><span>WEEK_VOLUME_NPP_TITLE</span></div>
                                     </td>
                                     <td>
@@ -219,7 +219,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>
+                                    <td class="tdselct td-head-color">
                                         <div><span>WEEK_VOLUME_SPONSOR_TITLE</span></div>
                                     </td>
                                     <td>
@@ -338,7 +338,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>
+                                    <td class="tdselct td-head-color">
                                         <div><span>WEEK_VOLUME_NPP_TITLE</span></div>
                                     </td>
                                     <td>
@@ -355,7 +355,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>
+                                    <td class="tdselct td-head-color">
                                         <div><span>WEEK_VOLUME_SPONSOR_TITLE</span></div>
                                     </td>
                                     <td>

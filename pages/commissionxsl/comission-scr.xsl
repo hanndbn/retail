@@ -27,7 +27,7 @@
                                 </tr>
                             </table>
                             <div id="commissionInfo" style="padding:5px;">
-                                <table align='left' class='table-account'>
+                                <table align='left' id="commission-volume" class='table-account'>
                                     <tr class="trow-title">
                                         <th width="25%" align='center'><span>COMMISSION_WEEK_VOLUME</span></th>
                                         <th width="25%" align='center'><span>COMMISSION_MONTH_VOLUME</span></th>
@@ -78,7 +78,7 @@
                                     </td>
                                 </tr>
                             </table>
-                                <table align='left' class='table-account' style="margin-top:20px">
+                                <table align='left' id="commission-volume" class='table-account' style="margin-top:20px">
                                     <tr class="trow-title">
                                         <th width="20%" align='center'><span>COMMISSION_DIRECT</span></th>
                                         <th width="20%" align='center'><span>COMMISSION_GROUP</span></th>

@@ -2470,8 +2470,26 @@ p.pcopyrighttext {
 }
 .login-td-input-container {
 	width:400px;
-	background-image: url('../assets/images/Login_Center.jpg');
-    background-repeat: repeat-x; 
+
+	/* IE10 Consumer Preview */
+	background-image: -ms-radial-gradient(center, circle closest-side, rgba(46, 73, 178, 0.81) 0%, rgba(36, 58, 144, 0.87) 100%);
+
+	/* Mozilla Firefox */
+	background-image: -moz-radial-gradient(center, circle closest-side, rgb(52, 79, 180) 0%, rgba(36, 58, 144, 0.87) 100%);
+
+	/* Opera */
+	background-image: -o-radial-gradient(center, circle closest-side, rgb(52, 79, 180) 0%, rgba(36, 58, 144, 0.87) 100%);
+
+	/* Webkit (Safari/Chrome 10) */
+	background-image: -webkit-gradient(radial, center center, 0, center center, 140, color-stop(0, rgb(52, 79, 180)), color-stop(1, rgba(36, 58, 144, 0.87)));
+
+	/* Webkit (Chrome 11+) */
+	background-image: -webkit-radial-gradient(center, circle closest-side, rgb(52, 79, 180) 0%, rgba(36, 58, 144, 0.87) 100%);
+
+	/* W3C Markup, IE10 Release Preview */
+	background-image: radial-gradient(circle closest-side at center, rgb(52, 79, 180) 0%, rgba(36, 58, 144, 0.87) 100%);
+
+	background-repeat: repeat-x;
 	padding-left: 28px; 
 	padding-top: 20px; 
 	height: 300px;
@@ -2954,6 +2972,13 @@ p.pcopyrighttext {
 #weely-volume.table-account tr td:first-child{
 	border: none;
 	background: #fafafa;
+}
+/* comission volume*/
+#commission-volume.table-account{
+	width:100%;
+}
+#commission-volume.table-account tr td,#commission-volume.table-account tr td .td-date-gold{
+	text-align:center;
 }
 /* volume history*/
 #volume-history.table-account tr td,#volume-history.table-account tr td .td-date-gold{

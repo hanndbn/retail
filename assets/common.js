@@ -5843,58 +5843,6 @@ function replaceVietnameseChars(str) {
 
 var evtSearchResultDone = document.createEvent('Event');
 evtSearchResultDone.initEvent('evtSearchResultDone', true, true);
-
-function searchWhenInputAtIDWithArrayString(inNodeID, inArrayData) {
-    var timeToCheckInputChange;
-    var tmpNodeInputValue = document.getElementById(inNodeID);
-    tmpNodeInputValue.onkeydown = function (e) {
-        var tmpSearchResultArray = new Array();
-        if ((timeToCheckInputChange != null) && (timeToCheckInputChange != undefined)) {
-            clearTimeout(timeToCheckInputChange);
-        }
-        timeToCheckInputChange = setTimeout(function (et) {
-            clearTimeout(timeToCheckInputChange);
-            tmpSearchResultArray = searchStringInArrayString(tmpNodeInputValue.value, inArrayData);
-            evtSearchResultDone.searchResult = tmpSearchResultArray;
-            tmpNodeInputValue.dispatchEvent(evtSearchResultDone);
-        }, 500);
-
-        replaceVietnameseKey(tmpNodeInputValue.value, e);
-
-        var evt = e || window.event;
-        var ew = evt.keyCode || evt.which;
-
-        if ((ew == 13) || (ew == 9)) //enter key, tab key
-        {
-            clearTimeout(timeToCheckInputChange);
-            tmpSearchResultArray = searchStringInArrayString(tmpNodeInputValue.value, inArrayData);
-            evtSearchResultDone.searchResult = tmpSearchResultArray;
-            tmpNodeInputValue.dispatchEvent(evtSearchResultDone);
-            return false;
-        }
-
-        //tmpNodeInputValue.value = tmpNodeInputValue.value + replaceVietnameseChars(String.fromCharCode(ew))
-        //return false;
-    };
-
-    function searchStringInArrayString(searchStr, inArrayData) {
-        var searchString = removeAccent(searchStr);
-        searchString = searchString.toLowerCase();
-        var searchArrayResult = new Array();
-        for (var i = 0; i < inArrayData.length; i++) {
-            var tmpStr = inArrayData[i];
-            var tmpStrLowerCase = tmpStr.toLowerCase();
-            tmpStrLowerCase = replaceVietnameseChars(tmpStrLowerCase);
-            if (tmpStrLowerCase.indexOf(searchString) != -1) {
-                searchArrayResult.push(tmpStr);
-            }
-        }
-        return searchArrayResult;
-    }
-}
-
-/*** SEARCH END ***/
-
 /*** STORAGE DATA ***/
 
 function setLanguageConfig(inStr) {
@@ -5912,6 +5860,9 @@ function setLanguageConfig(inStr) {
         logInfo('Browser not support local store');
     }
 }
+
+
+/*** SEARCH END ***/
 
 function getLanguageConfig() {
     if (typeof(Storage) !== "undefined") {

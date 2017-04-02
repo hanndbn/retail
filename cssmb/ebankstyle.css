@@ -2751,6 +2751,15 @@ p.pcopyrighttext {
     text-align:center;
 }
 
+/* commission-volume */
+#commission-volume.table-account{
+	width: 100%;
+}
+
+#commission-volume.table-account tr td,#commission-volume.table-account tr td .td-date-gold{
+	text-align:center;
+}
+
 /* volume history*/
 #volume-history.table-account tr td,#volume-history.table-account tr td .td-date-gold{
     text-align:right;
@@ -3179,6 +3188,9 @@ span.tooltip span
     #weely-volume.table-account tr td,#weely-volume.table-account tr td .td-date-gold{
         text-align:left;
     }
+	#commission-volume.table-account tr td,#commission-volume.table-account tr td .td-date-gold{
+		text-align:left;
+	}
     /* volume history*/
     #volume-history.table-account tr td,#volume-history.table-account tr td .td-date-gold{
         text-align:left;
@@ -3387,7 +3399,12 @@ span.tooltip span
 	.table-account tr td .td-date-gold {
 		display: block;
 		float: right;
-		width: 50%;
+		width: 40%;
+	}
+	#commission-volume.table-account tr td .td-date-gold {
+		display: block;
+		float: right;
+		width: 30%;
 	}
 	.table-account tr td .td-left-gold {
 		display: block;
@@ -3499,22 +3516,41 @@ span.tooltip span
 	}
 	.table-account tr td .mobile-mode {
 		display: inline;
-		width: 48%;
+		width: 58%;
 		padding-left:10px;
 		/*background-color:rgba(79, 7, 88, 0.45);*/
 	}
 
 	.table-account tr td .mobile-mode-gold {
 		display: block;
-		width: 48%;
+		width: 58%;
 		padding-left:10px;
 		/*background-color:rgba(79, 7, 88, 0.45);*/
 	}	
 
 	.table-account tr td .content-detail {
-		display: inline;
+		display: block;
 		width: 100%;
-		padding-left:50%;
+		padding-left:60%;
+		word-break:break-word;
+	}
+	#commission-volume.table-account tr td .mobile-mode {
+		display: inline;
+		width: 68%;
+		padding-left:10px;
+		/*background-color:rgba(79, 7, 88, 0.45);*/
+	}
+
+	#commission-volume.table-account tr td .mobile-mode-gold {
+		display: block;
+		width: 68%;
+		padding-left:10px;
+		/*background-color:rgba(79, 7, 88, 0.45);*/
+	}
+	#commission-volume.table-account tr td .content-detail {
+		display: block;
+		width: 100%;
+		padding-left:70%;
 		word-break:break-word;
 	}
 	.table-account tr td:nth-of-type(3), .table-account tr td:nth-of-type(4) {
@@ -4212,7 +4248,7 @@ span.tooltip span
 
 @media only screen and (max-width: 640px) { 
 		  .td-head-color {
-				  background-color: rgba(53, 10, 63, 0.44);
+				  background-color: rgba(255, 255, 255, 0.44);
 				  font-weight:bold;
 		  }
 }
