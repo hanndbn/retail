@@ -15,7 +15,12 @@
     "totalVolume" : "15000000",
     "totalScore" : "120",
     "destinationScore" : "300",
-    "standard" : "Qualified"
+    "standard" : "Qualified",
+    "sponsorName" : "DINH THI KIM NGAN",
+    "numberTL" : "10",
+    "numberMSD" : "7",
+    "numberDSD" : "9",
+    "numberGDSD" : "4"
   },
   "125280712": {
     "fullname": "HOANG TIEN HAI",

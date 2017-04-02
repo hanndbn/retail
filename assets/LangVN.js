@@ -3292,6 +3292,21 @@ var pConstants_VN = {
 	'COMMISSION_PRESIDENT':'Chia lợi nhuận CLD chủ tịch',
 	'COMMISSION_TOTAL_VOLUME':'Tổng thu nhập hiện tại',
 
+	// group Graphical
+    'GROUP_GRAPHICAL_TITLE':'DANH SÁCH NHÓM(TREE GRAPHICAL)',
+    'GROUP_GRAPHICAL_GROUP_INFO':'Thông tin nhóm',
+    'GROUP_GRAPHICAL_SPONSOR_NAME':'Người giới thiệu',
+    'GROUP_GRAPHICAL_RANK':'Cấp bậc hiện tại',
+    'GROUP_GRAPHICAL_MANAGER_GROUP':'Quản lý nhóm',
+    'GROUP_GRAPHICAL_TL':'TL:',
+    'GROUP_GRAPHICAL_MSD':'MSD:',
+    'GROUP_GRAPHICAL_DSD':'DSD:',
+    'GROUP_GRAPHICAL_GDSD':'GDSD:',
+    'GROUP_GRAPHICAL_TREE' : 'Tree Graphical',
+
+
+
+
 
 
 
@@ -3299,5 +3314,5 @@ var pConstants_VN = {
     'WRONG_PASSWORD' : 'Quý Khách đã nhập sai mật khẩu. Vui lòng nhập lại',
 	// INDEX PAGE
 	//'INDEX_PAGE' : 'indexxsl/index-scr',
-	'INDEX_PAGE' : 'commissionxsl/comission-scr',
+	'INDEX_PAGE' : 'groupxsl/group-graphical',
 };

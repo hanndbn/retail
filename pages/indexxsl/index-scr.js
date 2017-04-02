@@ -35,21 +35,10 @@ function sendJSONRequest() {
         setVolumeHistory(accountDetail);
     });
     loadData('./data/listVolumnesWeekly.json', function (jsondata) {
-        var volumeHistory = JSON.parse(jsondata)[gUserInfo.accountId];
-        parserVolumeHistory(volumeHistory);
+        volumeHistoryList = JSON.parse(jsondata)[gUserInfo.accountId];
+        parserVolumeHistory(volumeHistoryList);
     });
 }
-
-//event listener: http request success
-function requestMBServiceSuccess(jsondata) {
-    var accountDetail = JSON.parse(jsondata)[gUserInfo.accountId];
-    setVolumeHistory(accountDetail);
-    volumeHistoryObj = accountDetail;
-
-    volumeHistoryList = JSON.parse(jsondata)[gUserInfo.accountId];
-    parserVolumeHistory(volumeHistoryList);
-};
-
 function setVolumeHistory(accountDetail) {
     document.getElementById("dispName").value = accountDetail.fullname;
     document.getElementById("accountId").value = accountDetail.userid;
@@ -100,7 +89,6 @@ function parserVolumeHistory(volumeHistoryList) {
 //EVENT SELECTED PAGE
 function pageIndicatorSelected(selectedIdx, selectedPage) {
     pageIndex = selectedIdx;
-
     var arrMedial = getItemsPerPage(volumeHistoryList, selectedIdx);
     //gen xml
     var tmpXmlDoc = genXMLHistoryDoc(arrMedial);
@@ -111,7 +99,6 @@ function pageIndicatorSelected(selectedIdx, selectedPage) {
         var tmpNode = document.getElementById('volumeHistory');
         tmpNode.innerHTML = oStr;
     });
-
 }
 
 //GEN PAGGING
@@ -189,34 +176,7 @@ function genXMLHistoryDoc(inHisArray) {
 //-------------------------------------------------------------------------------------------------------------------------
 
 function parserWeekVolume(weekVolume) {
-    if ((volumeHistoryList === undefined) || (volumeHistoryList.length < 1)) {
-        var tmpNode = document.getElementById('volumeHistory');
-        tmpNode.innerHTML = CONST_STR.get('NO_DATA');
-        return;
-    }
-    totalPage = 0;
-    if (volumeHistoryList.length > 0) {
-        //total page
-        totalPage = calTotalPage(volumeHistoryList);
 
-        //gen page indicator
-        pageIndex = 1;
-        genPagging(totalPage, pageIndex);
-
-        //get object per page
-        var arrMedial = getItemsPerPage(volumeHistoryList, pageIndex);
-
-        //gen xml
-        var tmpXmlDoc = genXMLHistoryDoc(arrMedial);
-        //gen xsl
-        xslAccHisTable = getCachePageXsl("indexxsl/index-volume-history-table");
-        var tmpXslDoc = xslAccHisTable;
-        //gen html from xml and xsl
-        genHTMLStringWithXMLScrollto(tmpXmlDoc, tmpXslDoc, function (oStr) {
-            var tmpNode = document.getElementById('volumeHistory');
-            tmpNode.innerHTML = oStr;
-        }, null, null, null);
-    }
 
 }
 
