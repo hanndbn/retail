@@ -1,7 +1,7 @@
 // Vietnamese
 var pConstants_VN = {
-
 	 //quyennt - thanh toan truc tuyen
+	
 	'OL_TB_CODE_BILL'							: 'Mã hóa đơn',
 	'OL_TB_TOTAL_AMOUNT'						: 'Tổng giá trị hóa đơn',
 	'OL_TB_DESC'								: 'Mô tả',
