@@ -655,7 +655,6 @@ function goSignup() {
 function animationError() {
     $("#enter_code").effect("shake", {times: 2, distance: '10', direction: 'top'}, 500);
     showAlertText(CONST_STR.get("WRONG_PASSWORD"));
-    actionClear();
 }
 
 
