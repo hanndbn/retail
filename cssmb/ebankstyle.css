@@ -1,7 +1,6 @@
 ﻿/*TuanNM5 update for error font in Chrome*/
 /*TUANNM5 PHUCTD REACTIVE*/
 .welcome-title {
-
 }
 /*TUANNM5 PHUCTD REACTIVE END*/
 
@@ -1853,7 +1852,7 @@ a.list-group-item.active, a.list-group-item.active:hover, a.list-group-item.acti
 	/*color: #fff;
 	background-color: #428bca;*/
 	color: #FFF;
-	background-color: #5F2F85;
+	background-color: rgba(36, 58, 144, 0.93);
 	border-color: #714197;
 }
 a.list-group-item.active.list-group-item-heading, a.list-group-item.active:hover.list-group-item-heading, a.list-group-item.active:focus.list-group-item-heading {

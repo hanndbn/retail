@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="31.170.167.131" uploadOnCheckin="0622181a-4448-4071-a4cc-74cf44812775">
+    <serverData>
+      <paths name="31.170.167.131">
+        <serverdata>
+          <mappings>
+            <mapping deploy="http://31.170.167.131/public_html" local="$PROJECT_DIR$" web="/public_html" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myUploadOnCheckinName" value="31.170.167.131" />
+  </component>
+</project>
