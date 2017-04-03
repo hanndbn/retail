@@ -58,7 +58,7 @@ body {
     margin: 0;
     font-size: 12px;
     /*color: #eee;*/
-	color:#5f2f85;
+	color:#145aff;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -196,7 +196,7 @@ body {
     left: 0px;
     width: 260px;
     height: 100%;
-    /*background: #5f2f85;*/
+    /*background: #145aff;*/
 	background:#FFF;
     overflow: hidden;
     -ms-touch-action: none;
@@ -348,7 +348,7 @@ body {
     position: relative;
     min-width: 110px;
     /*color: #FDFDFD;*/
-	color:#5f2f85;
+	color:#145aff;
     /*font-family: 'TPB-DaxlinePro-Medium';*/
     /*font-size: 14px;*/
 	font-size: 12px;
@@ -445,7 +445,7 @@ body {
 .menu-layout-contents-sub li div {
 	/*font-family: 'TPB-DaxlinePro-Light';*/
     outline: none;
-    color: #5f2f85;
+    color: #145aff;
     background: #FAFAFA;
 }
 
@@ -488,7 +488,7 @@ body {
     top: 13px;
     left: 0;
     margin-left: 15px;
-    color: #5f2f85;
+    color: #145aff;
     /*font-family: 'TPB-DaxlinePro-Light';*/
     font-size: 12px;
 }
@@ -550,7 +550,7 @@ body {
     width: 210px;
 	/*padding-left: 30px;*/
     /*height: 100%;*/
-    /*background: #5f2f85;*/
+    /*background: #145aff;*/
 	background:#FFF;
     overflow: hidden;
     -ms-touch-action: none;
@@ -570,7 +570,7 @@ body {
 	/*margin-left: -20px;*/
 	
     /*background: #e66a25;*/
-	background: #5f2f85;
+	background: #145aff;
     color: #FDFDFD;
     /*font-family: 'TPB-DaxlinePro-Medium';*/
 	font-family:Tahoma, Helvetica, sans-serif;
@@ -1158,7 +1158,7 @@ body {
     /*position: relative;*/
     /*min-width: 110px;*/
     /*/!*color: #FDFDFD;*!/*/
-    /*color:#5f2f85;*/
+    /*color:#145aff;*/
     /*/!*font-family: 'TPB-DaxlinePro-Medium';*!/*/
     /*/!*font-size: 14px;*!/*/
     /*font-size: 12px;*/
@@ -1179,7 +1179,7 @@ body {
     position: relative;
     min-width: 110px;
     /*color: #FDFDFD;*/
-    color:#5f2f85;
+    color:#145aff;
     /*font-family: 'TPB-DaxlinePro-Medium';*/
     /*font-size: 14px;*/
     font-size: 12px;
@@ -1196,7 +1196,7 @@ body {
 .menu-layout-contents-sub li div.custom-menu {
     /*font-family: 'TPB-DaxlinePro-Light';*/
     outline: none;
-    color: #5f2f85;
+    color: #145aff;
     background: #FAFAFA;
     margin-left: 15px;
 }
@@ -1208,7 +1208,7 @@ body {
     top: 13px;
     left: 0;
     margin-left: 25px;
-    color: #5f2f85;
+    color: #145aff;
     /*font-family: 'TPB-DaxlinePro-Light';*/
     font-size: 12px;
 }

@@ -3226,6 +3226,7 @@ var pConstants_VN = {
     'GROUP_MANAGER_NPP_DT' : 'Số điện thoại',
     'GROUP_MANAGER_NPP_STATUS' : 'Tình Trạng',
     'GROUP_MANAGER_NPP_RANK' : 'Cấp bậc hiện tại',
+    'GROUP_MANAGER_NPP_DIRECT_NAME' : 'Tên nhà phân phối',
 
 
 
