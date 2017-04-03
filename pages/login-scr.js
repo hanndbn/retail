@@ -84,15 +84,15 @@ function handleSpecialKeyPressd(e) {
 }
 
 
-document.getElementById('login.txt.username').onchange = function (e) {
-    var tmpStr = document.getElementById('login.txt.username').value;
-    if (!CONST_BROWSER_MODE && tmpStr.length == 10) {
-        window.open(encodeURI(CONST_WEB_URL_LINK + '?cif=' + tmpStr), '_system');
-        /*showAlertAppText(CONST_STR.get('OPEN_CORP_SITE_ALERT_CONTENT'), CONST_STR.get('BANNER_ALERT_MOBILE_BTN_OK'), CONST_STR.get('BANNER_ALERT_MOBILE_BTN_CANCEL'));
-         document.addEventListener('alertAppConfirmOK', openEBankSiteOK, false);
-         document.addEventListener('alertAppConfirmCancel', openEBankSiteCancel, false);	*/
-    }
-}
+// document.getElementById('login.txt.username').onchange = function (e) {
+//     var tmpStr = document.getElementById('login.txt.username').value;
+//     if (!CONST_BROWSER_MODE && tmpStr.length == 10) {
+//         window.open(encodeURI(CONST_WEB_URL_LINK + '?cif=' + tmpStr), '_system');
+//         /*showAlertAppText(CONST_STR.get('OPEN_CORP_SITE_ALERT_CONTENT'), CONST_STR.get('BANNER_ALERT_MOBILE_BTN_OK'), CONST_STR.get('BANNER_ALERT_MOBILE_BTN_CANCEL'));
+//          document.addEventListener('alertAppConfirmOK', openEBankSiteOK, false);
+//          document.addEventListener('alertAppConfirmCancel', openEBankSiteCancel, false);	*/
+//     }
+// }
 
 function requestLogin() {
     if ((!statusAccMode) && (document.getElementById("login.txt.username").value.length == 0)) {
