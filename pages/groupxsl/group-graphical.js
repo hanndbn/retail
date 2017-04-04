@@ -24,6 +24,7 @@ var ctxImg = canvasImg.getContext("2d");
 var scaledImage = null;
 var angleRotate = 0;
 var flag_check = false; //ngocdt3 bo sung check trang thai la back hya cancel
+var treeNpp = new Array();
 
 function viewBackFromOther() {
     logInfo('Back from other view');
@@ -31,8 +32,32 @@ function viewBackFromOther() {
     setDefaultInfo(newCusInfoObj);
 }
 
+function drawChart() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Name');
+    data.addColumn('string', 'Manager');
+    // For each orgchart box, provide the name, manager, and tooltip to show.
+    var oldParentId = '';
+    var j = 0;
+    for (var i = 0; i < treeNpp.length; i++) {
+        data.addRows([
+            [{
+                v: treeNpp[i].nppId,
+                f: '<div style="background-color:rgba(36, 58, 144, 0.93);color: white">' + treeNpp[i].nppId + '</div>' + ((treeNpp[i].nppId === 'open') ? '' : '<div><img src="./assets/images/ico/' + treeNpp[i].rank + '.png"/></div>')
+            }, treeNpp[i].parentId]
+        ]);
+    }
+
+    // Create the chart.
+    var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
+    // Draw the chart, setting the allowHtml option to true for the tooltips.
+    chart.draw(data, {allowHtml: true});
+}
 
 function viewDidLoadSuccess() {
+    google.charts.load('current', {packages: ["orgchart"]});
+    google.charts.setOnLoadCallback(drawChart);
+
     if (flag_check == false) {
         //sendJSONRequest();
     }
@@ -40,7 +65,14 @@ function viewDidLoadSuccess() {
 }
 
 function sendJSONRequest() {
+    loadData('./data/treeNpp.json', drawGraphical);
     loadData('./data/account.json', requestMBServiceSuccess);
+}
+
+function drawGraphical(jsondata) {
+    treeNpp = JSON.parse(jsondata)[gUserInfo.accountId];
+    google.charts.load('current', {packages: ["orgchart"]});
+    google.charts.setOnLoadCallback(drawChart);
 }
 
 //event listener: http request success

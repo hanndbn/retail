@@ -81,24 +81,6 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td colspan="2" align="left" valign="middle" class="td-text">
-                                        <div class="input-group">
-                                            <span class="input-group-addon" style="width:35%;">INDEX_PAGE_TOTAL_SCORE_TITLE</span>
-                                            <input id="totalScore" type="text" disabled="disabled"
-                                                   class="form-control form-control-righttext" style="width:100%;"/>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" align="left" valign="middle" class="td-text">
-                                        <div class="input-group">
-                                            <span class="input-group-addon" style="width:35%;">INDEX_PAGE_DESTINATION_SCORE_TITLE</span>
-                                            <input id="destinationScore" type="text" disabled="disabled"
-                                                   class="form-control form-control-righttext" style="width:100%;"/>
-                                        </div>
-                                    </td>
-                                </tr>
                             </table>
                             <table width="100%" align="center">
                                 <tr>

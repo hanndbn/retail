@@ -12,9 +12,6 @@
                   <td colspan="2"><h5 class="screen-title"><span>GROUP_GRAPHICAL_TITLE</span></h5>
                     <div class="line-separate"/></td>
                 </tr>
-                <!--<tr>-->
-                  <!--<td colspan="2"><h5 class="Header"><span>GROUP_GRAPHICAL_GROUP_INFO</span></h5></td>-->
-                <!--</tr>-->
                 <tr>
                   <td width="35%"><h5><b><span class="input-group">UTILITIES_CHNG_PER_INFO_NAME_TITLE</span></b></h5></td>
                   <td width="65%"><h5><span id="name"></span></h5></td>
@@ -56,6 +53,7 @@
                   <td colspan="2"><h5 class="Header"><span>GROUP_GRAPHICAL_TREE</span></h5></td>
                 </tr>
               </table>
+              <div id="chart_div"></div>
             </div>
           </div>
         </div>
