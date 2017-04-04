@@ -55,8 +55,8 @@ function drawChart() {
 }
 
 function viewDidLoadSuccess() {
-    google.charts.load('current', {packages:["orgchart"]});
-    google.charts.setOnLoadCallback(drawChart);
+    //google.charts.load('current', {packages:["orgchart"]});
+    //google.charts.setOnLoadCallback(drawChart);
 
     if (flag_check == false) {
         //sendJSONRequest();

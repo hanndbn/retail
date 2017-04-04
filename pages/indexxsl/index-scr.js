@@ -48,8 +48,6 @@ function setVolumeHistory(accountDetail) {
     var tmpTotalVolume = formatNumberToCurrency(accountDetail.totalVolume);
     if (tmpTotalVolume === '0' || tmpTotalVolume === 0 || !tmpTotalVolume) tmpTotalVolume = '';
     document.getElementById("totalVolume").value = tmpTotalVolume;
-    document.getElementById("totalScore").value = accountDetail.totalScore;
-    document.getElementById("destinationScore").value = accountDetail.destinationScore;
 }
 
 
