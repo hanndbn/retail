@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Created by HuyNT2.
  * User:
  * Date: 12/17/13
