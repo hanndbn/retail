@@ -45,62 +45,6 @@
 	//get language config
 	gUserInfo.lang = getLanguageConfig();
 	initLanguageOnIB();
-	
-	//store raw menu
-	//gMenuRawData = document.getElementById('menu-section').innerHTML;
-	//changeLanguageInNodeWithClass('langNoStyle');
-
-
-	// SangNt1 ---- evtEBNativeInfo
-
-	document.addEventListener('evtEBNativeInfo', function (e) {
-        if(e[0] == "REGISTER_TOKEN"){
-			
-            var arrayArgs = new Array();
-            arrayArgs.push(e[1]);
-			
-			if(e[2] != 'undefined' || e[2] == null){
-				arrayArgs.push(device.uuid);
-				gDeviceTokenPush = device.uuid;
-			}
-			else{
-				arrayArgs.push(e[2]);
-				gDeviceTokenPush = e[2];
-			}
-                        
-            if(gDeviceTokenPush == null)
-                gDeviceTokenPush = "";
-
-            localStorage.gDeviceTokenPush = gDeviceTokenPush;
-			
-
-            /*var divNotifi = document.getElementById("notification-id");
-            divNotifi.setAttribute("onClick","window.open('./index-non-ebank.html?menu=notification&devtoken="+ gDeviceTokenPush +"','_self');");*/
-            //requestBacgroundMBService('CMD_TYPE_POST_DEVICE_TOKEN', arrayArgs, eventNativeInfoSuccess, eventNativeInfoFail);
-        }else if(e[0]=="OPEN_NOTIFICATION"){
-
-            openLinkInWindows(e[1]);
-            var arrayArgs = new Array();
-            arrayArgs.push(gDeviceTokenPush);
-            arrayArgs.push(e[2]);
-            arrayArgs.push("R");
-            //requestBacgroundMBService('CMD_TYPE_READ_NOTIFICATION', arrayArgs, eventNativeInfoSuccess, eventNativeInfoFail);
-        }
-
-
-
-	}, false);
-
-    function eventNativeInfoSuccess(e){
-        console.log("eventnativeInfoSuccess"+e);
-        getCountDataNotificationUnread();
-
-    }
-    function eventNativeInfoFail(e){
-        console.log("eventNativeInfoFail"+e);
-    }
-
-
 
 
     //End SangNt1 ---- evtEBNativeInfo

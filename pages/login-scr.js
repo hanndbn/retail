@@ -9,19 +9,15 @@ var statusAccMode = false;
 initLoginScr();
 function initLoginScr() {
     // set to local storage
-    setUserInfoToLocal('1', 'NGUYEN DINH HAN');
+    //setUserInfoToLocal('1', 'NGUYEN DINH HAN');
     setBackGround();
-    statusAccMode = getUserInfoToLocal(); //get local data
-    if (getURLParam('cif')) {
-        statusAccMode = false;
-        document.getElementById('login.txt.username').value = getURLParam('cif');
-    }
+    //statusAccMode = getUserInfoToLocal(); //get local data
     if (!statusAccMode) {
         var tmpNodeChangeUser = document.getElementById('login.changeaccounttitle');
         tmpNodeChangeUser.style.display = 'none';
         return;
     }
-    updateViewWithUserInfo(statusAccMode);
+    //updateViewWithUserInfo(statusAccMode);
 }
 
 function viewWillUnload() {
