@@ -188,24 +188,24 @@ function requestChangeAvatar() {
 	if(tmpCanvas) {
 		base64string = tmpCanvas.toDataURL('image/jpeg');
 	}
-	var gprsCmd = new GprsCmdObj(CONSTANTS.get("CMD_TYPE_CHNG_CUS_AVATAR"), "", "", gUserInfo.lang , gUserInfo.sessionID, arrayArgs, encodeURIComponent(base64string));
+	//var gprsCmd = new GprsCmdObj(CONSTANTS.get("CMD_TYPE_CHNG_CUS_AVATAR"), "", "", gUserInfo.lang , gUserInfo.sessionID, arrayArgs, encodeURIComponent(base64string));
 	
-	data = getDataFromGprsCmd(gprsCmd);
+	//data = getDataFromGprsCmd(gprsCmd);
 	
-	requestMBService(data, true, 0, function(e) {
-		gprsResp = parserJSON(e);
-		if ((gprsResp.respCode == '0') && (parseInt(gprsResp.responseType) == parseInt(CONSTANTS.get("CMD_TYPE_CHNG_CUS_AVATAR"))) && gprsResp.arguments != undefined) {
-			logInfo('change avatar success!');
-			gUserInfo.userAvatar = gprsResp.arguments[0];
-			document.getElementById('avatar-btn-upload').style.display = 'none';
-			document.getElementById('avatar-btn-rotate').style.display = 'none';
-			/*document.getElementById('menu-profile-avatar').innerHTML = '<img width="25" height="25" style="margin-top:1px; margin-left:4px" src="' + gUserInfo.userAvatar + '" />';*/
-			document.getElementById('menu-profile-avatar').innerHTML = '<img class="avatar-size" style="margin-top:-1px" src="' + gUserInfo.userAvatar + '" />';
-			document.getElementById('menu-profile-avatar').style.backgroundColor = "transparent";
-		} 
-	}, function() {
-		logInfo('change avatar fail!');
-	});
+	// requestMBService(data, true, 0, function(e) {
+	// 	gprsResp = parserJSON(e);
+	// 	if ((gprsResp.respCode == '0') && (parseInt(gprsResp.responseType) == parseInt(CONSTANTS.get("CMD_TYPE_CHNG_CUS_AVATAR"))) && gprsResp.arguments != undefined) {
+	// 		logInfo('change avatar success!');
+	// 		gUserInfo.userAvatar = gprsResp.arguments[0];
+	// 		document.getElementById('avatar-btn-upload').style.display = 'none';
+	// 		document.getElementById('avatar-btn-rotate').style.display = 'none';
+	// 		/*document.getElementById('menu-profile-avatar').innerHTML = '<img width="25" height="25" style="margin-top:1px; margin-left:4px" src="' + gUserInfo.userAvatar + '" />';*/
+	// 		document.getElementById('menu-profile-avatar').innerHTML = '<img class="avatar-size" style="margin-top:-1px" src="' + gUserInfo.userAvatar + '" />';
+	// 		document.getElementById('menu-profile-avatar').style.backgroundColor = "transparent";
+	// 	}
+	// }, function() {
+	// 	logInfo('change avatar fail!');
+	// });
 }
 
 /*upload file*/

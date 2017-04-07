@@ -1066,208 +1066,208 @@ function startTimeRequestCoutdown() {
 		ajaxTimeNextRequestStatus = true;
 	}, 1000);
 }
-function requestMBService(data, loadMask, timeout, successCallback, failCallback, iOptions) {
-	if (!ajaxTimeNextRequestStatus) return; //fix bug on WP and some Android device
-	ajaxTimeNextRequestStatus = false;
-	startTimeRequestCoutdown();
-	
-	hiddenKeyBoardWhenRequest();
-	var hideKeyboardDelay = 0;
-	var tmpWP = navigator.userAgent.match(/IEMobile|WPDesktop/i);
-	//if (tmpWP) {
-		hideKeyboardDelay = 500;
-	/*}else{
-		hideKeyboardDelay = 200;
-	}*/
-	setTimeout(function(){
-		statusLoadMask = loadMask;
-		var timeToBreak = 90; //time by s
-		if ((timeout != undefined) && (timeout > 0)) {
-			timeToBreak = timeout;
-		}
-		var reqKey = '';
-		var reqContent = '';
-		
-		if(iOptions && iOptions.cached) {
-			var tmpData = {};
-			tmpData["cmdType"] = data["cmdType"];
-			tmpData["args"] = data["args"];
-			tmpData["language"] = data["language"];
-			var tmpReqData = JSON.stringify(tmpData);
-			reqKey = hex_md5(tmpReqData);
-			reqContent = respCache[reqKey];
-			if(reqContent != undefined && reqContent.length > 0) {
-				if(successCallback && (typeof successCallback == "function")) {
-					successCallback(reqContent);
-				}
-				return;
-			}
-		}
-		
-		if (loadMask){
-			showLoadingMask();
-		}
-		
-		// construct an HTTP request
-		var xhr;// = new XMLHttpRequest();
-		if (window.XMLHttpRequest) {
-			xhr = new XMLHttpRequest();
-		} else if (window.ActiveXObject) {
-			xhr = new ActiveXObject("Microsoft.XMLHTTP");
-		}
-		/*if (window.XDomainRequest)
-		{
-			xhr=new XDomainRequest();
-			xhr.onload = function(){callBack(xhr.responseText)};
-		}
-		else if (window.XMLHttpRequest)
-			xhr=new XMLHttpRequest();
-		else
-			xhr=new ActiveXObject("Microsoft.XMLHTTP"); //msxml2.XmlHttp.3.0" //Microsoft.XMLHTTP
-		*/
-		//alert("start send POST");
-		
-		if (gMBServiceUrl.length == 0) {
-			logInfo("URL is null. Please check url.");
-			return;
-		}
-		//check internet connection
-		/*var tmpStatus = navigator.onLine;
-		if (!tmpStatus) {
-			hideLoadingMask();
-			if (loadMask) showAlertText(CONST_STR.get('ERR_DISCONNECT_INTERNET'));
-			if(failCallback && (typeof failCallback == "function")) {
-				failCallback();
-				var timeFailEvent = setTimeout(function(){
-						clearTimeout(timeFailEvent);
-						failCallback = null;
-					}, 10);
-			}
-			return;
-		}*/
-		
-		//setting request url
-		try {
-			xhr.open(gRequestMethod, gMBServiceUrl, true);
-			
-			if (gRequestMethod == "POST") {
-				xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-				//xhr.setRequestHeader('Content-Length', data.length);
-				var tmpReqReal = JSON.stringify(data);
-				logInfo("JSON data: " + tmpReqReal);
-				//xhr.send(tmpReqReal);
-				
-				var xmlHttpTimeout=setTimeout(ajaxTimeout, timeToBreak * 1000); //set time out
-				function ajaxTimeout(){
-					clearTimeout(xmlHttpTimeout); // clear time out
-					
-					xhr.abort();
-					hideLoadingMask();
-					if (loadMask) showAlertText(CONST_STR.get('ERR_CONNECTION_TIMEOUT'));
-					//fire event listener
-					if(failCallback && (typeof failCallback == "function")) {
-						failCallback();
-						var timeFailEvent = setTimeout(function(){
-							clearTimeout(timeFailEvent);
-							failCallback = null;
-						}, 10);
-					}
-					//document.dispatchEvent(evtHttpFail);
-				}
-				
-				xhr.onreadystatechange = function () {
-					//if (xhr.readyState==4 && ((xhr.status==200) || (xhr.status==0))) {
-					if ((xhr.readyState==4) && (xhr.status==200)) {
-						clearTimeout(xmlHttpTimeout); // clear time out
-						
-						if(iOptions && iOptions.cached) {
-							try {
-								var tmpResp = parserJSON(xhr.responseText, false);
-								if (parseInt(tmpResp.respCode) == 0) {
-									respCache[reqKey] = xhr.responseText;
-								}
-							}
-							catch(err) {
-								logInfo('Error request service.');
-							}
-						}
-						
-						hideLoadingMask();
-						//alert("end receving POST");
-						logInfo("End receiving data: " + xhr.responseText);
-						//fire event listener
-						//evtHttpSuccess.serviceData = xhr.responseText;
-						if(successCallback && (typeof successCallback == "function")) {
-							successCallback(xhr.responseText);
-							var timeSuccessEvent = setTimeout(function(){
-								clearTimeout(timeSuccessEvent);
-								successCallback = null;
-							}, 10);
-						}
-						//document.dispatchEvent(evtHttpSuccess);
-					}
-					else {
-						if (xhr.status==404) {
-							clearTimeout(xmlHttpTimeout); // clear time out
-							
-							hideLoadingMask();
-							//alert("Error sending data: " + data);
-							logInfo("Error sending data: " + data);
-							if (loadMask) showAlertText(CONST_STR.get('ERR_DISCONNECT_TO_SERVER'));
-							xhr.abort();
-							//fire event listener
-							if(failCallback && (typeof failCallback == "function")) {
-								failCallback();
-								var timeFailEvent = setTimeout(function(){
-									clearTimeout(timeFailEvent);
-									failCallback = null;
-								}, 10);
-
-							}
-							//document.dispatchEvent(evtHttpFail);
-						}
-						else if ((xhr.readyState==4) && (xhr.status==0)) {
-							clearTimeout(xmlHttpTimeout); // clear time out
-							
-							hideLoadingMask();
-							logInfo("Disconnected to service!");
-							if (loadMask) showAlertText(CONST_STR.get('ERR_DISCONNECT_TO_SERVER'));
-							xhr.abort();
-							//fire event listener
-							if(failCallback && (typeof failCallback == "function")) {
-								failCallback();
-								var timeFailEvent = setTimeout(function(){
-									clearTimeout(timeFailEvent);
-									failCallback = null;
-								}, 10);
-
-							}
-							//document.dispatchEvent(evtHttpFail);
-						}
-						//other status
-					}
-				}
-			}
-		}
-		catch(err) {
-			clearTimeout(xmlHttpTimeout); // clear time out
-			
-			logInfo(err);
-			hideLoadingMask();
-			if (loadMask) showAlertText(CONST_STR.get('ERR_DISCONNECT_TO_SERVER'));
-			//fire event listener
-			if(failCallback && (typeof failCallback == "function")) {
-				failCallback();
-				var timeFailEvent = setTimeout(function(){
-						clearTimeout(timeFailEvent);
-						failCallback = null;
-					}, 10);
-
-			}
-			//document.dispatchEvent(evtHttpFail);
-		}
-	},hideKeyboardDelay);	
-}
+// function requestMBService(data, loadMask, timeout, successCallback, failCallback, iOptions) {
+// 	if (!ajaxTimeNextRequestStatus) return; //fix bug on WP and some Android device
+// 	ajaxTimeNextRequestStatus = false;
+// 	startTimeRequestCoutdown();
+//
+// 	hiddenKeyBoardWhenRequest();
+// 	var hideKeyboardDelay = 0;
+// 	var tmpWP = navigator.userAgent.match(/IEMobile|WPDesktop/i);
+// 	//if (tmpWP) {
+// 		hideKeyboardDelay = 500;
+// 	/*}else{
+// 		hideKeyboardDelay = 200;
+// 	}*/
+// 	setTimeout(function(){
+// 		statusLoadMask = loadMask;
+// 		var timeToBreak = 90; //time by s
+// 		if ((timeout != undefined) && (timeout > 0)) {
+// 			timeToBreak = timeout;
+// 		}
+// 		var reqKey = '';
+// 		var reqContent = '';
+//
+// 		if(iOptions && iOptions.cached) {
+// 			var tmpData = {};
+// 			tmpData["cmdType"] = data["cmdType"];
+// 			tmpData["args"] = data["args"];
+// 			tmpData["language"] = data["language"];
+// 			var tmpReqData = JSON.stringify(tmpData);
+// 			reqKey = hex_md5(tmpReqData);
+// 			reqContent = respCache[reqKey];
+// 			if(reqContent != undefined && reqContent.length > 0) {
+// 				if(successCallback && (typeof successCallback == "function")) {
+// 					successCallback(reqContent);
+// 				}
+// 				return;
+// 			}
+// 		}
+//
+// 		if (loadMask){
+// 			showLoadingMask();
+// 		}
+//
+// 		// construct an HTTP request
+// 		var xhr;// = new XMLHttpRequest();
+// 		if (window.XMLHttpRequest) {
+// 			xhr = new XMLHttpRequest();
+// 		} else if (window.ActiveXObject) {
+// 			xhr = new ActiveXObject("Microsoft.XMLHTTP");
+// 		}
+// 		/*if (window.XDomainRequest)
+// 		{
+// 			xhr=new XDomainRequest();
+// 			xhr.onload = function(){callBack(xhr.responseText)};
+// 		}
+// 		else if (window.XMLHttpRequest)
+// 			xhr=new XMLHttpRequest();
+// 		else
+// 			xhr=new ActiveXObject("Microsoft.XMLHTTP"); //msxml2.XmlHttp.3.0" //Microsoft.XMLHTTP
+// 		*/
+// 		//alert("start send POST");
+//
+// 		if (gMBServiceUrl.length == 0) {
+// 			logInfo("URL is null. Please check url.");
+// 			return;
+// 		}
+// 		//check internet connection
+// 		/*var tmpStatus = navigator.onLine;
+// 		if (!tmpStatus) {
+// 			hideLoadingMask();
+// 			if (loadMask) showAlertText(CONST_STR.get('ERR_DISCONNECT_INTERNET'));
+// 			if(failCallback && (typeof failCallback == "function")) {
+// 				failCallback();
+// 				var timeFailEvent = setTimeout(function(){
+// 						clearTimeout(timeFailEvent);
+// 						failCallback = null;
+// 					}, 10);
+// 			}
+// 			return;
+// 		}*/
+//
+// 		//setting request url
+// 		try {
+// 			xhr.open(gRequestMethod, gMBServiceUrl, true);
+//
+// 			if (gRequestMethod == "POST") {
+// 				xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+// 				//xhr.setRequestHeader('Content-Length', data.length);
+// 				var tmpReqReal = JSON.stringify(data);
+// 				logInfo("JSON data: " + tmpReqReal);
+// 				//xhr.send(tmpReqReal);
+//
+// 				var xmlHttpTimeout=setTimeout(ajaxTimeout, timeToBreak * 1000); //set time out
+// 				function ajaxTimeout(){
+// 					clearTimeout(xmlHttpTimeout); // clear time out
+//
+// 					xhr.abort();
+// 					hideLoadingMask();
+// 					if (loadMask) showAlertText(CONST_STR.get('ERR_CONNECTION_TIMEOUT'));
+// 					//fire event listener
+// 					if(failCallback && (typeof failCallback == "function")) {
+// 						failCallback();
+// 						var timeFailEvent = setTimeout(function(){
+// 							clearTimeout(timeFailEvent);
+// 							failCallback = null;
+// 						}, 10);
+// 					}
+// 					//document.dispatchEvent(evtHttpFail);
+// 				}
+//
+// 				xhr.onreadystatechange = function () {
+// 					//if (xhr.readyState==4 && ((xhr.status==200) || (xhr.status==0))) {
+// 					if ((xhr.readyState==4) && (xhr.status==200)) {
+// 						clearTimeout(xmlHttpTimeout); // clear time out
+//
+// 						if(iOptions && iOptions.cached) {
+// 							try {
+// 								var tmpResp = parserJSON(xhr.responseText, false);
+// 								if (parseInt(tmpResp.respCode) == 0) {
+// 									respCache[reqKey] = xhr.responseText;
+// 								}
+// 							}
+// 							catch(err) {
+// 								logInfo('Error request service.');
+// 							}
+// 						}
+//
+// 						hideLoadingMask();
+// 						//alert("end receving POST");
+// 						logInfo("End receiving data: " + xhr.responseText);
+// 						//fire event listener
+// 						//evtHttpSuccess.serviceData = xhr.responseText;
+// 						if(successCallback && (typeof successCallback == "function")) {
+// 							successCallback(xhr.responseText);
+// 							var timeSuccessEvent = setTimeout(function(){
+// 								clearTimeout(timeSuccessEvent);
+// 								successCallback = null;
+// 							}, 10);
+// 						}
+// 						//document.dispatchEvent(evtHttpSuccess);
+// 					}
+// 					else {
+// 						if (xhr.status==404) {
+// 							clearTimeout(xmlHttpTimeout); // clear time out
+//
+// 							hideLoadingMask();
+// 							//alert("Error sending data: " + data);
+// 							logInfo("Error sending data: " + data);
+// 							if (loadMask) showAlertText(CONST_STR.get('ERR_DISCONNECT_TO_SERVER'));
+// 							xhr.abort();
+// 							//fire event listener
+// 							if(failCallback && (typeof failCallback == "function")) {
+// 								failCallback();
+// 								var timeFailEvent = setTimeout(function(){
+// 									clearTimeout(timeFailEvent);
+// 									failCallback = null;
+// 								}, 10);
+//
+// 							}
+// 							//document.dispatchEvent(evtHttpFail);
+// 						}
+// 						else if ((xhr.readyState==4) && (xhr.status==0)) {
+// 							clearTimeout(xmlHttpTimeout); // clear time out
+//
+// 							hideLoadingMask();
+// 							logInfo("Disconnected to service!");
+// 							if (loadMask) showAlertText(CONST_STR.get('ERR_DISCONNECT_TO_SERVER'));
+// 							xhr.abort();
+// 							//fire event listener
+// 							if(failCallback && (typeof failCallback == "function")) {
+// 								failCallback();
+// 								var timeFailEvent = setTimeout(function(){
+// 									clearTimeout(timeFailEvent);
+// 									failCallback = null;
+// 								}, 10);
+//
+// 							}
+// 							//document.dispatchEvent(evtHttpFail);
+// 						}
+// 						//other status
+// 					}
+// 				}
+// 			}
+// 		}
+// 		catch(err) {
+// 			clearTimeout(xmlHttpTimeout); // clear time out
+//
+// 			logInfo(err);
+// 			hideLoadingMask();
+// 			if (loadMask) showAlertText(CONST_STR.get('ERR_DISCONNECT_TO_SERVER'));
+// 			//fire event listener
+// 			if(failCallback && (typeof failCallback == "function")) {
+// 				failCallback();
+// 				var timeFailEvent = setTimeout(function(){
+// 						clearTimeout(timeFailEvent);
+// 						failCallback = null;
+// 					}, 10);
+//
+// 			}
+// 			//document.dispatchEvent(evtHttpFail);
+// 		}
+// 	},hideKeyboardDelay);
+// }
 
 function hiddenKeyBoardWhenRequest() {	
 	if(!Environment.isMobile) return false;
@@ -1357,360 +1357,360 @@ evtBackgroundHttpSuccess.initEvent("evtBackgroundHttpSuccess", true, true);
 var evtBackgroundHttpFail = document.createEvent('Event'); //Event request fail
 evtBackgroundHttpFail.initEvent("evtBackgroundHttpFail", true, true);
 
-function requestBacgroundMBService(svCode, svArgs, successCallback, failCallback, iOptions)
-{
-	//hiddenKeyBoardWhenRequest();
-	//svCode is type: 'CMD_TYPE_GOLD_CHECK_RATE'
+// function requestBacgroundMBService(svCode, svArgs, successCallback, failCallback, iOptions)
+// {
+// 	//hiddenKeyBoardWhenRequest();
+// 	//svCode is type: 'CMD_TYPE_GOLD_CHECK_RATE'
+//
+// 	if ((svCode == undefined) || (svCode == null) || (svArgs == undefined) || (svArgs == null)) {
+// 		return;
+// 	}
+// 	var data = {};
+// 	var arrayArgs = new Array();
+//
+// 	arrayArgs = svArgs;
+// 	//alert(gUserInfo.sessionID);
+// 	var gprsCmd = new GprsCmdObj(CONSTANTS.get(svCode), "", "", gUserInfo.lang, gUserInfo.sessionID, arrayArgs);
+// 	data = getDataFromGprsCmd(gprsCmd);
+//
+// 	var reqKey = '';
+// 	var reqContent = '';
+//
+// 	if(iOptions && iOptions.cached) {
+// 		var tmpData = {};
+// 		tmpData["cmdType"] = data["cmdType"];
+// 		tmpData["args"] = data["args"];
+// 		tmpData["language"] = data["language"];
+// 		var tmpReqData = JSON.stringify(tmpData);
+// 		reqKey = hex_md5(tmpReqData);
+// 		reqContent = respCache[reqKey];
+// 		if(reqContent != undefined && reqContent.length > 0) {
+// 			if(successCallback && (typeof successCallback == "function")) {
+// 				successCallback(reqContent);
+// 			}
+// 			return;
+// 		}
+// 	}
+//
+// 	// construct an HTTP request
+// 	var xhr;// = new XMLHttpRequest();
+// 	if (window.XMLHttpRequest) {
+// 		xhr = new XMLHttpRequest();
+// 	} else if (window.ActiveXObject) {
+// 		xhr = new ActiveXObject("Microsoft.XMLHTTP");
+// 	}
+//
+// 	//check internet connection
+// 	/*var tmpStatus = navigator.onLine;
+// 	if (!tmpStatus) return;*/
+//
+// 	//setting request url
+// 	xhr.open(gRequestMethod, gMBServiceUrl, true);
+//
+// 	if (gRequestMethod == "POST") {
+// 		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+// 		//xhr.setRequestHeader('Content-Length', data.length);
+// 		logInfo("JSON data: " + JSON.stringify(data));
+// 		xhr.send(JSON.stringify(data));
+//
+// 		var xmlHttpTimeout=setTimeout(ajaxTimeout, 20 * 1000); //set time out
+// 		function ajaxTimeout(){
+// 			clearTimeout(xmlHttpTimeout); // clear time out
+//
+// 			xhr.abort();
+// 			//document.dispatchEvent(evtBackgroundHttpFail);
+// 			if(failCallback && (typeof failCallback == "function")) {
+// 				failCallback();
+// 			}
+// 		}
+//
+// 		xhr.onreadystatechange = function () {
+// 			if (xhr.readyState==4 && ((xhr.status==200) || (xhr.status==0))) {
+// 			//if ((xhr.readyState==4) && (xhr.status==200)) {
+// 				clearTimeout(xmlHttpTimeout); // clear time out
+//
+// 				if(iOptions && iOptions.cached) {
+// 					try {
+// 						var tmpResp = parserJSON(xhr.responseText, false);
+// 						if (parseInt(tmpResp.respCode) == 0) {
+// 							respCache[reqKey] = xhr.responseText;
+// 						}
+// 					}
+// 					catch(err) {
+// 						logInfo('Error request background service.');
+// 					}
+// 				}
+//
+// 				logInfo("End receiving data: " + xhr.responseText);
+// 				if(successCallback && (typeof successCallback == "function")) {
+// 					successCallback(xhr.responseText);
+// 				}
+// 				/*if(evtBackgroundHttpSuccess != undefined) {
+// 					//evtBackgroundHttpSuccess.serviceData = xhr.responseText;
+// 					//document.dispatchEvent(evtBackgroundHttpSuccess);
+// 				}*/
+// 			}
+// 			else {
+// 				if (xhr.status==404) {
+// 					clearTimeout(xmlHttpTimeout); // clear time out
+//
+// 					logInfo("Error sending data: " + data);
+// 					xhr.abort();
+// 					//document.dispatchEvent(evtBackgroundHttpFail);
+// 					if(failCallback && (typeof failCallback == "function")) {
+// 						failCallback();
+// 					}
+// 				}
+// 				else if ((xhr.readyState==4) && (xhr.status==0)) {
+// 					clearTimeout(xmlHttpTimeout); // clear time out
+//
+// 					logInfo("Disconnected to service!");
+// 					xhr.abort();
+// 					//document.dispatchEvent(evtBackgroundHttpFail);
+// 					if(failCallback && (typeof failCallback == "function")) {
+// 						failCallback();
+// 					}
+// 				}
+// 				//other status
+// 			}
+// 		}
+// 	}
+// }
 
-	if ((svCode == undefined) || (svCode == null) || (svArgs == undefined) || (svArgs == null)) {
-		return;
-	}
-	var data = {};
-	var arrayArgs = new Array();
-
-	arrayArgs = svArgs;
-	//alert(gUserInfo.sessionID);
-	var gprsCmd = new GprsCmdObj(CONSTANTS.get(svCode), "", "", gUserInfo.lang, gUserInfo.sessionID, arrayArgs);
-	data = getDataFromGprsCmd(gprsCmd);
-
-	var reqKey = '';
-	var reqContent = '';
-
-	if(iOptions && iOptions.cached) {
-		var tmpData = {};
-		tmpData["cmdType"] = data["cmdType"];
-		tmpData["args"] = data["args"];
-		tmpData["language"] = data["language"];
-		var tmpReqData = JSON.stringify(tmpData);
-		reqKey = hex_md5(tmpReqData);
-		reqContent = respCache[reqKey];
-		if(reqContent != undefined && reqContent.length > 0) {
-			if(successCallback && (typeof successCallback == "function")) {
-				successCallback(reqContent);
-			}
-			return;
-		}
-	}
-
-	// construct an HTTP request
-	var xhr;// = new XMLHttpRequest();
-	if (window.XMLHttpRequest) {
-		xhr = new XMLHttpRequest();
-	} else if (window.ActiveXObject) {
-		xhr = new ActiveXObject("Microsoft.XMLHTTP");
-	}
-
-	//check internet connection
-	/*var tmpStatus = navigator.onLine;
-	if (!tmpStatus) return;*/
-
-	//setting request url
-	xhr.open(gRequestMethod, gMBServiceUrl, true);
-
-	if (gRequestMethod == "POST") {
-		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-		//xhr.setRequestHeader('Content-Length', data.length);
-		logInfo("JSON data: " + JSON.stringify(data));
-		xhr.send(JSON.stringify(data));
-
-		var xmlHttpTimeout=setTimeout(ajaxTimeout, 20 * 1000); //set time out
-		function ajaxTimeout(){
-			clearTimeout(xmlHttpTimeout); // clear time out
-
-			xhr.abort();
-			//document.dispatchEvent(evtBackgroundHttpFail);
-			if(failCallback && (typeof failCallback == "function")) {
-				failCallback();
-			}
-		}
-
-		xhr.onreadystatechange = function () {
-			if (xhr.readyState==4 && ((xhr.status==200) || (xhr.status==0))) {
-			//if ((xhr.readyState==4) && (xhr.status==200)) {
-				clearTimeout(xmlHttpTimeout); // clear time out
-
-				if(iOptions && iOptions.cached) {
-					try {
-						var tmpResp = parserJSON(xhr.responseText, false);
-						if (parseInt(tmpResp.respCode) == 0) {
-							respCache[reqKey] = xhr.responseText;
-						}
-					}
-					catch(err) {
-						logInfo('Error request background service.');
-					}
-				}
-
-				logInfo("End receiving data: " + xhr.responseText);
-				if(successCallback && (typeof successCallback == "function")) {
-					successCallback(xhr.responseText);
-				}
-				/*if(evtBackgroundHttpSuccess != undefined) {
-					//evtBackgroundHttpSuccess.serviceData = xhr.responseText;
-					//document.dispatchEvent(evtBackgroundHttpSuccess);
-				}*/
-			}
-			else {
-				if (xhr.status==404) {
-					clearTimeout(xmlHttpTimeout); // clear time out
-
-					logInfo("Error sending data: " + data);
-					xhr.abort();
-					//document.dispatchEvent(evtBackgroundHttpFail);
-					if(failCallback && (typeof failCallback == "function")) {
-						failCallback();
-					}
-				}
-				else if ((xhr.readyState==4) && (xhr.status==0)) {
-					clearTimeout(xmlHttpTimeout); // clear time out
-
-					logInfo("Disconnected to service!");
-					xhr.abort();
-					//document.dispatchEvent(evtBackgroundHttpFail);
-					if(failCallback && (typeof failCallback == "function")) {
-						failCallback();
-					}
-				}
-				//other status
-			}
-		}
-	}
-}
-
-function requestBacgroundMBServiceRaw(svCode, svArgs, successCallback, failCallback, iRaw, iOptions)
-{
-	hiddenKeyBoardWhenRequest();	
-	//svCode is type: 'CMD_TYPE_GOLD_CHECK_RATE'
-
-	if ((svCode == undefined) || (svCode == null) || (svArgs == undefined) || (svArgs == null)) {
-		return;
-	}
-	var data = {};
-	var arrayArgs = new Array();
-	
-	arrayArgs = svArgs;
-	
-	var gprsCmd = new GprsCmdObj(CONSTANTS.get(svCode), "", "", gUserInfo.lang, gUserInfo.sessionID, arrayArgs, iRaw);
-	data = getDataFromGprsCmd(gprsCmd);
-	
-	var reqKey = '';
-	var reqContent = '';
-	
-	if(iOptions && iOptions.cached) {
-		var tmpData = {};
-		tmpData["cmdType"] = data["cmdType"];
-		tmpData["args"] = data["args"];
-		tmpData["language"] = data["language"];
-		var tmpReqData = JSON.stringify(tmpData);
-		reqKey = hex_md5(tmpReqData);
-		reqContent = respCache[reqKey];
-		if(reqContent != undefined && reqContent.length > 0) {
-			if(successCallback && (typeof successCallback == "function")) {
-				successCallback(reqContent);
-			}
-			return;
-		}
-	}
-	
-	// construct an HTTP request
-	var xhr;// = new XMLHttpRequest();
-	if (window.XMLHttpRequest) {
-		xhr = new XMLHttpRequest();
-	} else if (window.ActiveXObject) {
-		xhr = new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	
-	//check internet connection
-	/*var tmpStatus = navigator.onLine;
-	if (!tmpStatus) return;*/
-	
-	//setting request url
-	xhr.open(gRequestMethod, gMBServiceUrl, true);
-	
-	if (gRequestMethod == "POST") {
-		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-		//xhr.setRequestHeader('Content-Length', data.length);
-		logInfo("JSON data: " + JSON.stringify(data));
-		xhr.send(JSON.stringify(data));
-		
-		var xmlHttpTimeout=setTimeout(ajaxTimeout, 20 * 1000); //set time out
-		function ajaxTimeout(){
-			clearTimeout(xmlHttpTimeout); // clear time out
-			
-			xhr.abort();
-			//document.dispatchEvent(evtBackgroundHttpFail);
-			if(failCallback && (typeof failCallback == "function")) {
-				failCallback();
-			}
-		}
-		
-		xhr.onreadystatechange = function () {
-			if (xhr.readyState==4 && ((xhr.status==200) || (xhr.status==0))) {
-			//if ((xhr.readyState==4) && (xhr.status==200)) {
-				clearTimeout(xmlHttpTimeout); // clear time out
-				
-				if(iOptions && iOptions.cached) {
-					try {
-						var tmpResp = parserJSON(xhr.responseText, false);
-						if (parseInt(tmpResp.respCode) == 0) {
-							respCache[reqKey] = xhr.responseText;
-						}
-					}
-					catch(err) {
-						logInfo('Error request background service.');
-					}
-				}
-				
-				logInfo("End receiving data: " + xhr.responseText);
-				if(successCallback && (typeof successCallback == "function")) {
-					successCallback(xhr.responseText);
-				}
-				/*if(evtBackgroundHttpSuccess != undefined) {
-					//evtBackgroundHttpSuccess.serviceData = xhr.responseText;
-					//document.dispatchEvent(evtBackgroundHttpSuccess);
-				}*/
-			}
-			else {
-				if (xhr.status==404) {
-					clearTimeout(xmlHttpTimeout); // clear time out
-					
-					logInfo("Error sending data: " + data);
-					xhr.abort();
-					//document.dispatchEvent(evtBackgroundHttpFail);
-					if(failCallback && (typeof failCallback == "function")) {
-						failCallback();
-					}
-				}
-				else if ((xhr.readyState==4) && (xhr.status==0)) {
-					clearTimeout(xmlHttpTimeout); // clear time out
-					
-					logInfo("Disconnected to service!");
-					xhr.abort();
-					//document.dispatchEvent(evtBackgroundHttpFail);
-					if(failCallback && (typeof failCallback == "function")) {
-						failCallback();
-					}
-				}
-				//other status
-			}
-		}
-	}	
-}
+// function requestBacgroundMBServiceRaw(svCode, svArgs, successCallback, failCallback, iRaw, iOptions)
+// {
+// 	hiddenKeyBoardWhenRequest();
+// 	//svCode is type: 'CMD_TYPE_GOLD_CHECK_RATE'
+//
+// 	if ((svCode == undefined) || (svCode == null) || (svArgs == undefined) || (svArgs == null)) {
+// 		return;
+// 	}
+// 	var data = {};
+// 	var arrayArgs = new Array();
+//
+// 	arrayArgs = svArgs;
+//
+// 	var gprsCmd = new GprsCmdObj(CONSTANTS.get(svCode), "", "", gUserInfo.lang, gUserInfo.sessionID, arrayArgs, iRaw);
+// 	data = getDataFromGprsCmd(gprsCmd);
+//
+// 	var reqKey = '';
+// 	var reqContent = '';
+//
+// 	if(iOptions && iOptions.cached) {
+// 		var tmpData = {};
+// 		tmpData["cmdType"] = data["cmdType"];
+// 		tmpData["args"] = data["args"];
+// 		tmpData["language"] = data["language"];
+// 		var tmpReqData = JSON.stringify(tmpData);
+// 		reqKey = hex_md5(tmpReqData);
+// 		reqContent = respCache[reqKey];
+// 		if(reqContent != undefined && reqContent.length > 0) {
+// 			if(successCallback && (typeof successCallback == "function")) {
+// 				successCallback(reqContent);
+// 			}
+// 			return;
+// 		}
+// 	}
+//
+// 	// construct an HTTP request
+// 	var xhr;// = new XMLHttpRequest();
+// 	if (window.XMLHttpRequest) {
+// 		xhr = new XMLHttpRequest();
+// 	} else if (window.ActiveXObject) {
+// 		xhr = new ActiveXObject("Microsoft.XMLHTTP");
+// 	}
+//
+// 	//check internet connection
+// 	/*var tmpStatus = navigator.onLine;
+// 	if (!tmpStatus) return;*/
+//
+// 	//setting request url
+// 	xhr.open(gRequestMethod, gMBServiceUrl, true);
+//
+// 	if (gRequestMethod == "POST") {
+// 		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+// 		//xhr.setRequestHeader('Content-Length', data.length);
+// 		logInfo("JSON data: " + JSON.stringify(data));
+// 		xhr.send(JSON.stringify(data));
+//
+// 		var xmlHttpTimeout=setTimeout(ajaxTimeout, 20 * 1000); //set time out
+// 		function ajaxTimeout(){
+// 			clearTimeout(xmlHttpTimeout); // clear time out
+//
+// 			xhr.abort();
+// 			//document.dispatchEvent(evtBackgroundHttpFail);
+// 			if(failCallback && (typeof failCallback == "function")) {
+// 				failCallback();
+// 			}
+// 		}
+//
+// 		xhr.onreadystatechange = function () {
+// 			if (xhr.readyState==4 && ((xhr.status==200) || (xhr.status==0))) {
+// 			//if ((xhr.readyState==4) && (xhr.status==200)) {
+// 				clearTimeout(xmlHttpTimeout); // clear time out
+//
+// 				if(iOptions && iOptions.cached) {
+// 					try {
+// 						var tmpResp = parserJSON(xhr.responseText, false);
+// 						if (parseInt(tmpResp.respCode) == 0) {
+// 							respCache[reqKey] = xhr.responseText;
+// 						}
+// 					}
+// 					catch(err) {
+// 						logInfo('Error request background service.');
+// 					}
+// 				}
+//
+// 				logInfo("End receiving data: " + xhr.responseText);
+// 				if(successCallback && (typeof successCallback == "function")) {
+// 					successCallback(xhr.responseText);
+// 				}
+// 				/*if(evtBackgroundHttpSuccess != undefined) {
+// 					//evtBackgroundHttpSuccess.serviceData = xhr.responseText;
+// 					//document.dispatchEvent(evtBackgroundHttpSuccess);
+// 				}*/
+// 			}
+// 			else {
+// 				if (xhr.status==404) {
+// 					clearTimeout(xmlHttpTimeout); // clear time out
+//
+// 					logInfo("Error sending data: " + data);
+// 					xhr.abort();
+// 					//document.dispatchEvent(evtBackgroundHttpFail);
+// 					if(failCallback && (typeof failCallback == "function")) {
+// 						failCallback();
+// 					}
+// 				}
+// 				else if ((xhr.readyState==4) && (xhr.status==0)) {
+// 					clearTimeout(xmlHttpTimeout); // clear time out
+//
+// 					logInfo("Disconnected to service!");
+// 					xhr.abort();
+// 					//document.dispatchEvent(evtBackgroundHttpFail);
+// 					if(failCallback && (typeof failCallback == "function")) {
+// 						failCallback();
+// 					}
+// 				}
+// 				//other status
+// 			}
+// 		}
+// 	}
+// }
 
 
-function requestUploadFile(inUrl, data, loadMask, timeout, successCallback, failCallback) {
-	statusLoadMask = loadMask;
-	var timeToBreak = 90; //time by s
-	if ((timeout != undefined) && (timeout > 0)) {
-		timeToBreak = timeout;
-	}
-	
-	if (loadMask){
-		showLoadingMask();
-	}
-	
-	// construct an HTTP request
-	var xhr;
-	if (window.XMLHttpRequest) {
-		xhr = new XMLHttpRequest();
-	} else if (window.ActiveXObject) {
-		xhr = new ActiveXObject("Microsoft.XMLHTTP");
-	}
-    //alert("start send POST");
-	
-	if (inUrl.length == 0) {
-		logInfo("URL is null. Please check url.");
-		return;
-	}
-	//check internet connection
-	/*var tmpStatus = navigator.onLine;
-	if (!tmpStatus) {
-		hideLoadingMask();
-		if (loadMask) showAlertText(CONST_STR.get('ERR_DISCONNECT_INTERNET'));
-		if(failCallback && (typeof failCallback == "function")) {
-			failCallback();
-		}
-		return;
-	}*/
-	
-	//setting request url
-	try {
-		xhr.open(gRequestMethod, inUrl, true);
-		
-		if (gRequestMethod == "POST") {
-			xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-			logInfo("JSON data: " + JSON.stringify(data));
-			xhr.send(JSON.stringify(data));
-			
-			var xmlHttpTimeout=setTimeout(ajaxTimeout, timeToBreak * 1000); //set time out
-			function ajaxTimeout(){
-				clearTimeout(xmlHttpTimeout); // clear time out
-				
-			   	xhr.abort();
-			   	hideLoadingMask();
-			   	if (loadMask) showAlertText(CONST_STR.get('ERR_CONNECTION_TIMEOUT'));
-				//fire event listener
-				if(failCallback && (typeof failCallback == "function")) {
-					failCallback();
-				}
-			}
-			
-			xhr.onreadystatechange = function () {
-				//if (xhr.readyState==4 && ((xhr.status==200) || (xhr.status==0))) {
-				if ((xhr.readyState==4) && (xhr.status==200)) {
-					clearTimeout(xmlHttpTimeout); // clear time out
-					
-					hideLoadingMask();
-					//alert("end receving POST");
-					logInfo("End receiving data: " + xhr.responseText);
-					//fire event listener
-					if(successCallback && (typeof successCallback == "function")) {
-						successCallback(xhr.responseText);
-					}
-				}
-				else {
-					if (xhr.status==404) {
-						clearTimeout(xmlHttpTimeout); // clear time out
-						
-						hideLoadingMask();
-						//alert("Error sending data: " + data);
-						logInfo("Error sending data: " + data);
-						if (loadMask) showAlertText(CONST_STR.get('ERR_DISCONNECT_TO_SERVER'));
-						xhr.abort();
-						//fire event listener
-						if(failCallback && (typeof failCallback == "function")) {
-							failCallback();
-						}
-					}
-					else if ((xhr.readyState==4) && (xhr.status==0)) {
-						clearTimeout(xmlHttpTimeout); // clear time out
-						
-						hideLoadingMask();
-						logInfo("Disconnected to service!");
-						if (loadMask) showAlertText(CONST_STR.get('ERR_DISCONNECT_TO_SERVER'));
-						xhr.abort();
-						//fire event listener
-						if(failCallback && (typeof failCallback == "function")) {
-							failCallback();
-						}
-					}
-					//other status
-				}
-			}
-		}
-	}
-	catch(err) {
-		clearTimeout(xmlHttpTimeout); // clear time out
-		
-		logInfo(err);
-		hideLoadingMask();
-		if (loadMask) showAlertText(CONST_STR.get('ERR_DISCONNECT_TO_SERVER'));
-		//fire event listener
-		if(failCallback && (typeof failCallback == "function")) {
-			failCallback();
-		}
-	}
-}
+// function requestUploadFile(inUrl, data, loadMask, timeout, successCallback, failCallback) {
+// 	statusLoadMask = loadMask;
+// 	var timeToBreak = 90; //time by s
+// 	if ((timeout != undefined) && (timeout > 0)) {
+// 		timeToBreak = timeout;
+// 	}
+//
+// 	if (loadMask){
+// 		showLoadingMask();
+// 	}
+//
+// 	// construct an HTTP request
+// 	var xhr;
+// 	if (window.XMLHttpRequest) {
+// 		xhr = new XMLHttpRequest();
+// 	} else if (window.ActiveXObject) {
+// 		xhr = new ActiveXObject("Microsoft.XMLHTTP");
+// 	}
+//     //alert("start send POST");
+//
+// 	if (inUrl.length == 0) {
+// 		logInfo("URL is null. Please check url.");
+// 		return;
+// 	}
+// 	//check internet connection
+// 	/*var tmpStatus = navigator.onLine;
+// 	if (!tmpStatus) {
+// 		hideLoadingMask();
+// 		if (loadMask) showAlertText(CONST_STR.get('ERR_DISCONNECT_INTERNET'));
+// 		if(failCallback && (typeof failCallback == "function")) {
+// 			failCallback();
+// 		}
+// 		return;
+// 	}*/
+//
+// 	//setting request url
+// 	try {
+// 		xhr.open(gRequestMethod, inUrl, true);
+//
+// 		if (gRequestMethod == "POST") {
+// 			xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+// 			logInfo("JSON data: " + JSON.stringify(data));
+// 			xhr.send(JSON.stringify(data));
+//
+// 			var xmlHttpTimeout=setTimeout(ajaxTimeout, timeToBreak * 1000); //set time out
+// 			function ajaxTimeout(){
+// 				clearTimeout(xmlHttpTimeout); // clear time out
+//
+// 			   	xhr.abort();
+// 			   	hideLoadingMask();
+// 			   	if (loadMask) showAlertText(CONST_STR.get('ERR_CONNECTION_TIMEOUT'));
+// 				//fire event listener
+// 				if(failCallback && (typeof failCallback == "function")) {
+// 					failCallback();
+// 				}
+// 			}
+//
+// 			xhr.onreadystatechange = function () {
+// 				//if (xhr.readyState==4 && ((xhr.status==200) || (xhr.status==0))) {
+// 				if ((xhr.readyState==4) && (xhr.status==200)) {
+// 					clearTimeout(xmlHttpTimeout); // clear time out
+//
+// 					hideLoadingMask();
+// 					//alert("end receving POST");
+// 					logInfo("End receiving data: " + xhr.responseText);
+// 					//fire event listener
+// 					if(successCallback && (typeof successCallback == "function")) {
+// 						successCallback(xhr.responseText);
+// 					}
+// 				}
+// 				else {
+// 					if (xhr.status==404) {
+// 						clearTimeout(xmlHttpTimeout); // clear time out
+//
+// 						hideLoadingMask();
+// 						//alert("Error sending data: " + data);
+// 						logInfo("Error sending data: " + data);
+// 						if (loadMask) showAlertText(CONST_STR.get('ERR_DISCONNECT_TO_SERVER'));
+// 						xhr.abort();
+// 						//fire event listener
+// 						if(failCallback && (typeof failCallback == "function")) {
+// 							failCallback();
+// 						}
+// 					}
+// 					else if ((xhr.readyState==4) && (xhr.status==0)) {
+// 						clearTimeout(xmlHttpTimeout); // clear time out
+//
+// 						hideLoadingMask();
+// 						logInfo("Disconnected to service!");
+// 						if (loadMask) showAlertText(CONST_STR.get('ERR_DISCONNECT_TO_SERVER'));
+// 						xhr.abort();
+// 						//fire event listener
+// 						if(failCallback && (typeof failCallback == "function")) {
+// 							failCallback();
+// 						}
+// 					}
+// 					//other status
+// 				}
+// 			}
+// 		}
+// 	}
+// 	catch(err) {
+// 		clearTimeout(xmlHttpTimeout); // clear time out
+//
+// 		logInfo(err);
+// 		hideLoadingMask();
+// 		if (loadMask) showAlertText(CONST_STR.get('ERR_DISCONNECT_TO_SERVER'));
+// 		//fire event listener
+// 		if(failCallback && (typeof failCallback == "function")) {
+// 			failCallback();
+// 		}
+// 	}
+// }
 
 
 /*** REQUEST MBSERVICE BACKGROUND END ***/
@@ -1763,7 +1763,7 @@ function queryInfoOfAccountNo(inAccNo) {
 	requestMBService(data, false);*/
 	var arrayArgs = new Array();
 	//arrayArgs.push(inAccNo); //old service
-	requestBacgroundMBService('CMD_TYPE_QUERY_ACCOUNT_NO_INFO', arrayArgs, requestMBServiceQuerySuccess);
+	//requestBacgroundMBService('CMD_TYPE_QUERY_ACCOUNT_NO_INFO', arrayArgs, requestMBServiceQuerySuccess);
 	//document.addEventListener("evtBackgroundHttpSuccess", requestMBServiceQuerySuccess, false);
 }
 
@@ -1776,120 +1776,9 @@ function gotoHomePage()
 	}
 }
 
-function updateAccountListInfo() {	
-	var arrayArgs = new Array();
-	requestBacgroundMBService('CMD_TYPE_QUERY_ACCOUNT_NO_INFO', arrayArgs, requestMBServiceQuerySuccess);	
-}
-
-//event listener: http request success
-function requestMBServiceQuerySuccess(e){
-	gprsResp = parserJSON(e, false);
-	//gRespObj = gprsResp; 
-	if ((gprsResp.respCode == '0') && (parseInt(gprsResp.responseType) == parseInt(CONSTANTS.get("CMD_TYPE_QUERY_ACCOUNT_NO_INFO")))) {
-		//logInfo("Query account change success");
-		if(gprsResp.arguments && gprsResp.arguments.length > 0) {
-			for(var j=0; j<gprsResp.arguments.length; j++) {
-				var arrayAccInfo = gprsResp.arguments[j].split('#');
-				var tmpAccountArr = gUserInfo.accountList;
-				for (var i=0; i< tmpAccountArr.length; i++) {
-					var tmpAccObj = tmpAccountArr[i];
-					if (tmpAccObj.accountNumber == arrayAccInfo[0]) {
-						tmpAccObj.accountNumber = arrayAccInfo[0];
-						tmpAccObj.currency = arrayAccInfo[1];
-						tmpAccObj.balance = arrayAccInfo[2];
-						tmpAccObj.balanceAvailable = arrayAccInfo[3];
-						tmpAccObj.descByUser = arrayAccInfo[4];
-					}
-				}
-				for (var i=0; i< gUserInfo.accountListLocalTrans.length; i++) {
-					var tmpAccObj = gUserInfo.accountListLocalTrans[i];
-					if (tmpAccObj.accountNumber == arrayAccInfo[0]) {
-						tmpAccObj.accountNumber = arrayAccInfo[0];
-						tmpAccObj.currency = arrayAccInfo[1];
-						tmpAccObj.balance = arrayAccInfo[2];
-						tmpAccObj.balanceAvailable = arrayAccInfo[3];
-						tmpAccObj.descByUser = arrayAccInfo[4];
-					}
-				}
-				for (var i=0; i< gUserInfo.accountListOther.length; i++) {
-					var tmpAccObj = gUserInfo.accountListOther[i];
-					if (tmpAccObj.accountNumber == arrayAccInfo[0]) {
-						tmpAccObj.accountNumber = arrayAccInfo[0];
-						tmpAccObj.currency = arrayAccInfo[1];
-						tmpAccObj.balance = arrayAccInfo[2];
-						tmpAccObj.balanceAvailable = arrayAccInfo[3];
-						tmpAccObj.descByUser = arrayAccInfo[4];
-					}
-				}
-			}
-		}
-		
-		//gUserInfo.accountList[i].description = gprsResp.arguments[1];
-		//gUserInfo.accountList[i].balance = gprsResp.arguments[2];
-		//gUserInfo.accountList[i].balanceAvailable = gprsResp.arguments[3];
-		//gUserInfo.accountList[i].transactionHistory = gprsResp.arguments[4]; // if use service code 114
-		gUsingAccountNo = ""; // reset for later
-	}
-	//logInfo('query info of account no success');
-	/*if (e.type == "evtBackgroundHttpSuccess") {
-		//document.removeEventListener("evtBackgroundHttpSuccess", requestMBServiceQuerySuccess, false);
-		//alert("Http request success!");
-	}*/
-};
-
 /*** QUERY ACCOUNT NO INFO ***/
 
 /*** START-UP ***/
-
-var tmpGprsRespBackground;
-function startupAppCheckVersion() {
-	//BYPASS for testing on browser
-	//gDeviceToken = 'BROWSER_TESTING';
-	/*
-	if (gDeviceToken.length == 0) return; //if do not device token, bypass
-	
-	var arrayArgs = new Array();
-	arrayArgs.push(gDeviceToken); //get device token
-	
-	//document.addEventListener("evtBackgroundHttpSuccess", requestMBServiceStartUpSuccess, false);
-	requestBacgroundMBService('CMD_TYPE_STARTUP', arrayArgs, requestMBServiceStartUpSuccess);
-	*/
-}
-
-//event listener: http request success
-function requestMBServiceStartUpSuccess(e){
-	tmpGprsRespBackground = parserJSON(e, false);
-	var tmpJsonStr = JSON.stringify(tmpGprsResp);
-	//gRespObj = gprsResp; 
-	if ((tmpGprsRespBackground.respCode == '0') && (parseInt(tmpGprsRespBackground.responseType) == parseInt(CONSTANTS.get("CMD_TYPE_STARTUP")))) {
-		if((tmpGprsRespBackground.arguments[0] != 'N') && (tmpGprsRespBackground.arguments[1] == 'Y')) { //system normal
-			if(tmpGprsRespBackground.arguments[4] == 'Y') { //must update
-				document.addEventListener('closeAlertView', handlAlertOKPressed, false);
-				showAlertText(tmpGprsRespBackground.arguments[3]);
-			}
-			else {
-				document.addEventListener('alertConfirmOK', handlAlertConfirmOKPressed, false);
-				showAlertConfirmText(tmpGprsRespBackground.arguments[3]);
-			}
-		}
-	}
-	//logInfo('query info of account no success');
-	/*if (e.type == "evtBackgroundHttpSuccess") {
-		document.removeEventListener("evtBackgroundHttpSuccess", requestMBServiceStartUpSuccess, false);
-		//alert("Http request success!");
-	}*/
-};
-
-function handlAlertOKPressed() {
-	document.removeEventListener('closeAlertView', handlAlertOKPressed, false);
-	openLinkOnBrowser();
-	logout();
-}
-
-function handlAlertConfirmOKPressed() {
-	document.removeEventListener('alertConfirmOK', handlAlertConfirmOKPressed, false);
-	openLinkOnBrowser();
-}
 
 function openLinkOnBrowser() {
 	if ((tmpGprsRespBackground != undefined) && (tmpGprsRespBackground.arguments[2].length > 0)) {

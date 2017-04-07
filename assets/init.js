@@ -76,7 +76,7 @@
 
             /*var divNotifi = document.getElementById("notification-id");
             divNotifi.setAttribute("onClick","window.open('./index-non-ebank.html?menu=notification&devtoken="+ gDeviceTokenPush +"','_self');");*/
-            requestBacgroundMBService('CMD_TYPE_POST_DEVICE_TOKEN', arrayArgs, eventNativeInfoSuccess, eventNativeInfoFail);
+            //requestBacgroundMBService('CMD_TYPE_POST_DEVICE_TOKEN', arrayArgs, eventNativeInfoSuccess, eventNativeInfoFail);
         }else if(e[0]=="OPEN_NOTIFICATION"){
 
             openLinkInWindows(e[1]);
@@ -84,7 +84,7 @@
             arrayArgs.push(gDeviceTokenPush);
             arrayArgs.push(e[2]);
             arrayArgs.push("R");
-            requestBacgroundMBService('CMD_TYPE_READ_NOTIFICATION', arrayArgs, eventNativeInfoSuccess, eventNativeInfoFail);
+            //requestBacgroundMBService('CMD_TYPE_READ_NOTIFICATION', arrayArgs, eventNativeInfoSuccess, eventNativeInfoFail);
         }
 
 
@@ -552,7 +552,6 @@ else {
 		}, function() {
 		
 		});
-		startupAppCheckVersion();
 		Alert.alert('abc', 'def', 'Huynt2', null);
 		function getPhoneGapPath() {
 			var path = window.location.pathname;
@@ -651,7 +650,7 @@ function getCountDataNotificationUnread(){
     }
 
     arrayArgs.push(gDeviceTokenPush);
-    requestBacgroundMBService('CMD_TYPE_GET_LIST_NOTIFICATION', arrayArgs, requestMBServiceCountNotificationSuccess, requestMBServiceCountNotificationFail);
+    //requestBacgroundMBService('CMD_TYPE_GET_LIST_NOTIFICATION', arrayArgs, requestMBServiceCountNotificationSuccess, requestMBServiceCountNotificationFail);
 
 
 }

@@ -98,8 +98,11 @@ function getNewsWebServices(){
 	//requestBacgroundMBService("CMD_TYPE_GET_PROMOTION", arrayArgs, requestDetailPromotionSuccess, requestDetailPromotionFail);
 	var gprsCmdPromotion = new GprsCmdObj(CONSTANTS.get("CMD_TYPE_GET_PROMOTION"), "", "", "VN", "", arrayArgs);
 	dataPromotion = getDataFromGprsCmd(gprsCmdPromotion);
-	
-	requestMBService(dataPromotion, true, 0, requestDetailPromotionSuccess, requestDetailPromotionFail);
+
+    navController.resetCacheBranch();
+    //navController.pushToView('newsxsl/list_news_detail_scr', true, "xsl");
+    navController.initWithRootView('newsxsl/list_news_detail_scr', true, "xsl");
+	//requestMBService(dataPromotion, true, 0, requestDetailPromotionSuccess, requestDetailPromotionFail);
 	
 }
 
