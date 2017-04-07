@@ -11,13 +11,13 @@ function initLoginScr() {
     // set to local storage
     //setUserInfoToLocal('1', 'NGUYEN DINH HAN');
     setBackGround();
-    //statusAccMode = getUserInfoToLocal(); //get local data
+    statusAccMode = getUserInfoToLocal(); //get local data
     if (!statusAccMode) {
         var tmpNodeChangeUser = document.getElementById('login.changeaccounttitle');
         tmpNodeChangeUser.style.display = 'none';
         return;
     }
-    //updateViewWithUserInfo(statusAccMode);
+    updateViewWithUserInfo(statusAccMode);
 }
 
 function viewWillUnload() {
@@ -27,8 +27,7 @@ function viewWillUnload() {
 }
 
 function updateViewWithUserInfo(inStatus) {
-
-    if (inStatus && gCustomerNanme && gCustomerNanme.length > 0) {// && (getURLParam('payment') != 'order')) {
+    if (inStatus && localStorage.getItem('BhipUserName') && localStorage.getItem('BhipUserName').length > 0) {// && (getURLParam('payment') != 'order')) {
         document.getElementById('login.txt.username').style.display = 'none';
         document.getElementById('login.txt.username').value = gCustomerNo;
 
